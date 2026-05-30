@@ -4,7 +4,6 @@ import SiteLayout from '../../components/SiteLayout';
 
 import api from '../../services/api';
 import './Login.css';
-import SiteLayout from '../../components/SiteLayout';
 
 function Login() {
   const navigate = useNavigate();
@@ -62,7 +61,6 @@ function Login() {
   }
 
   return (
-    <SiteLayout>
     <main id="conteudo-principal" className="login-page" tabIndex={-1}>
 
       {
@@ -123,7 +121,7 @@ function Login() {
       </section>
 
     </main>
-    </SiteLayout>
+
   );
 }
 

@@ -45,19 +45,31 @@ function Animais() {
         O tabIndex={-1} permite que este bloco receba foco por teclado para facilitar a navegação.
       */}
       <main id="conteudo-principal" className="animais-main site-main" tabIndex={-1}>
-        {/* Título da seção de animais disponíveis */}
-        <h1 className="animais-titulo">Animais Disponíveis 🐶</h1>
-
-        {/* Lista de cards de animais */}
+      <h1 className="animais-titulo">Animais Disponíveis 🐶</h1>
         <div className="animais-lista">
           {animais.map((animal) => (
             <article key={animal.id} className="animal-card">
-              {/* Nome do animal */}
-              <h2 className="animal-card-nome">{animal.nome}</h2>
-              {/* Descrição breve do animal */}
-              <p className="animal-card-descricao">{animal.descricao}</p>
-              {/* Botão para iniciar o processo de adoção */}
-              <button>Quero Adotar</button>
+
+              {animal.foto && (
+                <img
+                  className="animal-card-foto"
+                  src={`http://localhost:3000/uploads/${animal.foto}`}
+                  alt={`Foto de ${animal.nome}`}
+                />
+              )}
+
+              <h2 className="animal-card-nome">
+                {animal.nome}
+              </h2>
+
+              <p className="animal-card-descricao">
+                {animal.descricao}
+              </p>
+
+              <button className="animal-adotar-button">
+                Quero Adotar
+              </button>
+
             </article>
           ))}
         </div>

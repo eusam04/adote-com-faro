@@ -1,5 +1,6 @@
 import './PainelUsuario.css';
 import SiteLayout from '../../components/SiteLayout';
+import { Link } from 'react-router-dom';
 
 function PainelUsuario() {
   return (
@@ -32,7 +33,9 @@ function PainelUsuario() {
         <div className="painel-card">
           <h2>Cadastrar animal</h2>
           <p>Cadastre um animal resgatado para encontrar um novo lar.</p>
-          <button>Cadastrar</button>
+          <Link to="/cadastrar-animal" className="painel-button">
+            Cadastrar
+          </Link> 
         </div>
 
       </section>

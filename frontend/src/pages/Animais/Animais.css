@@ -1,98 +1,150 @@
 /* ==========================================================================
-   CSS da Página de Animais
+   CSS da Página de Animais - Design Moderno
    ========================================================================== */
 
 /* Container principal da página */
 .animais-main {
   width: 100%;
-  max-width: 1000px;
+  max-width: 1100px;
   margin-left: auto;
   margin-right: auto;
   padding: 40px 24px 40px;
   box-sizing: border-box;
 }
 
-/* Título da página */
+/* Título da página com gradiente harmonioso */
 .animais-titulo {
-  background-color: #d08620;
+  background: linear-gradient(135deg, #d08620 0%, #f3b85e 100%);
   color: #6b3502;
-  font-size: 28px;
+  font-size: 30px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: center;
-  padding: 28px 24px;
-  border-radius: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-  margin-bottom: 36px;
+  padding: 32px 28px;
+  border-radius: 24px;
+  box-shadow: 0 6px 18px rgba(208, 134, 32, 0.25);
+  margin-bottom: 40px;
   font-weight: bold;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Ícone do título */
 .animais-titulo::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 80px;
+  height: 80px;
+  background: rgba(248, 218, 163, 0.3);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.animais-titulo::after {
   content: '🐾';
-  font-size: 32px;
+  font-size: 36px;
   display: block;
   margin-bottom: 12px;
+  position: relative;
+  z-index: 1;
 }
 
 /* Grid de cards */
 .animais-lista {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 24px;
+  gap: 28px;
 }
 
-/* Card de animal */
+/* Card de animal com efeito glass e hover avançado */
 .animal-card {
-  background-color: #91ceba;
-  border-radius: 20px;
-  padding: 28px 24px;
+  background: linear-gradient(135deg, #91ceba 0%, #a8d8c6 100%);
+  border-radius: 24px;
+  padding: 32px 24px;
   text-align: center;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
-  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(145, 206, 186, 0.25);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
 }
 
 .animal-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 16px 32px rgba(145, 206, 186, 0.35);
+}
+
+.animal-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #f3684f, #d08620);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.animal-card:hover::before {
+  opacity: 1;
+}
+
+/* Foto do animal */
+.animal-card-foto {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-bottom: 18px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* Nome do animal */
 .animal-card-nome {
-  font-size: 22px;
+  font-size: 24px;
   color: #6b3502;
-  margin: 0 0 12px 0;
+  margin: 0 0 14px 0;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: bold;
+  letter-spacing: 0.5px;
 }
 
 /* Descrição do animal */
 .animal-card-descricao {
-  font-size: 15px;
-  line-height: 1.5;
+  font-size: 16px;
+  line-height: 1.6;
   color: #6b3502;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: justify;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
-/* Botão de adoção */
-.animal-card button {
+/* Botão de adoção com gradiente */
+.animal-adotar-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: #f3684f;
+  background: linear-gradient(135deg, #f3684f 0%, #e2583f 100%);
   color: #f8daa3;
-  padding: 10px 20px;
-  border-radius: 12px;
+  padding: 12px 26px;
+  border-radius: 50px;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 15px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   border: none;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(243, 104, 79, 0.3);
 }
 
-.animal-card button:hover {
-  background-color: #d08620;
+.animal-adotar-button:hover {
+  background: linear-gradient(135deg, #e2583f 0%, #d04a30 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(243, 104, 79, 0.4);
+}
+
+.animal-adotar-button:active {
+  transform: translateY(0);
 }
 
 
@@ -100,10 +152,25 @@
    Responsividade: Ajustes para tablets e celulares
    ========================================================================== */
 
-/* Ajustes para telas médias (Tablets) */
 @media (max-width: 1024px) {
   .animais-main {
     padding: 36px 24px 40px;
+  }
+
+  .animais-titulo {
+    font-size: 26px;
+    padding: 28px 24px;
+    margin-bottom: 36px;
+  }
+
+  .animais-lista {
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .animais-main {
+    padding: 32px 20px 40px;
   }
 
   .animais-titulo {
@@ -111,65 +178,60 @@
     padding: 24px 20px;
     margin-bottom: 32px;
   }
-}
-
-/* Ajustes para telas menores (Tablets em pé / Celulares grandes) */
-@media (max-width: 768px) {
-  .animais-main {
-    padding: 32px 20px 40px;
-  }
-
-  .animais-titulo {
-    font-size: 22px;
-    padding: 22px 18px;
-    margin-bottom: 28px;
-  }
 
   .animais-lista {
     grid-template-columns: 1fr;
     gap: 20px;
   }
+
+  .animal-card {
+    padding: 28px 20px;
+  }
 }
 
-/* Ajustes para celulares médios */
 @media (max-width: 480px) {
   .animais-main {
     padding: 28px 16px 32px;
   }
 
   .animais-titulo {
-    font-size: 20px;
-    padding: 20px 16px;
-    margin-bottom: 24px;
+    font-size: 22px;
+    padding: 20px 18px;
+    margin-bottom: 28px;
   }
 
   .animal-card {
-    padding: 24px 20px;
+    padding: 24px 18px;
   }
 
-  /* 
-    Questão de Acessibilidade Móvel:
-    Garante que botões tenham no mínimo 44px de altura/área de toque.
-  */
-  .animal-card button {
+  .animal-card-foto {
+    height: 180px;
+  }
+
+  .animal-adotar-button {
+    padding: 12px 22px;
+    font-size: 14px;
     min-height: 44px;
     min-width: 44px;
-    padding: 12px 20px;
   }
 }
 
-/* Ajustes para celulares muito pequenos */
 @media (max-width: 360px) {
   .animais-main {
     padding: 24px 12px 24px;
   }
 
   .animais-titulo {
-    font-size: 18px;
-    padding: 18px 14px;
+    font-size: 20px;
+    padding: 18px 16px;
   }
 
   .animal-card {
-    padding: 20px 16px;
+    padding: 22px 16px;
+  }
+
+  .animal-card-foto {
+    height: 160px;
+    border-radius: 12px;
   }
 }

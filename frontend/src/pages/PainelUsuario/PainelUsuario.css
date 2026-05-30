@@ -1,5 +1,5 @@
 /* ==========================================================================
-   CSS do Painel do Usuário (PainelUsuario)
+   CSS do Painel do Usuário (PainelUsuario) - Design Moderno
    ========================================================================== */
 
 /* Estilo para a área principal da página */
@@ -11,84 +11,135 @@
   padding-bottom: 100px;
 }
 
-/* Cabeçalho do painel com destaque visual */
+/* Cabeçalho do painel com destaque visual e gradiente */
 .painel-header {
-  background-color: #d08620;
+  background: linear-gradient(135deg, #d08620 0%, #f3b85e 100%);
   width: 100%;
-  padding: 56px 48px;
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+  padding: 64px 48px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  box-shadow: 0px 12px 24px rgba(208, 134, 32, 0.25);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 24px;
   box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+.painel-header::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 150px;
+  height: 150px;
+  background: rgba(248, 218, 163, 0.3);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.painel-header::after {
+  content: '';
+  position: absolute;
+  bottom: -60px;
+  left: -60px;
+  width: 180px;
+  height: 180px;
+  background: rgba(248, 218, 163, 0.2);
+  border-radius: 50%;
+  z-index: 0;
 }
 
 .painel-header h1 {
-  font-size: 36px;
+  font-size: 38px;
   color: #6b3502;
   margin: 0;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: bold;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+  position: relative;
+  z-index: 1;
 }
 
 .painel-header p {
-  font-size: 18px;
-  line-height: 1.4;
+  font-size: 19px;
+  line-height: 1.5;
   color: #6b3502;
   max-width: 600px;
   margin: 0;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  position: relative;
+  z-index: 1;
 }
 
 /* Seção que guarda os cards do painel */
 .painel-cards {
   width: 100%;
-  max-width: 1000px;
-  padding: 40px 48px 20px;
+  max-width: 1100px;
+  padding: 50px 48px 20px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
+  gap: 28px;
 }
 
-/* Card de funcionalidade do painel */
+/* Card de funcionalidade do painel com efeito glass */
 .painel-card {
-  background-color: #91ceba;
-  border-radius: 20px;
-  padding: 32px 24px;
+  background: linear-gradient(135deg, #91ceba 0%, #a8d8c6 100%);
+  border-radius: 24px;
+  padding: 40px 28px;
   text-align: center;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
-  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(145, 206, 186, 0.25);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
 }
 
 .painel-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 16px 32px rgba(145, 206, 186, 0.35);
+}
+
+.painel-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #f3684f, #d08620);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.painel-card:hover::before {
+  opacity: 1;
 }
 
 .painel-card::after {
   content: '🐾';
-  font-size: 32px;
+  font-size: 36px;
   display: block;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
 .painel-card h2 {
-  font-size: 22px;
+  font-size: 24px;
   color: #6b3502;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: bold;
+  letter-spacing: 0.5px;
 }
 
 .painel-card p {
-  font-size: 15px;
-  line-height: 1.5;
+  font-size: 16px;
+  line-height: 1.6;
   color: #6b3502;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -96,23 +147,49 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: #f3684f;
+  background: linear-gradient(135deg, #f3684f 0%, #e2583f 100%);
   color: #f8daa3;
-  padding: 10px 22px;
-  border-radius: 12px;
+  padding: 12px 28px;
+  border-radius: 50px;
   text-decoration: none;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 15px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   border: none;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(243, 104, 79, 0.3);
+}
+
+.painel-button{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f3684f 0%, #e2583f 100%);
+  color: #f8daa3;
+  padding: 12px 28px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 15px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(243, 104, 79, 0.3);
 }
 
 .painel-card button:hover {
-  background-color: #d08620;
+  background: linear-gradient(135deg, #e2583f 0%, #d04a30 100%);
   color: #f8daa3;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(243, 104, 79, 0.4);
 }
+
+.painel-card button:active {
+  transform: translateY(0);
+}
+
 
 /* ==========================================================================
    Responsividade: Ajustes para tablets e celulares
@@ -120,7 +197,7 @@
 
 @media (max-width: 1024px) {
   .painel-header {
-    padding: 48px 36px;
+    padding: 52px 36px;
   }
 
   .painel-header h1 {
@@ -128,15 +205,17 @@
   }
 
   .painel-cards {
-    padding: 32px 32px 20px;
+    padding: 40px 32px 20px;
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 768px) {
   .painel-header {
-    padding: 40px 24px;
+    padding: 42px 24px;
     gap: 20px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
   }
 
   .painel-header h1 {
@@ -144,23 +223,22 @@
   }
 
   .painel-header p {
-    font-size: 16px;
+    font-size: 17px;
   }
 
   .painel-cards {
-    padding: 24px 20px 20px;
+    padding: 32px 20px 20px;
     grid-template-columns: 1fr;
   }
 
-  .painel-card button {
-    padding: 12px 24px;
-    font-size: 15px;
+  .painel-card {
+    padding: 32px 20px;
   }
 }
 
 @media (max-width: 480px) {
   .painel-header {
-    padding: 32px 16px;
+    padding: 28px 16px;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
   }
@@ -169,25 +247,21 @@
     font-size: 24px;
   }
 
-  .painel-card button {
-    padding: 12px 20px;
-    font-size: 14px;
-  }
-
   .painel-card {
-    padding: 24px 18px;
+    padding: 28px 18px;
   }
 
   .painel-card button {
+    padding: 12px 24px;
+    font-size: 14px;
     min-height: 44px;
     min-width: 44px;
-    padding: 12px 20px;
   }
 }
 
 @media (max-width: 360px) {
   .painel-header {
-    padding: 24px 12px;
+    padding: 22px 12px;
   }
 
   .painel-cards {
@@ -195,6 +269,6 @@
   }
 
   .painel-card {
-    padding: 20px 14px;
+    padding: 24px 14px;
   }
 }

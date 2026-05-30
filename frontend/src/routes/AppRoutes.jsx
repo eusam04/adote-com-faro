@@ -6,6 +6,7 @@ import Login from '../pages/Login/Login';
 import Cadastro from '../pages/Cadastro/Cadastro';
 import DashboardONG from '../pages/DashboardONG/DashboardONG';
 import PainelUsuario from '../pages/PainelUsuario/PainelUsuario';
+import CadastrarAnimal from '../pages/CadastroAnimal/CadastrarAnimal';
 
 function AppRoutes() {
 
@@ -32,6 +33,11 @@ function AppRoutes() {
           path="/painel"
           element={<PainelUsuario />}
         />  
+
+        <Route
+          path='/cadastrar-animal'
+          element={<CadastrarAnimal />} 
+        />
 
       </Routes>
 
