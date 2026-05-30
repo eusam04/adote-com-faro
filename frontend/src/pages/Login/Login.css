@@ -1,0 +1,250 @@
+/* ==========================================================================
+   CSS da Página de Login
+   ========================================================================== */
+
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 80px); /* Altura confortável para centralizar na tela */
+  padding: 40px 20px;
+  box-sizing: border-box;
+  padding-top: 80px;          /* Compensa a altura do header fixo */
+  padding-bottom: 100px;      /* Compensa a altura do footer fixo */
+}
+
+/* Container do login que combina os blocos de informação e do formulário */
+.login-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 900px;           /* Largura máxima em harmonia com a home */
+  background-color: #d08620;  /* Cor de fundo laranja/marrom da Home */
+  border-radius: 20px;        /* Bordas bem arredondadas, iguais ao card principal da Home */
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15); /* Sombra marcante */
+  overflow: hidden;           /* Evita que elementos internos fujam do arredondamento */
+  box-sizing: border-box;
+}
+
+/* Bloco de informações e boas-vindas do login (esquerda) */
+.login-info {
+  flex: 1;
+  background-color: #d08620;  /* Combina com a cor do card principal da Home */
+  color: #6b3502;             /* Letra escura de alto contraste */
+  padding: 48px;              /* Espaçamento interno generoso */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.login-info h1 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 28px;
+  color: #6b3502;
+  margin: 0;
+  font-weight: bold;
+}
+
+.login-info p {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+  color: #6b3502;
+  margin: 0;
+  text-align: justify;
+}
+
+/* Formulário de Login (direita) */
+.login-form {
+  flex: 1;
+  background-color: #91ceba;  /* Cor de fundo verde-água da Home */
+  padding: 48px;              /* Espaçamento interno generoso */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Grupo de campos de formulário */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  color: #6b3502;             /* Excelente contraste no fundo verde-água */
+}
+
+/* Inputs de login */
+.form-group input {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 14px;
+  padding: 12px 16px;
+  border: 2px solid #f3b85e;  /* Borda amarela/laranja suave */
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #333333;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+.form-group input:focus {
+  border-color: #f3684f;      /* Borda laranja vibrante ao focar */
+  box-shadow: 0 0 0 3px rgba(243, 104, 79, 0.25);
+}
+
+/* Botão de submit do formulário */
+.login-button {
+  display: inline-block;
+  background-color: #f3684f;  /* Laranja vibrante clássico da Home */
+  color: #f8daa3;             /* Tom claro com ótimo contraste */
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 16px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  text-align: center;
+}
+
+.login-button:hover {
+  background-color: #e2583f;  /* Tom levemente mais escuro ao passar o mouse */
+}
+
+.login-button:active {
+  transform: scale(0.98);     /* Feedback tátil de clique */
+}
+
+/* Link para tela de cadastro */
+.login-cadastro {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 14px;
+  color: #6b3502;
+  margin: 0;
+  text-align: center;
+}
+
+.login-cadastro a {
+  color: #f3684f;             /* Cor laranja vibrante */
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.login-cadastro a:hover {
+  color: #e2583f;
+  text-decoration: underline;
+}
+
+
+/* ==========================================================================
+   Responsividade: Ajustes para tablets e celulares
+   ========================================================================== */
+
+/* Ajustes para telas médias (Tablets) */
+@media (max-width: 900px) {
+  .login-container {
+    max-width: 100%;
+  }
+
+  .login-info,
+  .login-form {
+    padding: 36px;
+  }
+}
+
+/* Ajustes para telas menores (Tablets em pé / Celulares grandes) */
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column;    /* Empilha horizontalmente os blocos no mobile */
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .login-info {
+    align-items: center;
+    text-align: center;
+    padding: 36px 24px;
+  }
+
+  .login-info p {
+    text-align: center;
+  }
+
+  .login-form {
+    padding: 36px 24px;
+  }
+}
+
+/* Ajustes para celulares médios */
+@media (max-width: 480px) {
+  .login-page {
+    padding: 20px 12px;
+  }
+
+  .login-container {
+    border-radius: 12px;
+  }
+
+  .login-info,
+  .login-form {
+    padding: 24px 16px;
+  }
+
+  .login-info h1 {
+    font-size: 24px;
+  }
+
+  /* 
+     Questão de Acessibilidade Móvel:
+     Garante que os inputs e botões tenham no mínimo 44px de altura útil.
+   */
+  .form-group input,
+  .login-button {
+    min-height: 44px;
+    line-height: 1.2;
+  }
+}
+
+/* Mensagem de sucesso após login */
+.mensagem-login {
+  background-color: #228a81;
+  color: #f8daa3;
+  padding: 14px 20px;
+  border-radius: 8px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+  animation: fadeIn 0.5s ease;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  translate: -50%;
+  width: fit-content;
+  z-index: 1000;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Animação suave de aparecimento */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,276 @@
+/* ==========================================================================
+   CSS da Página Inicial (Home)
+   ========================================================================== */
+
+/* Estilo para a área principal da página */
+.home-main {
+  text-align: center;         /* Alinha textos e elementos internos no centro */
+  display: flex;              /* Ativa o Flexbox para alinhar itens de forma flexível */
+  flex-direction: column;     /* Organiza os elementos filhos em uma coluna (um embaixo do outro) */
+  align-items: center;        /* Alinha os elementos horizontalmente ao centro */
+}
+
+/* Card principal contendo a introdução do site e o mascote Faro */
+.main-card {
+  background-color: #d08620;  /* Cor de fundo laranja/marrom */
+  width: 100%;                /* Ocupa toda a largura disponível */
+  max-width: 100%;
+  border-bottom-left-radius: 20px;   /* Arredonda o canto inferior esquerdo */
+  border-bottom-right-radius: 20px;  /* Arredonda o canto inferior direito */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra suave embaixo do card */
+  display: flex;              /* Alinha imagem e textos lado a lado */
+  padding: 48px 56px;         /* Espaçamento interno */
+  align-items: center;        /* Centraliza os itens verticalmente */
+  justify-content: center;   /* Centraliza os itens horizontalmente */
+  gap: 40px;                  /* Distância de 40px entre a imagem e o texto */
+  min-height: 450px;          /* Altura mínima do bloco */
+  box-sizing: border-box;     /* Garante que o padding não aumente o tamanho total do card */
+}
+
+/* Configuração do link que envolve a imagem do mascote */
+.main-card > a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 320px;            /* Largura fixa inicial para o container da imagem */
+  align-self: center;
+}
+
+/* Imagem do mascote Faro */
+.card-image {
+  width: 100%;                /* Ocupa 100% do espaço do link acima */
+  max-width: 500px;           /* Limita o tamanho máximo a 500px */
+  height: auto;               /* Mantém a proporção correta de altura */
+  display: block;
+  object-fit: contain;        /* Evita que a imagem distorça ou seja cortada */
+  border-radius: 10px;        /* Bordas levemente arredondadas */
+}
+
+/* Bloco que contém os textos explicativos */
+.text-content {
+  flex: 1;                    /* Faz o texto ocupar o espaço restante disponível */
+  max-width: 520px;           /* Limita a largura máxima do texto para facilitar a leitura */
+  display: flex;
+  flex-direction: column;     /* Organiza título e parágrafos de cima para baixo */
+  justify-content: center;
+  align-items: flex-start;    /* Alinha os textos à esquerda */
+  gap: 12px;                  /* Espaço entre o título e os parágrafos */
+  text-align: left;           /* Alinha o texto à esquerda */
+}
+
+/* Título de introdução */
+.objective-title {
+  font-size: 20px;            /* Tamanho de fonte legível */
+  color: #6b3502;             /* Cor de texto com excelente contraste sobre o fundo */
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif; /* Fonte limpa e acessível */
+}
+
+/* Parágrafos de introdução */
+.objective-text1,
+.objective-text2 {
+  font-size: 16px;            /* Tamanho recomendado para leitura confortável */
+  line-height: 1.2;           /* Altura da linha para melhor legibilidade */
+  color: #6b3502;             /* Cor de texto com excelente contraste */
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: justify;        /* Distribui o texto igualmente nas margens */
+}
+
+/* Seção que guarda as 3 linhas de cards menores */
+.small-cards {
+  width: 100%;
+  max-width: 900px;
+  padding: 30px 40px 10px;
+  margin: 0 auto;             /* Centraliza a seção inteira na tela */
+}
+
+/* Linha contendo a imagem à esquerda e o card com texto à direita */
+.small-card-row {
+  display: flex;
+  align-items: center;        /* Centraliza verticalmente a imagem e o card */
+  gap: 24px;                  /* Espaço entre a imagem e o card */
+  margin-bottom: 24px;        /* Distância para o próximo card debaixo */
+}
+
+/* Remove a margem inferior do último card para evitar espaço vazio desnecessário */
+.small-card-row:last-child {
+  margin-bottom: 0;
+}
+
+/* Círculo que envolve a imagem do card menor */
+.small-card-image {
+  width: 120px;
+  height: 120px;
+  min-width: 120px;           /* Garante que o círculo não diminua de tamanho */
+  border-radius: 50%;         /* Transforma o quadrado em um círculo perfeito */
+  background-color: #f3b85e;  /* Cor de fundo do círculo */
+  border: 3px solid #f3684f;  /* Borda laranja/vermelha ao redor */
+  overflow: hidden;           /* Esconde qualquer parte da imagem que passe do círculo */
+  text-align: center;
+}
+
+/* Estilo para a imagem de dentro do círculo */
+.small-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;          /* Corta e preenche o círculo sem distorcer a foto */
+}
+
+/* Card com o conteúdo textual de cada funcionalidade */
+.small-card {
+  flex: 1;                    /* Preenche toda a largura restante */
+  padding: 18px 20px;         /* Espaçamento interno confortável */
+  background-color: #91ceba;  /* Cor de fundo verde-água */
+  border-radius: 12px;        /* Cantos arredondados */
+  text-align: center;         /* Alinha os textos no centro do card */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Sombra leve atrás do card */
+}
+
+/* Título de cada funcionalidade */
+.small-card-title {
+  font-size: 18px;
+  color: #6b3502;
+  margin-bottom: 10px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* Texto de descrição de cada funcionalidade */
+.small-card-text {
+  font-size: 14px;
+  line-height: 1.4;
+  color: #6b3502;
+  margin-bottom: 12px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: justify;
+}
+
+/* Botão de ação dentro dos cards menores */
+.btn-small-card {
+  display: inline-block;      /* Permite ajustar tamanho e espaçamentos */
+  background-color: #f3684f;  /* Cor de fundo laranja vibrante */
+  color: #f8daa3;             /* Cor clara do texto com contraste adequado */
+  padding: 10px 18px;         /* Espaçamento interno para cliques fáceis */
+  border-radius: 5px;         /* Cantos levemente arredondados */
+  text-decoration: none;      /* Remove o sublinhado padrão de links */
+  font-weight: bold;          /* Deixa a letra em negrito */
+  font-size: 14px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+/* ==========================================================================
+   Responsividade: Ajustes para tablets e celulares
+   ========================================================================== */
+
+/* Ajustes para telas médias (Tablets) */
+@media (max-width: 1024px) {
+  .main-card {
+    padding: 36px 28px;
+    gap: 28px;
+  }
+
+  .main-card > a {
+    flex: 0 0 260px;
+  }
+
+  .text-content {
+    max-width: 100%;
+  }
+
+  .small-cards {
+    max-width: 100%;
+    padding: 24px 24px 10px;
+  }
+}
+
+/* Ajustes para telas menores (Tablets em pé / Celulares grandes) */
+@media (max-width: 768px) {
+  /* No celular, os elementos ficam empilhados verticalmente em vez de lado a lado */
+  .main-card {
+    flex-direction: column;
+    min-height: auto;
+    padding: 28px 20px;
+  }
+
+  .main-card > a {
+    flex: none;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .card-image {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .text-content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .objective-text1,
+  .objective-text2 {
+    text-align: center;
+  }
+
+  /* Organiza as imagens e os cards menores em uma coluna de cima para baixo */
+  .small-card-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .small-card {
+    width: 100%;
+  }
+}
+
+/* Ajustes para celulares médios */
+@media (max-width: 480px) {
+  .main-card {
+    padding: 20px 16px;
+    gap: 20px;
+  }
+
+  .small-cards {
+    padding: 20px 12px 10px;
+  }
+
+  .small-card-image {
+    width: 100px;
+    height: 100px;
+    min-width: 100px;
+  }
+
+  .small-card-row {
+    margin-bottom: 20px;
+  }
+
+  /* 
+    Questão de Acessibilidade Móvel:
+    Garante que o botão tenha no mínimo 44px de altura e largura útil (min-height/min-width).
+    Isso facilita o toque em telas sensíveis ao toque (dispositivos móveis) para pessoas com dificuldades motoras.
+  */
+  .btn-small-card {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 12px 18px;
+    line-height: 1.2;
+  }
+}
+
+/* Ajustes para celulares muito pequenos/estreitos */
+@media (max-width: 360px) {
+  .main-card {
+    padding: 16px 12px;
+  }
+
+  .small-cards {
+    padding: 16px 8px 10px;
+  }
+
+  .small-card {
+    padding: 14px 12px;
+  }
+}

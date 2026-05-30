@@ -1,0 +1,200 @@
+/* ==========================================================================
+   CSS do Painel do Usuário (PainelUsuario)
+   ========================================================================== */
+
+/* Estilo para a área principal da página */
+.painel-page {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding-top: 80px;
+  padding-bottom: 100px;
+}
+
+/* Cabeçalho do painel com destaque visual */
+.painel-header {
+  background-color: #d08620;
+  width: 100%;
+  padding: 56px 48px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  box-sizing: border-box;
+}
+
+.painel-header h1 {
+  font-size: 36px;
+  color: #6b3502;
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.painel-header p {
+  font-size: 18px;
+  line-height: 1.4;
+  color: #6b3502;
+  max-width: 600px;
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* Seção que guarda os cards do painel */
+.painel-cards {
+  width: 100%;
+  max-width: 1000px;
+  padding: 40px 48px 20px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+/* Card de funcionalidade do painel */
+.painel-card {
+  background-color: #91ceba;
+  border-radius: 20px;
+  padding: 32px 24px;
+  text-align: center;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+  transition: all 0.3s ease;
+}
+
+.painel-card:hover {
+  transform: translateY(-5px);
+}
+
+.painel-card::after {
+  content: '🐾';
+  font-size: 32px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.painel-card h2 {
+  font-size: 22px;
+  color: #6b3502;
+  margin-bottom: 12px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+}
+
+.painel-card p {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #6b3502;
+  margin-bottom: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.painel-card button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3684f;
+  color: #f8daa3;
+  padding: 10px 22px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.painel-card button:hover {
+  background-color: #d08620;
+  color: #f8daa3;
+}
+
+/* ==========================================================================
+   Responsividade: Ajustes para tablets e celulares
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .painel-header {
+    padding: 48px 36px;
+  }
+
+  .painel-header h1 {
+    font-size: 32px;
+  }
+
+  .painel-cards {
+    padding: 32px 32px 20px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .painel-header {
+    padding: 40px 24px;
+    gap: 20px;
+  }
+
+  .painel-header h1 {
+    font-size: 28px;
+  }
+
+  .painel-header p {
+    font-size: 16px;
+  }
+
+  .painel-cards {
+    padding: 24px 20px 20px;
+    grid-template-columns: 1fr;
+  }
+
+  .painel-card button {
+    padding: 12px 24px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .painel-header {
+    padding: 32px 16px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+
+  .painel-header h1 {
+    font-size: 24px;
+  }
+
+  .painel-card button {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+
+  .painel-card {
+    padding: 24px 18px;
+  }
+
+  .painel-card button {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 12px 20px;
+  }
+}
+
+@media (max-width: 360px) {
+  .painel-header {
+    padding: 24px 12px;
+  }
+
+  .painel-cards {
+    padding: 20px 12px 16px;
+  }
+
+  .painel-card {
+    padding: 20px 14px;
+  }
+}

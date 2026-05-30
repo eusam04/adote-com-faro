@@ -1,0 +1,175 @@
+/* ==========================================================================
+   CSS da Página de Animais
+   ========================================================================== */
+
+/* Container principal da página */
+.animais-main {
+  width: 100%;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 40px 24px 40px;
+  box-sizing: border-box;
+}
+
+/* Título da página */
+.animais-titulo {
+  background-color: #d08620;
+  color: #6b3502;
+  font-size: 28px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  padding: 28px 24px;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  margin-bottom: 36px;
+  font-weight: bold;
+}
+
+/* Ícone do título */
+.animais-titulo::before {
+  content: '🐾';
+  font-size: 32px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+/* Grid de cards */
+.animais-lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+/* Card de animal */
+.animal-card {
+  background-color: #91ceba;
+  border-radius: 20px;
+  padding: 28px 24px;
+  text-align: center;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+  transition: all 0.3s ease;
+}
+
+.animal-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Nome do animal */
+.animal-card-nome {
+  font-size: 22px;
+  color: #6b3502;
+  margin: 0 0 12px 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+}
+
+/* Descrição do animal */
+.animal-card-descricao {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #6b3502;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: justify;
+  margin-bottom: 20px;
+}
+
+/* Botão de adoção */
+.animal-card button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3684f;
+  color: #f8daa3;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 14px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.animal-card button:hover {
+  background-color: #d08620;
+}
+
+
+/* ==========================================================================
+   Responsividade: Ajustes para tablets e celulares
+   ========================================================================== */
+
+/* Ajustes para telas médias (Tablets) */
+@media (max-width: 1024px) {
+  .animais-main {
+    padding: 36px 24px 40px;
+  }
+
+  .animais-titulo {
+    font-size: 24px;
+    padding: 24px 20px;
+    margin-bottom: 32px;
+  }
+}
+
+/* Ajustes para telas menores (Tablets em pé / Celulares grandes) */
+@media (max-width: 768px) {
+  .animais-main {
+    padding: 32px 20px 40px;
+  }
+
+  .animais-titulo {
+    font-size: 22px;
+    padding: 22px 18px;
+    margin-bottom: 28px;
+  }
+
+  .animais-lista {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* Ajustes para celulares médios */
+@media (max-width: 480px) {
+  .animais-main {
+    padding: 28px 16px 32px;
+  }
+
+  .animais-titulo {
+    font-size: 20px;
+    padding: 20px 16px;
+    margin-bottom: 24px;
+  }
+
+  .animal-card {
+    padding: 24px 20px;
+  }
+
+  /* 
+    Questão de Acessibilidade Móvel:
+    Garante que botões tenham no mínimo 44px de altura/área de toque.
+  */
+  .animal-card button {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 12px 20px;
+  }
+}
+
+/* Ajustes para celulares muito pequenos */
+@media (max-width: 360px) {
+  .animais-main {
+    padding: 24px 12px 24px;
+  }
+
+  .animais-titulo {
+    font-size: 18px;
+    padding: 18px 14px;
+  }
+
+  .animal-card {
+    padding: 20px 16px;
+  }
+}

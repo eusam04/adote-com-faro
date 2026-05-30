@@ -1,0 +1,301 @@
+/* ==========================================================================
+   CSS da Página de Cadastro (Criação de Conta)
+   ========================================================================== */
+
+/* Container principal da página de cadastro */
+.cadastro-page {
+  display: flex;
+  justify-content: center;
+  /* Centraliza horizontalmente o bloco de cadastro */
+  align-items: center;
+  /* Centraliza verticalmente o bloco de cadastro */
+  padding: 40px 20px;
+  /* Adiciona espaçamento interno para não encostar nas bordas */
+  min-height: calc(100vh - 80px);
+  /* Ocupa o espaço útil restante (header + footer) */
+  box-sizing: border-box;
+  padding-top: 80px;
+  /* Compensa a altura do header fixo */
+  padding-bottom: 100px;
+  /* Compensa a altura do footer fixo */
+}
+
+/* Card centralizado que engloba as informações e o formulário */
+.cadastro-container {
+  display: flex;
+  flex-direction: row;
+  /* Exibe informações e formulário lado a lado no desktop */
+  background-color: #91ceba;
+  /* Fundo verde-água característico do site (como nos small-cards) */
+  width: 100%;
+  max-width: 900px;
+  /* Limita a largura máxima para manter um layout elegante */
+  border-radius: 20px;
+  /* Bordas bem arredondadas, harmonizando com a Home */
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+  /* Sombra suave para dar sensação de profundidade */
+  overflow: hidden;
+  /* Garante que o conteúdo respeite os cantos arredondados do container */
+}
+
+/* Painel de informações no lado esquerdo do card */
+.cadastro-info {
+  flex: 1;
+  background-color: #d08620;
+  /* Cor laranja/marrom para destacar o título (cor do main-card da Home) */
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* Centraliza os textos verticalmente */
+  align-items: flex-start;
+  /* Alinha os textos à esquerda */
+  gap: 20px;
+  /* Espaçamento interno entre o título e a descrição */
+}
+
+/* Título principal do cadastro */
+.cadastro-info h1 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 32px;
+  color: #6b3502;
+  /* Marrom escuro para manter excelente acessibilidade e contraste */
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Parágrafo explicativo/incentivo */
+.cadastro-info p {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #6b3502;
+  /* Tom escuro e legível */
+  margin: 0;
+  text-align: justify;
+  /* Deixa as linhas do texto alinhadas nas laterais */
+}
+
+/* Formulário de cadastro no lado direito do card */
+.cadastro-form {
+  flex: 1.2;
+  /* Dá ligeiramente mais espaço para o formulário */
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  /* Organiza os campos verticalmente */
+  gap: 20px;
+  /* Distância confortável entre cada campo do formulário */
+  justify-content: center;
+}
+
+/* Grupo que engloba label e input de cada campo */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  /* Rótulo em cima e campo de digitação embaixo */
+  gap: 8px;
+  /* Espaço de 8px entre a label e o input */
+}
+
+/* Rótulos dos campos */
+.form-group label {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  color: #6b3502;
+  /* Mantém o padrão de cores e alta legibilidade */
+}
+
+/* Campos de entrada de texto e de seleção (input e select) */
+.form-group input,
+.form-group select {
+  padding: 12px 16px;
+  font-size: 15px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border: 2px solid #ce841f;
+  /* Borda laranja/marrom coerente com a marca */
+  border-radius: 8px;
+  /* Cantos levemente arredondados */
+  background-color: #ffffff;
+  color: #333333;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  /* Transição suave de foco */
+  outline: none;
+  /* Remove o contorno padrão */
+}
+
+/* Efeito de foco ao clicar ou navegar via teclado nos inputs e select */
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #228a81;
+  /* Borda muda para o verde-escuro do cabeçalho */
+  box-shadow: 0 0 0 4px rgba(34, 138, 129, 0.2);
+  /* Sombra suave para indicar foco visual */
+}
+
+/* Botão de envio (Criar Conta) */
+.cadastro-button {
+  background-color: #f3684f;
+  /* Laranja vibrante idêntico aos botões secundários da Home */
+  color: #f8daa3;
+  /* Cor de texto bege claro com excelente contraste */
+  padding: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  /* Animações rápidas de interação */
+  margin-top: 10px;
+  /* Afasta o botão do último campo do formulário */
+}
+
+/* Efeito de hover (passar o mouse) no botão */
+.cadastro-button:hover {
+  background-color: #e2573e;
+  /* Tom de laranja ligeiramente mais escuro no hover */
+}
+
+/* Efeito de active (clique físico) no botão */
+.cadastro-button:active {
+  transform: scale(0.98);
+  /* Leve redução para dar sensação física de clique */
+}
+
+.cadastro-button:focus-visible {
+  outline: 3px solid #f2ac1b;
+  outline-offset: 2px;
+}
+
+/* Mensagem de sucesso após cadastro */
+.mensagem-sucesso {
+  background-color: #228a81;
+  color: #f8daa3;
+  padding: 14px 20px;
+  border-radius: 8px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+  animation: fadeIn 0.5s ease;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  translate: -50%;
+  width: fit-content;
+  z-index: 1000;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+
+}
+
+/* Animação suave de aparecimento */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Link para login */
+.cadastro-login {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 14px;
+  color: #6b3502;
+  margin: 0;
+  text-align: center;
+}
+
+.cadastro-login a {
+  color: #f3684f;
+  /* Cor laranja vibrante como no login */
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.cadastro-login a:hover {
+  color: #e2583f;
+  text-decoration: underline;
+}
+
+
+/* ==========================================================================
+   Responsividade: Ajustes para tablets e celulares
+   ========================================================================== */
+
+/* Ajustes para telas médias e tablets */
+@media (max-width: 850px) {
+  .cadastro-container {
+    flex-direction: column;
+    /* Empilha as informações e o formulário na vertical */
+    max-width: 500px;
+    /* Ajusta a largura máxima para dispositivos em pé */
+  }
+
+  .cadastro-info {
+    padding: 36px;
+    align-items: center;
+    /* Centraliza os textos no modo mobile */
+    text-align: center;
+  }
+
+  .cadastro-info h1 {
+    font-size: 28px;
+  }
+
+  .cadastro-info p {
+    text-align: center;
+    /* Centraliza o parágrafo explicativo */
+  }
+
+  .cadastro-form {
+    padding: 36px;
+  }
+}
+
+/* Ajustes para celulares menores */
+@media (max-width: 480px) {
+  .cadastro-page {
+    padding: 20px 12px;
+    /* Diminui a margem externa */
+  }
+
+  .cadastro-info {
+    padding: 24px 20px;
+  }
+
+  .cadastro-info h1 {
+    font-size: 24px;
+  }
+
+  .cadastro-info p {
+    font-size: 14px;
+  }
+
+  .cadastro-form {
+    padding: 24px 20px;
+    /* Espaçamento interno menor para ganhar tela útil */
+    gap: 16px;
+  }
+
+  /* 
+    Questão de Acessibilidade Móvel:
+    Garante que as entradas e o botão tenham pelo menos 44px de altura/área de toque no mobile.
+  */
+  .form-group input,
+  .form-group select,
+  .cadastro-button {
+    min-height: 44px;
+    font-size: 14px;
+  }
+}
