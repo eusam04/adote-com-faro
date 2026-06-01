@@ -1,0 +1,247 @@
+/* ==========================================================================
+   CSS da Página de Solicitação de Adoção
+   ========================================================================== */
+
+/* Estilo para a área principal da página - similar ao home-main */
+.solicitar-adocao-page {
+  text-align: center;         /* Alinha textos e elementos internos no centro */
+  display: flex;              /* Ativa o Flexbox para alinhar itens de forma flexível */
+  flex-direction: column;     /* Organiza os elementos filhos em uma coluna */
+  align-items: center;        /* Alinha os elementos horizontalmente ao centro */
+  min-height: 100vh;          /* Garante que a página ocupe pelo menos a altura da viewport */
+  padding: 20px;              /* Espaçamento interno */
+  box-sizing: border-box;     /* Garante que o padding não aumente o tamanho total */
+}
+
+/* Card principal contendo o formulário - similar ao .main-card */
+.solicitar-adocao-container {
+  background-color: #d08620;  /* Cor de fundo laranja/marrom (igual ao home) */
+  width: 100%;                /* Ocupa toda a largura disponível */
+  max-width: 900px;           /* Largura máxima */
+  border-bottom-left-radius: 20px;   /* Arredonda o canto inferior esquerdo (igual ao home) */
+  border-bottom-right-radius: 20px;  /* Arredonda o canto inferior direito (igual ao home) */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave embaixo do card (igual ao home) */
+  display: flex;              /* Alinha imagem e textos lado a lado (não usado aqui, mas mantido para consistência) */
+  flex-direction: column;     /* Organiza em coluna para o formulário */
+  align-items: center;        /* Centraliza horizontalmente */
+  padding: 48px 56px;         /* Espaçamento interno (igual ao home) */
+  gap: 40px;                  /* Distância entre elementos (igual ao home) */
+  min-height: 450px;          /* Altura mínima do bloco (igual ao home) */
+  box-sizing: border-box;     /* Garante que o padding não aumente o tamanho total (igual ao home) */
+}
+
+/* Informações introdutórias - similar ao .text-content */
+.solicitar-adocao-info {
+  flex: 1;                    /* Faz o texto ocupar o espaço restante disponível */
+  max-width: 520px;           /* Limita a largura máxima do texto para facilitar a leitura (igual ao home) */
+  display: flex;
+  flex-direction: column;     /* Organiza título e parágrafos de cima para baixo */
+  align-items: flex-start;    /* Alinha os textos à esquerda (igual ao home) */
+  gap: 12px;                  /* Espaço entre o título e os parágrafos (igual ao home) */
+  text-align: left;           /* Alinha o texto à esquerda (igual ao home) */
+}
+
+/* Título de introdução - similar ao .objective-title */
+.solicitar-adocao-info h1 {
+  font-size: 20px;            /* Tamanho de fonte legível (igual ao home) */
+  color: #6b3502;             /* Cor de texto com excelente contraste sobre o fundo (igual ao home) */
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif; /* Fonte limpa e acessível (igual ao home) */
+}
+
+/* Parágrafos de introdução - similar ao .objective-text1, .objective-text2 */
+.solicitar-adocao-info p {
+  font-size: 16px;            /* Tamanho recomendado para leitura confortável (igual ao home) */
+  line-height: 1.2;           /* Altura da linha para melhor legibilidade (igual ao home) */
+  color: #6b3502;             /* Cor de texto com excelente contraste (igual ao home) */
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: justify;        /* Distribui o texto igualmente nas margens (igual ao home) */
+}
+
+/* Formulário */
+.solicitar-adocao-form {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;                  /* Espaçamento entre grupos de formulário */
+}
+
+/* Grupo de campos - similar ao layout do home */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Rótulo - similar aos textos do home */
+.form-group label {
+  font-size: 14px;            /* Tamanho semelhante ao small-card-text do home */
+  color: #6b3502;             /* Cor de texto (igual ao home) */
+  margin-bottom: 4px;         /* Espaçamento menor acima do campo */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* Entrada de texto e área de texto - similar aos inputs do home */
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;              /* Espaçamento interno */
+  border: 1px solid #ccc;     /* Borda cinza clara */
+  border-radius: 4px;         /* Cantos levemente arredondados */
+  font-size: 16px;            /* Tamanho de fonte legível */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  box-sizing: border-box;
+  background-color: white;    /* Fundo branco para melhor legibilidade */
+}
+
+/* Área de texto específica */
+.form-group textarea {
+  resize: vertical;           /* Permite redimensionar apenas verticalmente */
+  min-height: 120px;          /* Aproximadamente 6 rows */
+}
+
+/* Botão de envio - similar ao .btn-small-card */
+.solicitar-adocao-button {
+  display: inline-block;      /* Permite ajustar tamanho e espaçamentos */
+  background-color: #f3684f;  /* Cor de fundo laranja vibrante (igual ao home) */
+  color: #f8daa3;             /* Cor clara do texto com contraste adequado (igual ao home) */
+  padding: 10px 18px;         /* Espaçamento interno para cliques fáceis (igual ao home) */
+  border-radius: 5px;         /* Cantos levemente arredondados (igual ao home) */
+  text-decoration: none;      /* Remove o sublinhado padrão de links */
+  font-weight: bold;          /* Deixa a letra em negrito (igual ao home) */
+  font-size: 14px;            /* Tamanho de fonte (igual ao home) */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border: none;               /* Remove borda padrão */
+  cursor: pointer;            /* Muda o cursor para indicar clicável */
+  transition: background-color 0.3s ease; /* Transição suave para hover */
+}
+
+/* Mensagem de feedback após solicitação de adoção */
+.mensagem-solicitacao {
+  background-color: #228a81;
+  color: #f8daa3;
+  padding: 14px 20px;
+  border-radius: 8px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+  animation: fadeIn 0.5s ease;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  translate: -50%;
+  width: fit-content;
+  z-index: 1000;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Animação suave de aparecimento */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.solicitar-adocao-button:hover {
+  background-color: #e55a43;  /* Cor ligeiramente mais escura no hover */
+}
+
+/* ==========================================================================
+   Responsividade: Ajustes para tablets e celulares
+   ========================================================================== */
+
+/* Ajustes para telas médias (Tablets) */
+@media (max-width: 1024px) {
+  .solicitar-adocao-container {
+    padding: 36px 28px;       /* Reduz padding (igual ao home) */
+    gap: 28px;                /* Reduz gap (igual ao home) */
+  }
+  
+  .solicitar-adocao-info {
+    max-width: 100%;          /* Permite que o texto ocupe mais largura (igual ao home) */
+    align-items: center;      /* Centraliza texto (igual ao home) */
+    text-align: center;       /* Centraliza texto (igual ao home) */
+  }
+  
+  .solicitar-adocao-info p {
+    text-align: center;       /* Centraliza parágrafo (igual ao home) */
+  }
+}
+
+/* Ajustes para telas menores (Tablets em pé / Celulares grandes) */
+@media (max-width: 768px) {
+  .solicitar-adocao-page {
+    padding: 20px 16px;       /* Reduz padding geral (igual ao home) */
+  }
+  
+  .solicitar-adocao-container {
+    padding: 28px 20px;       /* Reduz padding do card (igual ao home) */
+    gap: 24px;                /* Reduz gap (igual ao home) */
+  }
+  
+  .solicitar-adocao-info {
+    align-items: center;      /* Centraliza texto (igual ao home) */
+    text-align: center;       /* Centraliza texto (igual ao home) */
+  }
+  
+  .solicitar-adocao-info h1 {
+    text-align: center;       /* Centraliza título (igual ao home) */
+  }
+  
+  .solicitar-adocao-info p {
+    text-align: center;       /* Centraliza parágrafo (igual ao home) */
+  }
+}
+
+/* Ajustes para celulares médios */
+@media (max-width: 480px) {
+  .solicitar-adocao-container {
+    padding: 20px 16px;       /* Reduz padding ainda mais (igual ao home) */
+    gap: 20px;                /* Reduz gap (igual ao home) */
+  }
+  
+  .solicitar-adocao-info h1 {
+    font-size: 18px;          /* Reduz tamanho da fonte (similar ao home) */
+  }
+  
+  .solicitar-adocao-info p {
+    font-size: 14px;          /* Reduz tamanho da fonte (similar ao home) */
+  }
+  
+  .solicitar-adocao-button {
+    padding: 12px 20px;       /* Aumenta padding do botão para acessibilidade (igual ao home) */
+    font-size: 16px;          /* Aumenta tamanho da fonte do botão (igual ao home) */
+    min-height: 44px;         /* Garante altura mínima para toque (igual ao home) */
+    min-width: 44px;          /* Garante largura mínima para toque (igual ao home) */
+  }
+}
+
+/* Ajustes para celulares muito pequenos/estreitos */
+@media (max-width: 360px) {
+  .solicitar-adocao-container {
+    padding: 16px 12px;       /* Padding mínimo (igual ao home) */
+    gap: 16px;                /* Gap mínimo (igual ao home) */
+  }
+  
+  .solicitar-adocao-info h1 {
+    font-size: 16px;          /* Fonte ainda menor (igual ao home) */
+  }
+  
+  .solicitar-adocao-info p {
+    font-size: 13px;          /* Fonte ainda menor (igual ao home) */
+  }
+  
+  .solicitar-adocao-button {
+    padding: 10px 16px;       /* Padding ajustado (igual ao home) */
+    font-size: 14px;          /* Fonte ajustada (igual ao home) */
+  }
+}

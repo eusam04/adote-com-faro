@@ -2,16 +2,19 @@ const connection = require('../database');
 
 const criarSolicitacao = (req, res) => {
 
-    const { id_animal } = req.body;
+    const { id_animal, telefone, mensagem } = req.body;
 
     const id_usuario = req.usuario.id;
 
-    if (req.usuario.tipo === 'ong') {
-
+    if (
+        req.usuario.tipo === 'ong' ||
+        req.usuario.tipo === 'cuidador'
+    ) {
+    
         return res.status(403).send(
-            'ONGs não podem solicitar adoção'
+            'Apenas usuários comuns podem solicitar adoção'
         );
-
+    
     }
 
     const verificarAnimalSql = `
@@ -72,14 +75,14 @@ const criarSolicitacao = (req, res) => {
                     }
 
                     const sql = `
-                        INSERT INTO solicitacoes
-                        (id_usuario, id_animal)
-                        VALUES (?, ?)
-                    `;
+                    INSERT INTO solicitacoes
+                    (id_usuario, id_animal, telefone, mensagem)
+                    VALUES (?, ?, ?, ?)
+                `;
 
                     connection.query(
                         sql,
-                        [id_usuario, id_animal],
+                        [id_usuario, id_animal, telefone, mensagem],
                         (err, results) => {
 
                             if (err) {

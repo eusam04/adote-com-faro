@@ -21,13 +21,13 @@ function Home() {
         <nav aria-label="Navegação principal">
           <ul className="site-nav">
             <li>
-              <Link to="/login" className="btn-login">
-                Entrar
+              <Link to="/cadastro" className="btn-cadastro">
+                Criar conta
               </Link>
             </li>
             <li>
-              <Link to="/cadastro" className="btn-cadastro">
-                Criar conta
+              <Link to="/login" className="btn-login">
+                Entrar
               </Link>
             </li>
           </ul>
@@ -40,7 +40,7 @@ function Home() {
         O tabIndex={-1} permite que este bloco receba foco por teclado para facilitar a navegação.
       */}
       <main id="conteudo-principal" className="home-main site-main" tabIndex={-1}>
-        
+
         {/* h1 oculto visualmente usando CSS (sr-only), mas lido por leitores de tela */}
         <h1 className="sr-only">Adote com Faro</h1>
 
@@ -53,17 +53,17 @@ function Home() {
               className="card-image"
             />
           </Link>
-          
+
           <div className="text-content">
             <h2 id="titulo-sobre" className="objective-title">O que é o Adote com Faro?</h2>
-            
+
             <p className="objective-text1">
-              O Adote com Faro é uma plataforma criada para conectar animais, ONGs e pessoas dispostas a transformar vidas através 
+              O Adote com Faro é uma plataforma criada para conectar animais, ONGs e pessoas dispostas a transformar vidas através
               da adoção e da solidariedade.
             </p>
 
             <p className="objective-text2">
-              No centro dessa missão está o Faro, o mascote da plataforma: um cachorrinho detetive curioso e acolhedor, 
+              No centro dessa missão está o Faro, o mascote da plataforma: um cachorrinho detetive curioso e acolhedor,
               responsável por “encontrar” novos lares, novas conexões e novas formas de ajudar animais que precisam de cuidado e amor.
             </p>
           </div>
@@ -71,14 +71,14 @@ function Home() {
 
         {/* Seção com as três opções/funcionalidades do site */}
         <section className="small-cards" aria-label="Funcionalidades da plataforma">
-          
+
           {/* Opção 1: Ver Animais */}
           <article className="small-card-row" aria-labelledby="card-ver-animais">
             <div className="small-card-image">
               {/* Imagem decorativa com alt vazio para não repetir informação nos leitores de tela */}
               <img src={faroCard1} alt="" />
             </div>
-            
+
             <div className="small-card">
               <h3 id="card-ver-animais" className="small-card-title">Ver Animais</h3>
               <p className="small-card-text">
@@ -95,7 +95,7 @@ function Home() {
             <div className="small-card-image">
               <img src={faroCard2} alt="" />
             </div>
-            
+
             <div className="small-card">
               <h3 id="card-colaborar" className="small-card-title">Colaborar</h3>
               <p className="small-card-text">
@@ -112,7 +112,7 @@ function Home() {
             <div className="small-card-image">
               <img src={fariCard3} alt="" />
             </div>
-            
+
             <div className="small-card">
               <h3 id="card-historias" className="small-card-title">Histórias de Adoção</h3>
               <p className="small-card-text">

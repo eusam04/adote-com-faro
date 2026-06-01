@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import SiteLayout from '../../components/SiteLayout';
+import { Link } from 'react-router-dom';
 import './Animais.css';
 import api from '../../services/api';
 
@@ -45,7 +46,7 @@ function Animais() {
         O tabIndex={-1} permite que este bloco receba foco por teclado para facilitar a navegação.
       */}
       <main id="conteudo-principal" className="animais-main site-main" tabIndex={-1}>
-      <h1 className="animais-titulo">Animais Disponíveis 🐶</h1>
+        <h1 className="animais-titulo">Animais Disponíveis 🐶</h1>
         <div className="animais-lista">
           {animais.map((animal) => (
             <article key={animal.id} className="animal-card">
@@ -66,9 +67,12 @@ function Animais() {
                 {animal.descricao}
               </p>
 
-              <button className="animal-adotar-button">
+              <Link
+                to={`/solicitar-adocao/${animal.id}`}
+                className="animal-adotar-button"
+              >
                 Quero Adotar
-              </button>
+              </Link>
 
             </article>
           ))}

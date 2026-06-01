@@ -135,16 +135,19 @@
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(243, 104, 79, 0.3);
+  text-decoration: none;
 }
 
 .animal-adotar-button:hover {
   background: linear-gradient(135deg, #e2583f 0%, #d04a30 100%);
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(243, 104, 79, 0.4);
+  text-decoration: none;
 }
 
 .animal-adotar-button:active {
   transform: translateY(0);
+  text-decoration: none;
 }
 
 

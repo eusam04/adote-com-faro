@@ -7,6 +7,7 @@ import Cadastro from '../pages/Cadastro/Cadastro';
 import DashboardONG from '../pages/DashboardONG/DashboardONG';
 import PainelUsuario from '../pages/PainelUsuario/PainelUsuario';
 import CadastrarAnimal from '../pages/CadastroAnimal/CadastrarAnimal';
+import SolicitarAdocao from '../pages/SolicitarAdocao/SolicitarAdocao';
 
 function AppRoutes() {
 
@@ -32,11 +33,16 @@ function AppRoutes() {
         <Route
           path="/painel"
           element={<PainelUsuario />}
-        />  
+        />
 
         <Route
           path='/cadastrar-animal'
-          element={<CadastrarAnimal />} 
+          element={<CadastrarAnimal />}
+        />
+
+        <Route
+          path="/solicitar-adocao/:id"
+          element={<SolicitarAdocao />}
         />
 
       </Routes>
