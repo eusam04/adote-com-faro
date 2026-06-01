@@ -124,7 +124,8 @@
 }
 
 /* Botão de ação dentro dos cards */
-.dashboard-card button {
+.dashboard-card button,
+.dashboard-card-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -141,8 +142,22 @@
   transition: background-color 0.2s ease;
 }
 
-.dashboard-card button:hover {
+.dashboard-card button:hover,
+.dashboard-card-button:hover {
   background-color: #d08620;  /* Laranja/marrom no hover */
+  color: #f8daa3;
+}
+
+.dashboard-card-primary button,
+.dashboard-card-primary .dashboard-card-button {
+  background-color: #f3684f;  /* Laranja vibrante como cor principal */
+  color: #f8daa3;            /* Beje claro para contraste */
+  border: none;
+}
+
+.dashboard-card-primary button:hover,
+.dashboard-card-primary .dashboard-card-button:hover {
+  background-color: #d08620;
   color: #f8daa3;
 }
 

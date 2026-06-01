@@ -1,0 +1,339 @@
+/* ==========================================================================
+   CSS da Página de Solicitações Recebidas - Design Moderno
+   ========================================================================== */
+
+/* Container principal da página - similar ao animais-main */
+.solicitacoes-page {
+  width: 100%;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 40px 24px 40px;
+  box-sizing: border-box;
+  min-height: 100vh;
+}
+
+/* Título da página com gradiente harmonioso - similar ao animais-titulo */
+.solicitacoes-header {
+  background: linear-gradient(135deg, #d08620 0%, #f3b85e 100%);
+  color: #6b3502;
+  font-size: 16px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  padding: 32px 28px;
+  border-radius: 24px;
+  box-shadow: 0 6px 18px rgba(208, 134, 32, 0.25);
+  margin-bottom: 40px;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+}
+
+.solicitacoes-header::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 80px;
+  height: 80px;
+  background: rgba(248, 218, 163, 0.3);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.solicitacoes-header::after {
+  content: '📋';
+  font-size: 36px;
+  display: block;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Parágrafo de descrição */
+.solicitacoes-header p {
+  font-size: 16px;
+  color: #6b3502;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  margin-top: 16px;
+  line-height: 1.5;
+}
+
+/* Grid de cards - similar ao animais-lista */
+.solicitacoes-lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 28px;
+  margin-top: 0;
+}
+
+/* Card de solicitação com efeito glass e hover avançado - similar ao animal-card */
+.solicitacao-card {
+  background: linear-gradient(135deg, #91ceba 0%, #a8d8c6 100%);
+  border-radius: 24px;
+  padding: 32px 24px;
+  text-align: left;
+  box-shadow: 0 8px 20px rgba(145, 206, 186, 0.25);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  border: none;
+}
+
+.solicitacao-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 28px rgba(145, 206, 186, 0.3);
+}
+
+.solicitacao-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #f3684f, #d08620);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.solicitacao-card:hover::before {
+  opacity: 1;
+}
+
+/* Título do animal no card */
+.solicitacao-card h2 {
+  font-size: 22px;
+  color: #6b3502;
+  margin: 0 0 16px 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.solicitacao-card h2::before {
+  content: '🐾';
+  font-size: 20px;
+}
+
+/* Textos de informações no card */
+.solicitacao-card p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #6b3502;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: 0 0 12px 0;
+}
+
+.solicitacao-card p strong {
+  font-weight: bold;
+  color: #5a7a6d;
+}
+
+/* Container dos botões de ação */
+.solicitacao-actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Botões de ação - similar ao animal-adotar-button */
+.solicitacao-actions button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f3684f 0%, #e2583f 100%);
+  color: #f8daa3;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 14px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(243, 104, 79, 0.3);
+  flex: 1;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.solicitacao-actions button:hover {
+  background: linear-gradient(135deg, #e2583f 0%, #d04a30 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(243, 104, 79, 0.4);
+}
+
+.solicitacao-actions button:active {
+  transform: translateY(0);
+}
+
+/* Ícones nos botões */
+.solicitacao-actions button:first-child::before {
+  content: '✅';
+  margin-right: 6px;
+  font-size: 16px;
+}
+
+.solicitacao-actions button:last-child::before {
+  content: '❌';
+  margin-right: 6px;
+  font-size: 16px;
+}
+
+/* ==========================================================================
+   Responsividade: Ajustes para tablets e celulares
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .solicitacoes-page {
+    padding: 36px 24px 40px;
+  }
+  
+  .solicitacoes-header {
+    font-size: 26px;
+    padding: 28px 24px;
+    margin-bottom: 36px;
+  }
+  
+  .solicitacoes-header::after {
+    font-size: 32px;
+  }
+  
+  .solicitacoes-lista {
+    gap: 24px;
+  }
+  
+  .solicitacao-card {
+    padding: 28px 20px;
+  }
+  
+  .solicitacao-card h2 {
+    font-size: 20px;
+  }
+  
+  .solicitacao-card p {
+    font-size: 14px;
+  }
+  
+  .solicitacao-actions button {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+  .solicitacoes-page {
+    padding: 32px 20px 40px;
+  }
+  
+  .solicitacoes-header {
+    font-size: 24px;
+    padding: 24px 20px;
+    margin-bottom: 32px;
+  }
+  
+  .solicitacoes-header::after {
+    font-size: 28px;
+  }
+  
+  .solicitacoes-lista {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .solicitacao-card {
+    padding: 24px 18px;
+  }
+  
+  .solicitacao-card h2 {
+    font-size: 18px;
+  }
+  
+  .solicitacao-card p {
+    font-size: 13px;
+  }
+  
+  .solicitacao-actions {
+    flex-direction: column;
+  }
+  
+  .solicitacao-actions button {
+    padding: 14px 22px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .solicitacoes-page {
+    padding: 28px 16px 32px;
+  }
+  
+  .solicitacoes-header {
+    font-size: 22px;
+    padding: 20px 18px;
+    margin-bottom: 28px;
+  }
+  
+  .solicitacoes-header::after {
+    font-size: 24px;
+  }
+  
+  .solicitacao-card {
+    padding: 20px 16px;
+  }
+  
+  .solicitacao-card h2 {
+    font-size: 16px;
+  }
+  
+  .solicitacao-card p {
+    font-size: 12px;
+  }
+  
+  .solicitacao-actions button {
+    padding: 12px 20px;
+    font-size: 14px;
+    min-height: 48px;
+  }
+}
+
+@media (max-width: 360px) {
+  .solicitacoes-page {
+    padding: 24px 12px 24px;
+  }
+  
+  .solicitacoes-header {
+    font-size: 20px;
+    padding: 18px 16px;
+    margin-bottom: 24px;
+  }
+  
+  .solicitacoes-header::after {
+    font-size: 20px;
+  }
+  
+  .solicitacao-card {
+    padding: 18px 14px;
+  }
+  
+  .solicitacao-card h2 {
+    font-size: 15px;
+  }
+  
+  .solicitacao-card p {
+    font-size: 11px;
+  }
+  
+  .solicitacao-actions button {
+    padding: 10px 18px;
+    font-size: 13px;
+    min-height: 44px;
+  }
+}

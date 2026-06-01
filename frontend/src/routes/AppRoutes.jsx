@@ -8,6 +8,7 @@ import DashboardONG from '../pages/DashboardONG/DashboardONG';
 import PainelUsuario from '../pages/PainelUsuario/PainelUsuario';
 import CadastrarAnimal from '../pages/CadastroAnimal/CadastrarAnimal';
 import SolicitarAdocao from '../pages/SolicitarAdocao/SolicitarAdocao';
+import SolicitacoesRecebidas from '../pages/SolicitacoesRecebidas/SolicitacoesRecebidas';
 
 function AppRoutes() {
 
@@ -44,6 +45,12 @@ function AppRoutes() {
           path="/solicitar-adocao/:id"
           element={<SolicitarAdocao />}
         />
+
+        <Route
+          path="/solicitacoes-recebidas"
+          element={<SolicitacoesRecebidas />}
+        />
+        
 
       </Routes>
 

@@ -154,7 +154,10 @@ const listarMinhasSolicitacoes = (req, res) => {
             usuarios.nome AS usuario,
             animais.nome AS animal,
             solicitacoes.status,
-            solicitacoes.data_solicitacao
+            solicitacoes.data_solicitacao,
+            solicitacoes.telefone,
+            solicitacoes.mensagem
+
 
         FROM solicitacoes
 

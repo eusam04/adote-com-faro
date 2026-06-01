@@ -2,6 +2,7 @@ import './DashboardONG.css';
 import SiteLayout from '../../components/SiteLayout';
 import { Link } from 'react-router-dom';
 
+
 // Componente do Dashboard da ONG
 // Interface para ONGs gerenciarem seus animais cadastrados e solicitações de adoção
 function DashboardONG() {
@@ -40,7 +41,12 @@ function DashboardONG() {
           <div className="dashboard-card">
             <h2>Solicitações</h2>
             <p>Acompanhe pedidos de adoção e aprove ou recuse solicitações.</p>
-            <button>Ver solicitações</button>
+            <Link
+              to="/solicitacoes-recebidas"
+              className="dashboard-card-button"
+            >
+              Ver solicitações
+            </Link>
           </div>
 
           {/* Card para planejamento de campanhas e ações */}
