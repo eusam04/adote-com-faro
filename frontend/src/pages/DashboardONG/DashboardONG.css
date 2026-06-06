@@ -9,23 +9,56 @@
   flex-direction: column;     /* Organiza os elementos filhos em uma coluna */
   padding-top: 80px;          /* Compensa a altura do header fixo */
   padding-bottom: 100px;      /* Compensa a altura do footer fixo */
+  position: relative;
 }
 
 /* Cabeçalho do painel com destaque visual */
 .dashboard-header {
   background: linear-gradient(135deg, #d08620 0%, #f3b85e 100%);
   width: 100%;
-  padding: 64px 48px;
+  padding: 40px 48px 64px;
   border-bottom-left-radius: 40px;
   border-bottom-right-radius: 40px;
   box-shadow: 0px 12px 24px rgba(208, 134, 32, 0.25);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+  gap: 32px;
   box-sizing: border-box;
   position: relative;
-  overflow: hidden;  /* Garante que o padding não aumente o tamanho total */
+  overflow: hidden;
+}
+
+.dashboard-header::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 150px;
+  height: 150px;
+  background: rgba(248, 218, 163, 0.3);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.dashboard-header::after {
+  content: '';
+  position: absolute;
+  bottom: -60px;
+  left: -60px;
+  width: 180px;
+  height: 180px;
+  background: rgba(248, 218, 163, 0.2);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+/* Container do avatar + texto */
+.profile-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
 
 /* Título do painel */
@@ -36,6 +69,8 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: bold;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Sombra no texto para legibilidade */
+  position: relative;
+  z-index: 1;
 }
 
 /* Parágrafo de descrição do painel */
@@ -46,6 +81,8 @@
   max-width: 600px;
   margin: 0;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  position: relative;
+  z-index: 1;
 }
 
 /* Botão de ação principal do cabeçalho */
@@ -190,11 +227,22 @@
 /* Ajustes para telas médias (Tablets) */
 @media (max-width: 1024px) {
   .dashboard-header {
-    padding: 48px 36px;
+    padding: 36px 32px 56px;
+    gap: 28px;
   }
 
-  .dashboard-header h1 {
-    font-size: 32px;
+  .dashboard-logo {
+    height: 40px;
+  }
+
+  .dashboard-logo-link {
+    top: 20px;
+    left: 24px;
+  }
+
+  .profile-avatar {
+    width: 100px;
+    height: 100px;
   }
 
   .dashboard-cards {
@@ -206,8 +254,13 @@
 /* Ajustes para telas menores (Tablets em pé / Celulares grandes) */
 @media (max-width: 768px) {
   .dashboard-header {
-    padding: 40px 24px;
-    gap: 20px;
+    padding: 36px 24px;
+    gap: 24px;
+  }
+
+  .profile-avatar {
+    width: 96px;
+    height: 96px;
   }
 
   .dashboard-header h1 {
@@ -232,9 +285,15 @@
 /* Ajustes para celulares médios */
 @media (max-width: 480px) {
   .dashboard-header {
-    padding: 32px 16px;
+    padding: 28px 16px;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
+  }
+
+  .profile-avatar {
+    width: 72px;
+    height: 72px;
+    border-width: 3px;
   }
 
   .dashboard-header h1 {

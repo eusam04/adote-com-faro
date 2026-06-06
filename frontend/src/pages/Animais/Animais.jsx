@@ -49,7 +49,10 @@ function Animais() {
         <h1 className="animais-titulo">Animais Disponíveis 🐶</h1>
         <div className="animais-lista">
           {animais.map((animal) => (
-            <article key={animal.id} className="animal-card">
+            <article
+              key={animal.id}
+              className={`animal-card ${animal.status === 'adotado' ? 'animal-card-adotado' : ''}`}
+            >
 
               {animal.foto && (
                 <img
@@ -67,12 +70,23 @@ function Animais() {
                 {animal.descricao}
               </p>
 
-              <Link
-                to={`/solicitar-adocao/${animal.id}`}
-                className="animal-adotar-button"
-              >
-                Quero Adotar
-              </Link>
+              {animal.status === 'adotado' ? (
+                <>
+                  <button
+                    className="animal-adotar-button"
+                    disabled
+                  >
+                    Já adotado
+                  </button>
+                </>
+              ) : (
+                <Link
+                  to={`/solicitar-adocao/${animal.id}`}
+                  className="animal-adotar-button"
+                >
+                  Quero Adotar
+                </Link>
+              )}
 
             </article>
           ))}

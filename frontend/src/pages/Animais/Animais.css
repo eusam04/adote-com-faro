@@ -150,6 +150,23 @@
   text-decoration: none;
 }
 
+.animal-card-adotado {
+  opacity: 0.75;
+}
+
+.animal-card-adotado .animal-card-foto {
+  filter: grayscale(70%);
+}
+
+.animal-status-adotado {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.animal-adotar-button:disabled {
+  cursor: not-allowed;
+}
+
 
 /* ==========================================================================
    Responsividade: Ajustes para tablets e celulares

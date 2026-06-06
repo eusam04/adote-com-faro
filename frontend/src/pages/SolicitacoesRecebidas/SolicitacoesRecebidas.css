@@ -187,6 +187,23 @@
   font-size: 16px;
 }
 
+.mensagem-solicitacoes { background: linear-gradient(135deg, #228a81 0%, #1a7a70 100%);
+  color: #f8daa3;
+  padding: 16px 24px;
+  border-radius: 12px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  animation: fadeInScale 0.5s ease;
+  box-shadow: 0 8px 20px rgba(34, 138, 129, 0.25);
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  translate: -50%;
+  width: fit-content;
+  z-index: 1000;
+}
 /* ==========================================================================
    Responsividade: Ajustes para tablets e celulares
    ========================================================================== */

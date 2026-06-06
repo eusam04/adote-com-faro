@@ -5,30 +5,76 @@ import './SolicitacoesRecebidas.css';
 
 function SolicitacoesRecebidas() {
   const [solicitacoes, setSolicitacoes] = useState([]);
+  const [mensagem, setMensagem] = useState('');
+
+  async function carregarSolicitacoes() {
+    const token = localStorage.getItem('token');
+
+    try {
+      const response = await api.get('/minhas-solicitacoes', {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+
+      setSolicitacoes(response.data);
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   useEffect(() => {
-    async function carregarSolicitacoes() {
-      const token = localStorage.getItem('token');
-
-      try {
-        const response = await api.get('/minhas-solicitacoes', {
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
-        });
-
-        setSolicitacoes(response.data);
-
-      } catch (error) {
-        console.log(error);
-      }
-    }
-
     carregarSolicitacoes();
   }, []);
 
+  async function atualizarStatus(id, status) {
+    const token = localStorage.getItem('token');
+
+    try {
+      await api.put(
+        `/solicitacoes/${id}`,
+        { status },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        }
+      );
+
+      setMensagem(
+        status === 'aprovado'
+          ? 'Solicitação aprovada com sucesso!'
+          : 'Solicitação recusada com sucesso!'
+      );
+
+      carregarSolicitacoes();
+
+      setTimeout(() => {
+        setMensagem('');
+      }, 3000);
+
+    } catch (error) {
+      console.log(error);
+
+      setMensagem('Erro ao atualizar solicitação.');
+
+      setTimeout(() => {
+        setMensagem('');
+      }, 3000);
+    }
+  }
+
   return (
     <main className="solicitacoes-page" id="conteudo-principal">
+
+      {
+        mensagem && (
+          <p className="mensagem-solicitacoes">
+            {mensagem}
+          </p>
+        )
+      }
 
       <section className="solicitacoes-header">
         <h1>Solicitações Recebidas</h1>
@@ -69,10 +115,21 @@ function SolicitacoesRecebidas() {
               <strong>Status:</strong> {solicitacao.status}
             </p>
 
-            <div className="solicitacao-actions">
-              <button>Aprovar</button>
-              <button>Recusar</button>
-            </div>
+            {solicitacao.status === 'pendente' && (
+              <div className="solicitacao-actions">
+                <button
+                  onClick={() => atualizarStatus(solicitacao.id, 'aprovado')}
+                >
+                  Aprovar
+                </button>
+
+                <button
+                  onClick={() => atualizarStatus(solicitacao.id, 'recusado')}
+                >
+                  Recusar
+                </button>
+              </div>
+            )}
           </article>
         ))}
 
