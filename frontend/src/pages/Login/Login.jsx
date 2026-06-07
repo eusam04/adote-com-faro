@@ -43,7 +43,7 @@ function Login() {
         }
     
         else {
-          navigate('/animais');
+          navigate('/painel-usuario');
         }
     
       }, 1500);

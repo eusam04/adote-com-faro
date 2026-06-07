@@ -1,0 +1,217 @@
+/* ==========================================================================
+   CSS da Página de Painel do Usuário - Design Moderno
+   ========================================================================== */
+
+/* Container principal da página */
+.painel-usuario-page {
+  width: 100%;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 40px 24px 80px;
+  box-sizing: border-box;
+}
+
+/* Cabeçalho da página */
+.painel-usuario-header h1 {
+  background: linear-gradient(135deg, #d08620 0%, #f3b85e 100%);
+  color: #6b3502;
+  font-size: 30px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  padding: 32px 28px;
+  border-radius: 24px;
+  box-shadow: 0 6px 18px rgba(208, 134, 32, 0.25);
+  margin-bottom: 40px;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+}
+
+.painel-usuario-header h1::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 80px;
+  height: 80px;
+  background: rgba(248, 218, 163, 0.3);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.painel-usuario-header h1::after {
+  content: '🏠';
+  font-size: 36px;
+  display: block;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.painel-usuario-header p {
+  text-align: center;
+  font-size: 18px;
+  color: #6b3502;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-top: -20px;
+  margin-bottom: 30px;
+}
+
+/* Grid de cards */
+.painel-usuario-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 28px;
+}
+
+/* Card do painel */
+.painel-usuario-card {
+  background: linear-gradient(135deg, #91ceba 0%, #a8d8c6 100%);
+  border-radius: 24px;
+  padding: 32px 24px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(145, 206, 186, 0.25);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.painel-usuario-card:hover {
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 16px 32px rgba(145, 206, 186, 0.35);
+}
+
+.painel-usuario-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #f3684f, #d08620);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.painel-usuario-card:hover::before {
+  opacity: 1;
+}
+
+/* Título do card */
+.painel-usuario-card h2 {
+  font-size: 24px;
+  color: #6b3502;
+  margin: 0 0 18px 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+/* Descrição do card */
+.painel-usuario-card p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #6b3502;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: 0 0 24px 0;
+}
+
+/* Botão do card */
+.painel-usuario-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f3684f 0%, #e2583f 100%);
+  color: #f8daa3;
+  padding: 12px 26px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 15px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(243, 104, 79, 0.3);
+  text-decoration: none;
+}
+
+.painel-usuario-button:hover {
+  background: linear-gradient(135deg, #e2583f 0%, #d04a30 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(243, 104, 79, 0.4);
+  text-decoration: none;
+}
+
+
+/* ==========================================================================
+   Responsividade: Ajustes para tablets e celulares
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .painel-usuario-page {
+    padding: 36px 24px 80px;
+  }
+
+  .painel-usuario-header h1 {
+    font-size: 26px;
+    padding: 28px 24px;
+    margin-bottom: 36px;
+  }
+
+  .painel-usuario-cards {
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .painel-usuario-page {
+    padding: 32px 20px 80px;
+  }
+
+  .painel-usuario-header h1 {
+    font-size: 24px;
+    padding: 24px 20px;
+    margin-bottom: 32px;
+  }
+
+  .painel-usuario-cards {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .painel-usuario-card {
+    padding: 28px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .painel-usuario-page {
+    padding: 28px 16px 80px;
+  }
+
+  .painel-usuario-header h1 {
+    font-size: 22px;
+    padding: 20px 18px;
+    margin-bottom: 28px;
+  }
+
+  .painel-usuario-card {
+    padding: 24px 18px;
+  }
+}
+
+@media (max-width: 360px) {
+  .painel-usuario-page {
+    padding: 24px 12px 80px;
+  }
+
+  .painel-usuario-header h1 {
+    font-size: 20px;
+    padding: 18px 16px;
+  }
+
+  .painel-usuario-card {
+    padding: 22px 16px;
+  }
+}

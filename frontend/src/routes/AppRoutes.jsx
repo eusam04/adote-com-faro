@@ -6,6 +6,7 @@ import Login from '../pages/Login/Login';
 import Cadastro from '../pages/Cadastro/Cadastro';
 import DashboardONG from '../pages/DashboardONG/DashboardONG';
 import PainelProtetor from '../pages/PainelProtetor/PainelProtetor';
+import PainelUsuario from '../pages/PainelUsuario/PainelUsuario';
 import CadastrarAnimal from '../pages/CadastroAnimal/CadastrarAnimal';
 import SolicitarAdocao from '../pages/SolicitarAdocao/SolicitarAdocao';
 import SolicitacoesRecebidas from '../pages/SolicitacoesRecebidas/SolicitacoesRecebidas';
@@ -35,6 +36,10 @@ function AppRoutes() {
         <Route
           path="/painel-protetor"
           element={<PainelProtetor />}
+        />
+
+        <Route path="/painel-usuario" 
+        element={<PainelUsuario />} 
         />
 
         <Route
