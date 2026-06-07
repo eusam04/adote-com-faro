@@ -34,7 +34,9 @@ function DashboardONG() {
           <div className="dashboard-card">
             <h2>Meus Animais</h2>
             <p>Visualize, edite ou remova os animais cadastrados pela sua ONG.</p>
-            <button>Ver animais</button>
+            <Link to="/meus-animais" className="dashboard-card-button">
+              Meus Animais
+            </Link>
           </div>
 
           {/* Card para gerenciamento de solicitações de adoção */}

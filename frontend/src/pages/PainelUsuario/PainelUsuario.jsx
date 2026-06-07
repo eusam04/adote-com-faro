@@ -32,7 +32,9 @@ function PainelUsuario() {
           <div className="painel-card">
             <h2>Meus animais cadastrados</h2>
             <p>Gerencie animais resgatados que você colocou para adoção.</p>
-            <button>Ver animais</button>
+            <Link to="/meus-animais" className="painel-button">
+              Meus Animais
+            </Link>
           </div>
 
           <div className="painel-card">

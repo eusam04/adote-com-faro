@@ -37,7 +37,7 @@ function CadastrarAnimal() {
       setMensagem('Animal cadastrado com sucesso!');
 
       setTimeout(() => {
-        navigate('/animais');
+        navigate('/meus-animais');
       }, 1500);
 
     } catch (error) {

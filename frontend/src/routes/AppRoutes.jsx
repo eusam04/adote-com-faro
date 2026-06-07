@@ -9,6 +9,7 @@ import PainelUsuario from '../pages/PainelUsuario/PainelUsuario';
 import CadastrarAnimal from '../pages/CadastroAnimal/CadastrarAnimal';
 import SolicitarAdocao from '../pages/SolicitarAdocao/SolicitarAdocao';
 import SolicitacoesRecebidas from '../pages/SolicitacoesRecebidas/SolicitacoesRecebidas';
+import MeusAnimais from '../pages/MeusAnimais/MeusAnimais';
 
 function AppRoutes() {
 
@@ -50,7 +51,12 @@ function AppRoutes() {
           path="/solicitacoes-recebidas"
           element={<SolicitacoesRecebidas />}
         />
-        
+
+
+        <Route
+          path="/meus-animais"
+          element={<MeusAnimais />}
+        />
 
       </Routes>
 
