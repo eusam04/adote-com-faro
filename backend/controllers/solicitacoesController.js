@@ -10,11 +10,11 @@ const criarSolicitacao = (req, res) => {
         req.usuario.tipo === 'ong' ||
         req.usuario.tipo === 'cuidador'
     ) {
-    
+
         return res.status(403).send(
             'Apenas usuários comuns podem solicitar adoção'
         );
-    
+
     }
 
     const verificarAnimalSql = `
@@ -190,6 +190,45 @@ const listarMinhasSolicitacoes = (req, res) => {
 
 };
 
+const listarSolicitacoesUsuario = (req, res) => {
+
+    const id_usuario = req.usuario.id;
+
+    const sql = `
+        SELECT
+            solicitacoes.id,
+            animais.nome AS animal,
+            solicitacoes.status,
+            solicitacoes.data_solicitacao
+
+        FROM solicitacoes
+
+        JOIN animais
+        ON solicitacoes.id_animal = animais.id
+
+        WHERE solicitacoes.id_usuario = ?
+    `;
+
+    connection.query(
+        sql,
+        [id_usuario],
+        (err, results) => {
+
+            if (err) {
+                console.log(err);
+
+                return res.status(500).send(
+                    'Erro ao buscar solicitações'
+                );
+            }
+
+            res.json(results);
+
+        }
+    );
+
+};
+
 const atualizarStatusSolicitacao = (req, res) => {
 
     const { id } = req.params;
@@ -285,5 +324,6 @@ module.exports = {
     criarSolicitacao,
     listarSolicitacoes,
     listarMinhasSolicitacoes,
+    listarSolicitacoesUsuario,
     atualizarStatusSolicitacao
 };

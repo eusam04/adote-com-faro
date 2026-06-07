@@ -1,9 +1,9 @@
 /* ==========================================================================
-   CSS da Página de Meus Animais - Design Moderno
+   CSS da Página de Minhas Solicitações - Design Moderno
    ========================================================================== */
 
 /* Container principal da página */
-.meus-animais-page {
+.minhas-solicitacoes-page {
   width: 100%;
   max-width: 1100px;
   margin-left: auto;
@@ -13,7 +13,7 @@
 }
 
 /* Cabeçalho da página */
-.meus-animais-header h1 {
+.minhas-solicitacoes-header h1 {
   background: linear-gradient(135deg, #d08620 0%, #f3b85e 100%);
   color: #6b3502;
   font-size: 30px;
@@ -28,7 +28,7 @@
   overflow: hidden;
 }
 
-.meus-animais-header h1::before {
+.minhas-solicitacoes-header h1::before {
   content: '';
   position: absolute;
   top: -20px;
@@ -40,8 +40,8 @@
   z-index: 0;
 }
 
-.meus-animais-header h1::after {
-  content: '🐾';
+.minhas-solicitacoes-header h1::after {
+  content: '📋';
   font-size: 36px;
   display: block;
   margin-bottom: 12px;
@@ -49,7 +49,7 @@
   z-index: 1;
 }
 
-.meus-animais-header p {
+.minhas-solicitacoes-header p {
   text-align: center;
   font-size: 18px;
   color: #6b3502;
@@ -59,14 +59,14 @@
 }
 
 /* Grid de cards */
-.meus-animais-lista {
+.minhas-solicitacoes-lista {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 28px;
 }
 
-/* Card de animal com efeito glass e hover avançado */
-.meu-animal-card {
+/* Card de solicitação */
+.minha-solicitacao-card {
   background: linear-gradient(135deg, #91ceba 0%, #a8d8c6 100%);
   border-radius: 24px;
   padding: 32px 24px;
@@ -77,12 +77,12 @@
   overflow: hidden;
 }
 
-.meu-animal-card:hover {
+.minha-solicitacao-card:hover {
   transform: translateY(-12px) scale(1.03);
   box-shadow: 0 16px 32px rgba(145, 206, 186, 0.35);
 }
 
-.meu-animal-card::before {
+.minha-solicitacao-card::before {
   content: '';
   position: absolute;
   top: 0;
@@ -94,32 +94,22 @@
   transition: opacity 0.3s ease;
 }
 
-.meu-animal-card:hover::before {
+.minha-solicitacao-card:hover::before {
   opacity: 1;
 }
 
-/* Foto do animal */
-.meu-animal-foto {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 16px;
-  margin-bottom: 18px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-/* Nome do animal */
-.meu-animal-card h2 {
+/* Nome do animal na solicitação */
+.minha-solicitacao-card h2 {
   font-size: 24px;
   color: #6b3502;
-  margin: 0 0 14px 0;
+  margin: 0 0 18px 0;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: bold;
   letter-spacing: 0.5px;
 }
 
-/* Informações do animal */
-.meu-animal-card p {
+/* Informações da solicitação */
+.minha-solicitacao-card p {
   font-size: 16px;
   line-height: 1.6;
   color: #6b3502;
@@ -127,26 +117,12 @@
   margin: 10px 0;
 }
 
-.meu-animal-card strong {
+.minha-solicitacao-card strong {
   color: #d08620;
 }
 
-/* Status adotado */
-.meu-animal-adotado {
-  opacity: 0.75;
-}
-
-.meu-animal-adotado .meu-animal-foto {
-  filter: grayscale(70%);
-}
-
-.meu-animal-card p:last-of-type {
-  font-weight: bold;
-  margin-top: 10px;
-}
-
 /* Mensagem vazia */
-.meus-animais-vazio {
+.minhas-solicitacoes-vazio {
   grid-column: 1 / -1;
   text-align: center;
   font-size: 18px;
@@ -163,78 +139,69 @@
    ========================================================================== */
 
 @media (max-width: 1024px) {
-  .meus-animais-page {
+  .minhas-solicitacoes-page {
     padding: 36px 24px 80px;
   }
 
-  .meus-animais-header h1 {
+  .minhas-solicitacoes-header h1 {
     font-size: 26px;
     padding: 28px 24px;
     margin-bottom: 36px;
   }
 
-  .meus-animais-lista {
+  .minhas-solicitacoes-lista {
     gap: 24px;
   }
 }
 
 @media (max-width: 768px) {
-  .meus-animais-page {
+  .minhas-solicitacoes-page {
     padding: 32px 20px 80px;
   }
 
-  .meus-animais-header h1 {
+  .minhas-solicitacoes-header h1 {
     font-size: 24px;
     padding: 24px 20px;
     margin-bottom: 32px;
   }
 
-  .meus-animais-lista {
+  .minhas-solicitacoes-lista {
     grid-template-columns: 1fr;
     gap: 20px;
   }
 
-  .meu-animal-card {
+  .minha-solicitacao-card {
     padding: 28px 20px;
   }
 }
 
 @media (max-width: 480px) {
-  .meus-animais-page {
+  .minhas-solicitacoes-page {
     padding: 28px 16px 80px;
   }
 
-  .meus-animais-header h1 {
+  .minhas-solicitacoes-header h1 {
     font-size: 22px;
     padding: 20px 18px;
     margin-bottom: 28px;
   }
 
-  .meu-animal-card {
+  .minha-solicitacao-card {
     padding: 24px 18px;
-  }
-
-  .meu-animal-foto {
-    height: 180px;
   }
 }
 
 @media (max-width: 360px) {
-  .meus-animais-page {
+  .minhas-solicitacoes-page {
     padding: 24px 12px 80px;
   }
 
-  .meus-animais-header h1 {
+  .minhas-solicitacoes-header h1 {
     font-size: 20px;
     padding: 18px 16px;
   }
 
-  .meu-animal-card {
+  .minha-solicitacao-card {
     padding: 22px 16px;
-  }
-
-  .meu-animal-foto {
-    height: 160px;
-    border-radius: 12px;
   }
 }

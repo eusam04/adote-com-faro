@@ -8,6 +8,7 @@ const {
     criarSolicitacao,
     listarSolicitacoes,
     listarMinhasSolicitacoes,
+    listarSolicitacoesUsuario,
     atualizarStatusSolicitacao
 } = require('../controllers/solicitacoesController');
 
@@ -33,6 +34,12 @@ router.put(
     '/solicitacoes/:id',
     verificarToken,
     atualizarStatusSolicitacao
+);
+
+router.get(
+    '/minhas-solicitacoes-usuario',
+    verificarToken,
+    listarSolicitacoesUsuario
 );
 
 module.exports = router;

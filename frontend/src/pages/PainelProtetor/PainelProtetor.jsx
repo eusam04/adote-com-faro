@@ -1,8 +1,8 @@
-import './PainelUsuario.css';
+import './PainelProtetor.css';
 import SiteLayout from '../../components/SiteLayout';
 import { Link } from 'react-router-dom';
 
-function PainelUsuario() {
+function PainelProtetor() {
   return (
     <SiteLayout>
       <main className="painel-page" id="conteudo-principal">
@@ -52,4 +52,4 @@ function PainelUsuario() {
   );
 }
 
-export default PainelUsuario;
+export default PainelProtetor;

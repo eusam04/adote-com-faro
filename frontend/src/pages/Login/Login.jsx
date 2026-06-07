@@ -39,7 +39,7 @@ function Login() {
         }
     
         else if (tipoUsuario === 'cuidador') {
-          navigate('/painel');
+          navigate('/painel-protetor');
         }
     
         else {
