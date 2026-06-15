@@ -5,146 +5,164 @@ import api from '../../services/api';
 import './EditarAnimal.css';
 
 function EditarAnimal() {
-  const navigate = useNavigate();
-  const { id } = useParams();
+    const navigate = useNavigate();
+    const { id } = useParams();
 
-  const [nome, setNome] = useState('');
-  const [idade, setIdade] = useState('');
-  const [porte, setPorte] = useState('');
-  const [descricao, setDescricao] = useState('');
-  const [mensagem, setMensagem] = useState('');
+    const [nome, setNome] = useState('');
+    const [idade, setIdade] = useState('');
+    const [porte, setPorte] = useState('');
+    const [descricao, setDescricao] = useState('');
+    const [mensagem, setMensagem] = useState('');
+    const [foto, setFoto] = useState(null);
 
-  useEffect(() => {
-    async function carregarAnimal() {
-      try {
-        const response = await api.get('/animais');
+    useEffect(() => {
+        async function carregarAnimal() {
+            try {
+                const response = await api.get('/animais');
 
-        const animalEncontrado = response.data.find(
-          (animal) => animal.id === Number(id)
-        );
+                const animalEncontrado = response.data.find(
+                    (animal) => animal.id === Number(id)
+                );
 
-        if (animalEncontrado) {
-          setNome(animalEncontrado.nome);
-          setIdade(animalEncontrado.idade);
-          setPorte(animalEncontrado.porte);
-          setDescricao(animalEncontrado.descricao);
+                if (animalEncontrado) {
+                    setNome(animalEncontrado.nome);
+                    setIdade(animalEncontrado.idade);
+                    setPorte(animalEncontrado.porte);
+                    setDescricao(animalEncontrado.descricao);
+                }
+
+            } catch (error) {
+                console.log(error);
+            }
         }
 
-      } catch (error) {
-        console.log(error);
+        carregarAnimal();
+    }, [id]);
+
+    async function salvarAlteracoes(event) {
+        event.preventDefault();
+      
+        const token = localStorage.getItem('token');
+      
+        const formData = new FormData();
+      
+        formData.append('nome', nome);
+        formData.append('idade', idade);
+        formData.append('porte', porte);
+        formData.append('descricao', descricao);
+      
+        if (foto) {
+          formData.append('foto', foto);
+        }
+      
+        try {
+          await api.put(
+            `/animais/${id}`,
+            formData,
+            {
+              headers: {
+                Authorization: `Bearer ${token}`
+              }
+            }
+          );
+      
+          setMensagem('Animal atualizado com sucesso!');
+      
+          setTimeout(() => {
+            navigate('/meus-animais');
+          }, 1500);
+      
+        } catch (error) {
+          console.log(error);
+          setMensagem('Erro ao atualizar animal.');
+        }
       }
-    }
 
-    carregarAnimal();
-  }, [id]);
+    return (
+        <main className="editar-animal-page" id="conteudo-principal">
 
-  async function salvarAlteracoes(event) {
-    event.preventDefault();
+            {mensagem && (
+                <p className="mensagem-editar-animal">
+                    {mensagem}
+                </p>
+            )}
 
-    const token = localStorage.getItem('token');
+            <section className="editar-animal-container">
 
-    try {
-      await api.put(
-        `/animais/${id}`,
-        {
-          nome,
-          idade,
-          porte,
-          descricao
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
-        }
-      );
+                <div className="editar-animal-info">
+                    <h1>Editar Animal</h1>
 
-      setMensagem('Animal atualizado com sucesso!');
+                    <p>
+                        Atualize as informações do animal cadastrado.
+                    </p>
+                </div>
 
-      setTimeout(() => {
-        navigate('/meus-animais');
-      }, 1500);
+                <form className="editar-animal-form" onSubmit={salvarAlteracoes}>
 
-    } catch (error) {
-      console.log(error);
-      setMensagem('Erro ao atualizar animal.');
-    }
-  }
+                    <div className="form-group">
+                        <label htmlFor="nome">Nome do animal</label>
+                        <input
+                            type="text"
+                            id="nome"
+                            value={nome}
+                            onChange={(event) => setNome(event.target.value)}
+                        />
+                    </div>
 
-  return (
-    <main className="editar-animal-page" id="conteudo-principal">
+                    <div className="form-group">
+                        <label htmlFor="idade">Idade</label>
+                        <input
+                            type="number"
+                            id="idade"
+                            value={idade}
+                            onChange={(event) => setIdade(event.target.value)}
+                        />
+                    </div>
 
-      {mensagem && (
-        <p className="mensagem-editar-animal">
-          {mensagem}
-        </p>
-      )}
+                    <div className="form-group">
+                        <label htmlFor="porte">Porte</label>
+                        <select
+                            id="porte"
+                            value={porte}
+                            onChange={(event) => setPorte(event.target.value)}
+                        >
+                            <option value="">Selecione o porte</option>
+                            <option value="pequeno">Pequeno</option>
+                            <option value="medio">Médio</option>
+                            <option value="grande">Grande</option>
+                        </select>
+                    </div>
 
-      <section className="editar-animal-container">
+                    <div className="form-group">
+                        <label htmlFor="descricao">Descrição</label>
+                        <textarea
+                            id="descricao"
+                            value={descricao}
+                            onChange={(event) => setDescricao(event.target.value)}
+                        />
+                    </div>
 
-        <div className="editar-animal-info">
-          <h1>Editar Animal</h1>
+                    <div className="form-group">
+                        <label htmlFor="foto">Nova foto do animal</label>
 
-          <p>
-            Atualize as informações do animal cadastrado.
-          </p>
-        </div>
+                        <input
+                            type="file"
+                            id="foto"
+                            accept="image/*"
+                            onChange={(event) => setFoto(event.target.files[0])}
+                        />
+                    </div>
 
-        <form className="editar-animal-form" onSubmit={salvarAlteracoes}>
+                    <button type="submit" className="editar-animal-button">
+                        Salvar alterações
+                    </button>
 
-          <div className="form-group">
-            <label htmlFor="nome">Nome do animal</label>
-            <input
-              type="text"
-              id="nome"
-              value={nome}
-              onChange={(event) => setNome(event.target.value)}
-            />
-          </div>
+                </form>
 
-          <div className="form-group">
-            <label htmlFor="idade">Idade</label>
-            <input
-              type="number"
-              id="idade"
-              value={idade}
-              onChange={(event) => setIdade(event.target.value)}
-            />
-          </div>
+            </section>
 
-          <div className="form-group">
-            <label htmlFor="porte">Porte</label>
-            <select
-              id="porte"
-              value={porte}
-              onChange={(event) => setPorte(event.target.value)}
-            >
-              <option value="">Selecione o porte</option>
-              <option value="pequeno">Pequeno</option>
-              <option value="medio">Médio</option>
-              <option value="grande">Grande</option>
-            </select>
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="descricao">Descrição</label>
-            <textarea
-              id="descricao"
-              value={descricao}
-              onChange={(event) => setDescricao(event.target.value)}
-            />
-          </div>
-
-          <button type="submit" className="editar-animal-button">
-            Salvar alterações
-          </button>
-
-        </form>
-
-      </section>
-
-    </main>
-  );
+        </main>
+    );
 }
 
 export default EditarAnimal;
