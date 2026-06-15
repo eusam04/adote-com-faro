@@ -145,6 +145,54 @@
   margin-top: 10px;
 }
 
+/* Ações do card */
+.meu-animal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.editar-animal-button,
+.remover-animal-button {
+  min-width: 110px;
+  border: none;
+  border-radius: 999px;
+  padding: 12px 20px;
+  font-size: 15px;
+  font-weight: bold;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.editar-animal-button {
+  background: linear-gradient(135deg, #f3b85e 0%, #d08620 100%);
+  color: #fff;
+}
+
+.editar-animal-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(208, 134, 32, 0.35);
+}
+
+.remover-animal-button {
+  background: linear-gradient(135deg, #ff8f7d 0%, #f3684f 100%);
+  color: #fff;
+}
+
+.remover-animal-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(243, 104, 79, 0.35);
+}
+
+.editar-animal-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 /* Mensagem vazia */
 .meus-animais-vazio {
   grid-column: 1 / -1;

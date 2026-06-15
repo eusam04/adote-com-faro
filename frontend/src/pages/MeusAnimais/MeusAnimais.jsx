@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import api from '../../services/api';
 import './MeusAnimais.css';
@@ -6,6 +7,7 @@ import SiteLayout from '../../components/SiteLayout';
 
 function MeusAnimais() {
   const [animais, setAnimais] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function carregarMeusAnimais() {
@@ -30,62 +32,86 @@ function MeusAnimais() {
 
   return (
     <SiteLayout>
-    <main className="meus-animais-page site-main" id="conteudo-principal" tabIndex={-1}>
+      <main className="meus-animais-page site-main" id="conteudo-principal" tabIndex={-1}>
 
-      <section className="meus-animais-header">
-        <h1>Meus Animais</h1>
+        <section className="meus-animais-header">
+          <h1>Meus Animais</h1>
 
-        <p>
-          Veja os animais cadastrados por você e acompanhe o status de cada um.
-        </p>
-      </section>
-
-      <section className="meus-animais-lista">
-
-        {animais.length === 0 && (
-          <p className="meus-animais-vazio">
-            Você ainda não cadastrou nenhum animal.
+          <p>
+            Veja os animais cadastrados por você e acompanhe o status de cada um.
           </p>
-        )}
+        </section>
 
-        {animais.map((animal) => (
-          <article
-            key={animal.id}
-            className={`meu-animal-card ${animal.status === 'adotado' ? 'meu-animal-adotado' : ''}`}
-          >
+        <section className="meus-animais-lista">
 
-            {animal.foto && (
-              <img
-                className="meu-animal-foto"
-                src={`http://localhost:3000/uploads/${animal.foto}`}
-                alt={`Foto de ${animal.nome}`}
-              />
-            )}
-
-            <h2>{animal.nome}</h2>
-
-            <p>
-              <strong>Idade:</strong> {animal.idade} ano(s)
+          {animais.length === 0 && (
+            <p className="meus-animais-vazio">
+              Você ainda não cadastrou nenhum animal.
             </p>
+          )}
 
-            <p>
-              <strong>Porte:</strong> {animal.porte}
-            </p>
+          {animais.map((animal) => (
+            <article
+              key={animal.id}
+              className={`meu-animal-card ${animal.status === 'adotado' ? 'meu-animal-adotado' : ''}`}
+            >
 
-            <p>
-              <strong>Descrição:</strong> {animal.descricao}
-            </p>
+              {animal.foto && (
+                <img
+                  className="meu-animal-foto"
+                  src={`http://localhost:3000/uploads/${animal.foto}`}
+                  alt={`Foto de ${animal.nome}`}
+                />
+              )}
 
-            <p>
-              <strong>Status:</strong> {animal.status}
-            </p>
+              <h2>{animal.nome}</h2>
 
-          </article>
-        ))}
+              <p>
+                <strong>Idade:</strong> {animal.idade} ano(s)
+              </p>
 
-      </section>
+              <p>
+                <strong>Porte:</strong> {animal.porte}
+              </p>
 
-    </main>
+              <p>
+                <strong>Descrição:</strong> {animal.descricao}
+              </p>
+
+              <p>
+                <strong>Status:</strong> {animal.status}
+              </p>
+
+              <div className="meu-animal-actions">
+
+                {animal.status === 'adotado' ? (
+                  <button
+                    className="editar-animal-button"
+                    disabled
+                  >
+                    Editar
+                  </button>
+                ) : (
+                  <button
+                    className="editar-animal-button"
+                    onClick={() => navigate(`/editar-animal/${animal.id}`)}
+                  >
+                    Editar
+                  </button>
+                )}
+
+                <button className="remover-animal-button">
+                  Remover
+                </button>
+
+              </div>
+
+            </article>
+          ))}
+
+        </section>
+
+      </main>
     </SiteLayout>
   );
 }

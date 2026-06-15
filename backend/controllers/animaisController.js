@@ -100,10 +100,6 @@ const atualizarAnimal = (req, res) => {
         descricao
     } = req.body;
 
-    const foto = req.file
-    ? req.file.filename
-    : null;
-
     const verificarSql = `
         SELECT * FROM animais
         WHERE id = ? AND id_ong = ?
@@ -125,6 +121,12 @@ const atualizarAnimal = (req, res) => {
                 );
             }
 
+            const fotoAtual = results[0].foto;
+
+            const foto = req.file
+                ? req.file.filename
+                : fotoAtual;
+
             const sql = `
                 UPDATE animais
                 SET
@@ -139,14 +141,14 @@ const atualizarAnimal = (req, res) => {
             connection.query(
                 sql,
                 [nome, idade, porte, descricao, foto, id],
-                (err, results) => {
+                (err) => {
 
                     if (err) {
                         console.log(err);
-                        res.status(500).send('Erro ao atualizar animal');
-                    } else {
-                        res.send('Animal atualizado com sucesso!');
+                        return res.status(500).send('Erro ao atualizar animal');
                     }
+
+                    res.send('Animal atualizado com sucesso!');
 
                 }
             );

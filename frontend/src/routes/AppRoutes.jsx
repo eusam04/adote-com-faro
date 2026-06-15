@@ -12,6 +12,10 @@ import SolicitarAdocao from '../pages/SolicitarAdocao/SolicitarAdocao';
 import SolicitacoesRecebidas from '../pages/SolicitacoesRecebidas/SolicitacoesRecebidas';
 import MeusAnimais from '../pages/MeusAnimais/MeusAnimais';
 import MinhasSolicitacoes from '../pages/MinhasSolicitacoes/MinhasSolicitacoes';
+import EditarAnimal from '../pages/EditarAnimal/EditarAnimal';
+
+
+
 function AppRoutes() {
 
   return (
@@ -38,8 +42,8 @@ function AppRoutes() {
           element={<PainelProtetor />}
         />
 
-        <Route path="/painel-usuario" 
-        element={<PainelUsuario />} 
+        <Route path="/painel-usuario"
+          element={<PainelUsuario />}
         />
 
         <Route
@@ -67,6 +71,12 @@ function AppRoutes() {
           path="/minhas-solicitacoes"
           element={<MinhasSolicitacoes />}
         />
+
+        <Route
+          path="/editar-animal/:id"
+          element={<EditarAnimal />}
+        />
+
 
       </Routes>
 
