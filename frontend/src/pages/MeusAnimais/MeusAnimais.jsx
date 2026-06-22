@@ -6,16 +6,27 @@ import './MeusAnimais.css';
 import SiteLayout from '../../components/SiteLayout';
 
 function MeusAnimais() {
-  const [animais, setAnimais] = useState([]);
   const navigate = useNavigate();
+
+  const [animais, setAnimais] = useState([]);
+  const [mensagem, setMensagem] = useState('');
+
 
   async function removerAnimal(id) {
 
-    const confirmar = window.confirm(
-      'Tem certeza que deseja remover este animal?'
-    );
+    if (animalConfirmacao !== id) {
 
-    if (!confirmar) {
+      setAnimalConfirmacao(id);
+
+      setMensagem(
+        'Clique novamente em remover para confirmar.'
+      );
+
+      setTimeout(() => {
+        setMensagem('');
+        setAnimalConfirmacao(null);
+      }, 3000);
+
       return;
     }
 
@@ -79,6 +90,13 @@ function MeusAnimais() {
           <p>
             Veja os animais cadastrados por você e acompanhe o status de cada um.
           </p>
+
+          {mensagem && (
+            <p className="mensagem-feedback">
+              {mensagem}
+            </p>
+          )}
+
         </section>
 
         <section className="meus-animais-lista">

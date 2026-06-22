@@ -20,7 +20,6 @@ const listarAnimais = (req, res) => {
 
 };
 
-
 const listarMeusAnimais = (req, res) => {
 
     const id_ong = req.usuario.id;
