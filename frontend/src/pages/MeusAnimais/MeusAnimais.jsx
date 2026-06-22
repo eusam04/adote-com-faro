@@ -9,6 +9,45 @@ function MeusAnimais() {
   const [animais, setAnimais] = useState([]);
   const navigate = useNavigate();
 
+  async function removerAnimal(id) {
+
+    const confirmar = window.confirm(
+      'Tem certeza que deseja remover este animal?'
+    );
+
+    if (!confirmar) {
+      return;
+    }
+
+    const token = localStorage.getItem('token');
+
+    try {
+
+      await api.delete(
+        `/animais/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        }
+      );
+
+      setAnimais(
+        animais.filter(
+          animal => animal.id !== id
+        )
+      );
+
+    } catch (error) {
+
+      console.log(error);
+
+      alert('Erro ao remover animal');
+
+    }
+
+  }
+
   useEffect(() => {
     async function carregarMeusAnimais() {
       const token = localStorage.getItem('token');
@@ -100,7 +139,10 @@ function MeusAnimais() {
                   </button>
                 )}
 
-                <button className="remover-animal-button">
+                <button
+                  className="remover-animal-button"
+                  onClick={() => removerAnimal(animal.id)}
+                >
                   Remover
                 </button>
 

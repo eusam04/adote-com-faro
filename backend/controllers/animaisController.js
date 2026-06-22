@@ -5,7 +5,7 @@ const connection = require('../database');
 
 const listarAnimais = (req, res) => {
 
-    const sql = 'SELECT * FROM animais';
+    const sql = 'SELECT * FROM animais WHERE ativo = TRUE';
 
     connection.query(sql, (err, results) => {
 
@@ -29,6 +29,7 @@ const listarMeusAnimais = (req, res) => {
         SELECT *
         FROM animais
         WHERE id_ong = ?
+        AND ativo = TRUE
     `;
 
     connection.query(
@@ -61,8 +62,8 @@ const cadastrarAnimal = (req, res) => {
     } = req.body;
 
     const foto = req.file
-    ? req.file.filename
-    : null;
+        ? req.file.filename
+        : null;
 
     const id_ong = req.usuario.id;
 
@@ -74,7 +75,7 @@ const cadastrarAnimal = (req, res) => {
 
     connection.query(
         sql,
-        [nome, idade, porte, descricao,foto, id_ong],
+        [nome, idade, porte, descricao, foto, id_ong],
         (err, results) => {
 
             if (err) {
@@ -158,108 +159,31 @@ const atualizarAnimal = (req, res) => {
 
 };
 
-const deletarAnimal = (req, res) => {
+const arquivarAnimal = (req, res) => {
 
     const { id } = req.params;
 
-    const id_ong = req.usuario.id;
-
-    const verificarSql = `
-        SELECT *
-        FROM animais
+    const sql = `
+        UPDATE animais
+        SET ativo = FALSE
         WHERE id = ?
-        AND id_ong = ?
     `;
 
     connection.query(
-        verificarSql,
-        [id, id_ong],
-        (err, results) => {
+        sql,
+        [id],
+        (err) => {
 
             if (err) {
                 console.log(err);
 
                 return res.status(500).send(
-                    'Erro ao verificar animal'
+                    'Erro ao arquivar animal'
                 );
             }
 
-            if (results.length === 0) {
-
-                return res.status(403).send(
-                    'Você não tem permissão'
-                );
-
-            }
-
-            const animal = results[0];
-
-            if (animal.foto) {
-
-                const caminhoFoto = path.join(
-                    __dirname,
-                    '..',
-                    'uploads',
-                    animal.foto
-                );
-
-                fs.unlink(caminhoFoto, (err) => {
-
-                    if (err) {
-                        console.log(
-                            'Erro ao deletar imagem:',
-                            err
-                        );
-                    }
-
-                });
-
-            }
-
-            const deletarSolicitacoesSql = `
-                DELETE FROM solicitacoes
-                WHERE id_animal = ?
-            `;
-
-            connection.query(
-                deletarSolicitacoesSql,
-                [id],
-                (err) => {
-
-                    if (err) {
-                        console.log(err);
-
-                        return res.status(500).send(
-                            'Erro ao deletar solicitações'
-                        );
-                    }
-
-                    const sql = `
-                        DELETE FROM animais
-                        WHERE id = ?
-                    `;
-
-                    connection.query(
-                        sql,
-                        [id],
-                        (err) => {
-
-                            if (err) {
-                                console.log(err);
-
-                                return res.status(500).send(
-                                    'Erro ao deletar animal'
-                                );
-                            }
-
-                            res.send(
-                                'Animal deletado com sucesso!'
-                            );
-
-                        }
-                    );
-
-                }
+            res.send(
+                'Animal arquivado com sucesso!'
             );
 
         }
@@ -271,7 +195,7 @@ module.exports = {
     listarAnimais,
     cadastrarAnimal,
     atualizarAnimal,
-    deletarAnimal,
+    arquivarAnimal,
     listarMeusAnimais
 };
 

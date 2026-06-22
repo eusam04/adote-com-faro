@@ -9,7 +9,7 @@ const {
     listarMeusAnimais,
     cadastrarAnimal,
     atualizarAnimal,
-    deletarAnimal
+    arquivarAnimal
 } = require('../controllers/animaisController');
 
 router.get('/animais', listarAnimais);
@@ -20,6 +20,6 @@ router.post('/animais', verificarToken, upload.single('foto'), cadastrarAnimal);
 
 router.put('/animais/:id', verificarToken, upload.single('foto'), atualizarAnimal);
 
-router.delete('/animais/:id', verificarToken, deletarAnimal);
+router.delete('/animais/:id', verificarToken, arquivarAnimal);
 
 module.exports = router;
