@@ -15,7 +15,7 @@
 > **Adicione aqui um print ou GIF da aplicação**
 
 <p align="center">
-  <img src="./assets/preview-adote-com-faro.gif" alt="Prévia do Adote com Faro" width="900">
+  <img src="./assets/preview-adote-com-faro.gif" alt="Prévia do Adote com Faro" width="600">
 </p>
 
 ---
@@ -29,7 +29,17 @@ A aplicação permite o cadastro e gerenciamento de animais disponíveis para ad
 Este projeto foi desenvolvido com foco em boas práticas de desenvolvimento web, organização de código e experiência do usuário.
 
 ---
+## 🐶 Conheça o Faro
 
+<p align="center">
+  <img src="./assets/imagem-faro.png" alt="Mascote Faro" width="150">
+</p>
+
+O **Faro** é o mascote oficial da plataforma e acompanha o usuário em diferentes partes da aplicação, tornando a experiência mais leve e acolhedora.
+
+Seu design foi inspirado no **Scooby-Doo**, uma referência a um dos cães mais conhecidos da cultura pop. A inspiração busca transmitir simpatia, amizade e confiança — valores que refletem o propósito do projeto: incentivar a adoção responsável e aproximar animais de novos lares.
+
+---
 ## ✨ Funcionalidades
 
 ### Visitantes
@@ -155,5 +165,5 @@ npm run dev
 
 **Samires do Carmo dos Santos**
 
-- LinkedIn: *(adicione seu link)*
-- GitHub: *(adicione seu link)*
+- LinkedIn: *(https://www.linkedin.com/in/samires-santos-b33067309)*
+- GitHub: *(https://github.com/eusam04)*
