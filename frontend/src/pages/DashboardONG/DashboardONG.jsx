@@ -1,7 +1,6 @@
 import './DashboardONG.css';
 import SiteLayout from '../../components/SiteLayout';
 import { Link } from 'react-router-dom';
-import icon from '../../assets/icon-dashboardONG.png';
 
 // Componente do Dashboard da ONG
 // Interface para ONGs gerenciarem seus animais cadastrados e solicitações de adoção
