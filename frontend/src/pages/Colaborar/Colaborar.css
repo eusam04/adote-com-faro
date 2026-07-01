@@ -1,0 +1,261 @@
+/* ==========================================================================
+   CSS da Página Colaborar
+   ========================================================================== */
+
+/* Estilo para a área principal da página */
+.colaborar-page {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Hero section */
+.colaborar-hero {
+  background-color: #d08620;
+  width: 100%;
+  padding: 48px 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  min-height: 300px;
+  box-sizing: border-box;
+}
+
+.colaborar-hero h1 {
+  font-size: 28px;
+  color: #6b3502;
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.colaborar-hero p {
+  font-size: 16px;
+  line-height: 1.4;
+  color: #6b3502;
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  max-width: 600px;
+  text-align: center;
+}
+
+/* Botão de ação no hero */
+.colaborar-button {
+  display: inline-block;
+  background-color: #f3684f;
+  color: #f8daa3;
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  transition: opacity 0.2s ease;
+}
+
+.colaborar-button:hover {
+  opacity: 0.9;
+}
+
+/* Seção sobre */
+.colaborar-sobre {
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.colaborar-sobre h2 {
+  font-size: 24px;
+  color: #6b3502;
+  margin: 0 0 16px 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.colaborar-sobre p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+}
+
+/* Seção dos cards */
+.colaborar-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Card individual */
+.colaborar-card {
+  background-color: #91ceba;
+  flex: 1 1 260px;
+  max-width: 300px;
+  padding: 24px 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.colaborar-card h3 {
+  font-size: 18px;
+  color: #6b3502;
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.colaborar-card p {
+  font-size: 14px;
+  line-height: 1.4;
+  color: #6b3502;
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+}
+
+/* Seção de contato */
+.colaborar-contato {
+  background-color: #f3b85e;
+  width: 100%;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.colaborar-contato h2 {
+  font-size: 24px;
+  color: #6b3502;
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.colaborar-contato p {
+  font-size: 16px;
+  color: #6b3502;
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.colaborar-email {
+  font-weight: bold;
+}
+
+/* ==========================================================================
+   Responsividade: Ajustes para tablets e celulares
+   ========================================================================== */
+
+/* Ajustes para telas médias (Tablets) */
+@media (max-width: 1024px) {
+  .colaborar-hero {
+    padding: 36px 28px;
+  }
+
+  .colaborar-hero h1 {
+    font-size: 24px;
+  }
+
+  .colaborar-card {
+    flex: 1 1 220px;
+    max-width: 260px;
+  }
+}
+
+/* Ajustes para telas menores (Tablets em pé / Celulares grandes) */
+@media (max-width: 768px) {
+  .colaborar-hero {
+    padding: 28px 20px;
+    min-height: auto;
+  }
+
+  .colaborar-hero h1 {
+    font-size: 22px;
+  }
+
+  .colaborar-sobre {
+    padding: 30px 16px;
+  }
+
+  .colaborar-sobre h2 {
+    font-size: 20px;
+  }
+
+  .colaborar-cards {
+    gap: 16px;
+  }
+
+  .colaborar-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+/* Ajustes para celulares médios */
+@media (max-width: 480px) {
+  .colaborar-hero {
+    padding: 20px 16px;
+  }
+
+  .colaborar-hero h1 {
+    font-size: 20px;
+  }
+
+  .colaborar-hero p {
+    font-size: 14px;
+  }
+
+  .colaborar-button {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  .colaborar-sobre h2 {
+    font-size: 18px;
+  }
+
+  .colaborar-sobre p {
+    font-size: 14px;
+  }
+
+  .colaborar-card h3 {
+    font-size: 16px;
+  }
+
+  .colaborar-card p {
+    font-size: 13px;
+  }
+
+  .colaborar-contato h2 {
+    font-size: 20px;
+  }
+
+  .colaborar-contato p {
+    font-size: 14px;
+  }
+}
+
+/* Ajustes para celulares muito pequenos/estreitos */
+@media (max-width: 360px) {
+  .colaborar-hero {
+    padding: 16px 12px;
+  }
+
+  .colaborar-sobre {
+    padding: 20px 12px;
+  }
+
+  .colaborar-contato {
+    padding: 30px 12px;
+  }
+}

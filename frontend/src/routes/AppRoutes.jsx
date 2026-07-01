@@ -13,6 +13,7 @@ import SolicitacoesRecebidas from '../pages/SolicitacoesRecebidas/SolicitacoesRe
 import MeusAnimais from '../pages/MeusAnimais/MeusAnimais';
 import MinhasSolicitacoes from '../pages/MinhasSolicitacoes/MinhasSolicitacoes';
 import EditarAnimal from '../pages/EditarAnimal/EditarAnimal';
+import Colaborar from '../pages/Colaborar/Colaborar';
 
 
 
@@ -75,6 +76,11 @@ function AppRoutes() {
         <Route
           path="/editar-animal/:id"
           element={<EditarAnimal />}
+        />
+
+        <Route
+          path="/colaborar"
+          element={<Colaborar />}
         />
 
 
