@@ -183,11 +183,12 @@
   margin: 0;
   animation: fadeIn 0.5s ease;
   position: fixed;
-  top: 20px;
+  top: 96px;
+  /* Abaixo do header fixo (80px) para não sobrepor a navegação */
   left: 50%;
   translate: -50%;
   width: fit-content;
-  z-index: 1000;
+  z-index: 1002;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 
 }
