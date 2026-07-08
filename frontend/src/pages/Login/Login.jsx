@@ -61,7 +61,9 @@ function Login() {
   }
 
   return (
-    <main id="conteudo-principal" className="login-page" tabIndex={-1}>
+    <SiteLayout>
+
+      <main id="conteudo-principal" className="login-page" tabIndex={-1}>
 
       {
         mensagem && (
@@ -122,6 +124,7 @@ function Login() {
 
     </main>
 
+    </SiteLayout>
   );
 }
 

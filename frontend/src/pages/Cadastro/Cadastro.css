@@ -9,15 +9,15 @@
   /* Centraliza horizontalmente o bloco de cadastro */
   align-items: center;
   /* Centraliza verticalmente o bloco de cadastro */
-  padding: 40px 20px;
-  /* Adiciona espaçamento interno para não encostar nas bordas */
-  min-height: calc(100vh - 80px);
-  /* Ocupa o espaço útil restante (header + footer) */
-  box-sizing: border-box;
-  padding-top: 80px;
+  align-items: safe center;
+  /* 'safe' evita que o card seja cortado quando ele é mais alto que a tela */
+  margin-top: 80px;
   /* Compensa a altura do header fixo */
-  padding-bottom: 100px;
-  /* Compensa a altura do footer fixo */
+  min-height: calc(100vh - 160px);
+  /* Ocupa o espaço útil entre header (80px) e footer (80px) fixos */
+  padding: 24px 20px;
+  /* Espaçamento interno enxuto para caber sem barra de rolagem */
+  box-sizing: border-box;
 }
 
 /* Card centralizado que engloba as informações e o formulário */
@@ -43,14 +43,14 @@
   flex: 1;
   background-color: #d08620;
   /* Cor laranja/marrom para destacar o título (cor do main-card da Home) */
-  padding: 48px;
+  padding: 32px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   /* Centraliza os textos verticalmente */
   align-items: flex-start;
   /* Alinha os textos à esquerda */
-  gap: 20px;
+  gap: 16px;
   /* Espaçamento interno entre o título e a descrição */
 }
 
@@ -80,11 +80,11 @@
 .cadastro-form {
   flex: 1.2;
   /* Dá ligeiramente mais espaço para o formulário */
-  padding: 48px;
+  padding: 32px;
   display: flex;
   flex-direction: column;
   /* Organiza os campos verticalmente */
-  gap: 20px;
+  gap: 14px;
   /* Distância confortável entre cada campo do formulário */
   justify-content: center;
 }
@@ -94,8 +94,8 @@
   display: flex;
   flex-direction: column;
   /* Rótulo em cima e campo de digitação embaixo */
-  gap: 8px;
-  /* Espaço de 8px entre a label e o input */
+  gap: 6px;
+  /* Espaço de 6px entre a label e o input */
 }
 
 /* Rótulos dos campos */
@@ -110,7 +110,7 @@
 /* Campos de entrada de texto e de seleção (input e select) */
 .form-group input,
 .form-group select {
-  padding: 12px 16px;
+  padding: 10px 14px;
   font-size: 15px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   border: 2px solid #ce841f;
@@ -140,7 +140,7 @@
   /* Laranja vibrante idêntico aos botões secundários da Home */
   color: #f8daa3;
   /* Cor de texto bege claro com excelente contraste */
-  padding: 14px;
+  padding: 12px;
   font-size: 16px;
   font-weight: bold;
   font-family: Verdana, Geneva, Tahoma, sans-serif;

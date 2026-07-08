@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import SiteLayout from '../../components/SiteLayout';
 
 import api from '../../services/api';
 import './Cadastro.css';
@@ -46,100 +47,105 @@ function Cadastro() {
   }
 
   return (
-    <main className="cadastro-page">
+    <SiteLayout>
 
-      {
-        mensagem && (
-          <p className="mensagem-sucesso">
-            {mensagem}
-          </p>
-        )
-      }
+      <main className="cadastro-page" id="conteudo-principal" tabIndex={-1}>
 
-      {/* 
-        Container principal do cadastro
-        Divide a página em duas seções: informações sobre o projeto e formulário de cadastro
-      */}
-      <section className="cadastro-container">
+        {
+          mensagem && (
+            <p className="mensagem-sucesso">
+              {mensagem}
+            </p>
+          )
+        }
 
-        {/* Informações sobre o projeto Adote com Faro */}
-        <div className="cadastro-info">
-          <h1>Crie sua conta</h1>
+        {/* 
+          Container principal do cadastro
+          Divide a página em duas seções: informações sobre o projeto e formulário de cadastro
+        */}
+      
+        <section className="cadastro-container">
 
-          <p>
-            Faça parte do Adote com Faro como adotante, cuidador independente
-            ou ONG. Juntos, podemos conectar animais a novos lares.
-          </p>
-        </div>
+          {/* Informações sobre o projeto Adote com Faro */}
+          <div className="cadastro-info">
+            <h1>Crie sua conta</h1>
 
-        {/* Formulário de cadastro de usuário */}
-        <form className="cadastro-form" onSubmit={cadastrarUsuario}>
-
-          {/* Campo de entrada para o nome do usuário */}
-          <div className="form-group">
-            <label htmlFor="nome">Nome</label>
-            <input
-              type="text"
-              id="nome"
-              placeholder="Digite seu nome"
-              value={nome}
-              onChange={(event) => setNome(event.target.value)}
-            />
+            <p>
+              Faça parte do Adote com Faro como adotante, cuidador independente
+              ou ONG. Juntos, podemos conectar animais a novos lares.
+            </p>
           </div>
 
-          {/* Campo de entrada para o email do usuário */}
-          <div className="form-group">
-            <label htmlFor="email">E-mail</label>
-            <input
-              type="email"
-              id="email"
-              placeholder="Digite seu e-mail"
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
-            />
-          </div>
+          {/* Formulário de cadastro de usuário */}
+          <form className="cadastro-form" onSubmit={cadastrarUsuario}>
 
-          {/* Campo de entrada para a senha do usuário */}
-          <div className="form-group">
-            <label htmlFor="senha">Senha</label>
-            <input
-              type="password"
-              id="senha"
-              placeholder="Crie uma senha"
-              value={senha}
-              onChange={(event) => setSenha(event.target.value)}
-            />
-          </div>
+            {/* Campo de entrada para o nome do usuário */}
+            <div className="form-group">
+              <label htmlFor="nome">Nome</label>
+              <input
+                type="text"
+                id="nome"
+                placeholder="Digite seu nome"
+                value={nome}
+                onChange={(event) => setNome(event.target.value)}
+              />
+            </div>
 
-          {/* Seleção do tipo de conta (usuário/cuidador ou ONG) */}
-          <div className="form-group">
-            <label htmlFor="tipo">Tipo de conta</label>
-            <select
-              id="tipo"
-              value={tipo}
-              onChange={(event) => setTipo(event.target.value)}
-            >
-              <option value="">Selecione seu perfil</option>
-              <option value="usuario">Usuário comum</option>
-              <option value="cuidador">Cuidador independente</option>
-              <option value="ong">ONG / Associação protetora</option>
-            </select>
-          </div>
+            {/* Campo de entrada para o email do usuário */}
+            <div className="form-group">
+              <label htmlFor="email">E-mail</label>
+              <input
+                type="email"
+                id="email"
+                placeholder="Digite seu e-mail"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
+              />
+            </div>
 
-          <button type="submit" className="cadastro-button">
-            Criar conta
-          </button>
+            {/* Campo de entrada para a senha do usuário */}
+            <div className="form-group">
+              <label htmlFor="senha">Senha</label>
+              <input
+                type="password"
+                id="senha"
+                placeholder="Crie uma senha"
+                value={senha}
+                onChange={(event) => setSenha(event.target.value)}
+              />
+            </div>
 
-          {/* Link para página de login para usuários que já têm conta */}
-          <p className="cadastro-login">
-            Já tem uma conta? <Link to="/login">Entrar</Link>
-          </p>
+            {/* Seleção do tipo de conta (usuário/cuidador ou ONG) */}
+            <div className="form-group">
+              <label htmlFor="tipo">Tipo de conta</label>
+              <select
+                id="tipo"
+                value={tipo}
+                onChange={(event) => setTipo(event.target.value)}
+              >
+                <option value="">Selecione seu perfil</option>
+                <option value="usuario">Usuário comum</option>
+                <option value="cuidador">Cuidador independente</option>
+                <option value="ong">ONG / Associação protetora</option>
+              </select>
+            </div>
 
-        </form>
+            <button type="submit" className="cadastro-button">
+              Criar conta
+            </button>
 
-      </section>
+            {/* Link para página de login para usuários que já têm conta */}
+            <p className="cadastro-login">
+              Já tem uma conta? <Link to="/login">Entrar</Link>
+            </p>
 
-    </main>
+          </form>
+
+        </section>
+
+      </main>
+
+    </SiteLayout>
   );
 }
 
