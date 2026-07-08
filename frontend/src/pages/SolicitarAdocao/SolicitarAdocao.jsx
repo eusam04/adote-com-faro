@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import SiteLayout from '../../components/SiteLayout';
 
 import api from '../../services/api';
 import './SolicitarAdocao.css';
@@ -51,10 +52,12 @@ function SolicitarAdocao() {
   }
 
   return (
-    <main
-      className="solicitar-adocao-page"
-      id="conteudo-principal"
-    >
+    <SiteLayout>
+
+      <main
+        className="solicitar-adocao-page"
+        id="conteudo-principal"
+      >
 
       {
         aviso && (
@@ -121,6 +124,8 @@ function SolicitarAdocao() {
       </section>
 
     </main>
+
+    </SiteLayout>
   );
 }
 

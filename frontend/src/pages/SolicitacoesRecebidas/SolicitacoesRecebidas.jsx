@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import api from '../../services/api';
+import SiteLayout from '../../components/SiteLayout';
 import './SolicitacoesRecebidas.css';
 
 function SolicitacoesRecebidas() {
@@ -66,7 +67,9 @@ function SolicitacoesRecebidas() {
   }
 
   return (
-    <main className="solicitacoes-page" id="conteudo-principal">
+    <SiteLayout>
+
+      <main className="solicitacoes-page" id="conteudo-principal">
 
       {
         mensagem && (
@@ -136,6 +139,8 @@ function SolicitacoesRecebidas() {
       </section>
 
     </main>
+
+    </SiteLayout>
   );
 }
 

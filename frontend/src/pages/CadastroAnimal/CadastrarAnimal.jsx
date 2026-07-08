@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import SiteLayout from '../../components/SiteLayout';
 
 import api from '../../services/api';
 import './CadastrarAnimal.css';
@@ -47,7 +48,9 @@ function CadastrarAnimal() {
   }
 
   return (
-    <main className="cadastrar-animal-page" id="conteudo-principal">
+    <SiteLayout>
+
+      <main className="cadastrar-animal-page" id="conteudo-principal">
 
       {
         mensagem && (
@@ -135,6 +138,8 @@ function CadastrarAnimal() {
       </section>
 
     </main>
+
+    </SiteLayout>
   );
 }
 

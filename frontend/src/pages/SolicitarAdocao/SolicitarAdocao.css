@@ -8,8 +8,10 @@
   display: flex;              /* Ativa o Flexbox para alinhar itens de forma flexível */
   flex-direction: column;     /* Organiza os elementos filhos em uma coluna */
   align-items: center;        /* Alinha os elementos horizontalmente ao centro */
-  min-height: 100vh;          /* Garante que a página ocupe pelo menos a altura da viewport */
-  padding: 20px;              /* Espaçamento interno */
+  margin-top: 80px;           /* Compensa a altura do header fixo */
+  min-height: calc(100vh - 160px);
+  /* Ocupa o espaço útil entre header (80px) e footer (80px) fixos */
+  padding: 24px 20px 100px;   /* O inferior livra o footer fixo */
   box-sizing: border-box;     /* Garante que o padding não aumente o tamanho total */
 }
 

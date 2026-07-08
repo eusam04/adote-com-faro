@@ -25,6 +25,33 @@
   gap: 40px;                  /* Distância de 40px entre a imagem e o texto */
   min-height: 450px;          /* Altura mínima do bloco */
   box-sizing: border-box;     /* Garante que o padding não aumente o tamanho total do card */
+  position: relative;         /* Permite posicionar as bolhas decorativas */
+  overflow: hidden;           /* Esconde as partes das bolhas que saem do card */
+}
+
+/* Bolhas decorativas de fundo do card principal */
+.main-card::before {
+  content: '';
+  position: absolute;
+  top: -70px;
+  right: -50px;
+  width: 240px;
+  height: 240px;
+  background: rgba(248, 218, 163, 0.25);  /* Bege translúcido da marca */
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.main-card::after {
+  content: '';
+  position: absolute;
+  bottom: -60px;
+  left: -50px;
+  width: 180px;
+  height: 180px;
+  background: rgba(248, 218, 163, 0.25);  /* Mesma cor bege da primeira bolha */
+  border-radius: 50%;
+  z-index: 0;
 }
 
 /* Configuração do link que envolve a imagem do mascote */
@@ -34,6 +61,8 @@
   align-items: center;
   flex: 0 0 320px;            /* Largura fixa inicial para o container da imagem */
   align-self: center;
+  position: relative;         /* Mantém a imagem acima das bolhas decorativas */
+  z-index: 1;
 }
 
 /* Imagem do mascote Faro */
@@ -56,6 +85,8 @@
   align-items: flex-start;    /* Alinha os textos à esquerda */
   gap: 12px;                  /* Espaço entre o título e os parágrafos */
   text-align: left;           /* Alinha o texto à esquerda */
+  position: relative;         /* Mantém o texto acima das bolhas decorativas */
+  z-index: 1;
 }
 
 /* Título de introdução */

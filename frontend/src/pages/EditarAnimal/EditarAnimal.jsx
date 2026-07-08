@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import SiteLayout from '../../components/SiteLayout';
 
 import api from '../../services/api';
 import './EditarAnimal.css';
@@ -79,7 +80,9 @@ function EditarAnimal() {
       }
 
     return (
-        <main className="editar-animal-page" id="conteudo-principal">
+        <SiteLayout>
+
+            <main className="editar-animal-page" id="conteudo-principal">
 
             {mensagem && (
                 <p className="mensagem-editar-animal">
@@ -162,6 +165,8 @@ function EditarAnimal() {
             </section>
 
         </main>
+
+        </SiteLayout>
     );
 }
 
