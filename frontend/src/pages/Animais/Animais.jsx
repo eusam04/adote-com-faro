@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import SiteLayout from '../../components/SiteLayout';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Animais.css';
 import api from '../../services/api';
 import faroEmoticon from '../../assets/faro-emoticon1.png';
@@ -8,6 +8,8 @@ import faroEmoticon from '../../assets/faro-emoticon1.png';
 // Componente da Página de Animais
 // Lista todos os animais disponíveis para adoção
 function Animais() {
+
+  const navigate = useNavigate();
 
   const [animais, setAnimais] = useState([]);
 
@@ -40,7 +42,31 @@ function Animais() {
   }, []); // Array vazio significa que este efeito roda apenas uma vez, no mount do componente
 
   return (
-    <SiteLayout>
+    <SiteLayout
+      headerActions={
+        <button
+          type="button"
+          className="voltar-nav-button"
+          onClick={() => navigate(-1)}
+          aria-label="Voltar para a página anterior"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M19 12H5" />
+            <path d="M12 19l-7-7 7-7" />
+          </svg>
+        </button>
+      }
+    >
       {/* 
         A tag <main> indica o conteúdo principal da página.
         O id "conteudo-principal" permite que o link de acessibilidade (skip link) pule direto para cá.

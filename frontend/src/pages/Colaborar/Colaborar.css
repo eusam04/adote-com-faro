@@ -2,154 +2,354 @@
    CSS da Página Colaborar
    ========================================================================== */
 
-/* Estilo para a área principal da página */
-.colaborar-page {
-  text-align: center;
+/* Botão de voltar (canto superior esquerdo do cabeçalho/nav) */
+.voltar-nav-button {
+  position: absolute;        /* Ancora no cabeçalho (position: fixed) */
+  top: 50%;                 /* Centraliza verticalmente */
+  left: 20px;              /* Canto esquerdo */
+  transform: translateY(-50%);
+  z-index: 2;               /* Acima de outros elementos do header */
+  background-color: transparent;
+  border: 2px solid #f2ac1b;
+  color: #f2ac1b;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 22px;
+  line-height: 1;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* Hero section */
-.colaborar-hero {
-  background-color: #d08620;
-  width: 100%;
-  padding: 48px 56px;
-  display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 20px;
-  min-height: 300px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.voltar-nav-button:hover {
+  background-color: #f2ac1b;
+  color: #228a81;
+}
+
+@media (max-width: 600px) {
+  .voltar-nav-button {
+    left: auto;             /* Evita sobrepor a logo (que vai para a esquerda) */
+    right: 16px;
+  }
+}
+
+/* Estilo para a área principal da página */
+.colaborar-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 100px;      /* Livra o footer fixo */
+  background-color: #f8daa3;  /* Mesma cor de fundo (body) da Home */
+}
+
+/* ==========================================================================
+   Hero section (destaque com imagem)
+   ========================================================================== */
+.colaborar-hero {
+  width: 100%;
+  background: linear-gradient(135deg, #d08620 0%, #f3b85e 100%);
+  padding: 64px 56px 80px;
+  border-bottom-left-radius: 48px;
+  border-bottom-right-radius: 48px;
+  box-shadow: 0 12px 28px rgba(208, 134, 32, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
   box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Círculos decorativos do hero */
+.colaborar-hero::before,
+.colaborar-hero::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(248, 218, 163, 0.28);
+  z-index: 0;
+}
+
+.colaborar-hero::before {
+  top: -70px;
+  right: -50px;
+  width: 200px;
+  height: 200px;
+}
+
+.colaborar-hero::after {
+  bottom: -80px;
+  left: -60px;
+  width: 220px;
+  height: 220px;
+  background: rgba(248, 218, 163, 0.18);
+}
+
+/* Coluna de texto do hero */
+.colaborar-hero-texto {
+  flex: 1 1 420px;
+  max-width: 540px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.colaborar-hero-tag {
+  display: inline-block;
+  background-color: #228a81;
+  color: #f8daa3;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  box-shadow: 0 4px 12px rgba(34, 138, 129, 0.25);
 }
 
 .colaborar-hero h1 {
-  font-size: 28px;
+  font-size: 36px;
+  line-height: 1.2;
   color: #6b3502;
   margin: 0;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .colaborar-hero p {
-  font-size: 16px;
-  line-height: 1.4;
+  font-size: 17px;
+  line-height: 1.6;
   color: #6b3502;
   margin: 0;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  max-width: 600px;
-  text-align: center;
+  text-align: left;
+}
+
+/* Coluna da imagem do hero */
+.colaborar-hero-imagem {
+  flex: 0 1 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.colaborar-hero-imagem img {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 24px;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.22));
+  animation: colaborarFloat 4s ease-in-out infinite;
+}
+
+@keyframes colaborarFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
 }
 
 /* Botão de ação no hero */
 .colaborar-button {
-  display: inline-block;
-  background-color: #f3684f;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f3684f 0%, #e2583f 100%);
   color: #f8daa3;
-  padding: 12px 24px;
-  border-radius: 6px;
+  padding: 14px 30px;
+  border-radius: 50px;
   text-decoration: none;
   font-weight: bold;
   font-size: 16px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  transition: opacity 0.2s ease;
+  box-shadow: 0 6px 16px rgba(243, 104, 79, 0.35);
+  transition: all 0.3s ease;
 }
 
 .colaborar-button:hover {
-  opacity: 0.9;
+  background: linear-gradient(135deg, #e2583f 0%, #d04a30 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(243, 104, 79, 0.45);
 }
 
-/* Seção sobre */
+/* ==========================================================================
+   Seção sobre
+   ========================================================================== */
 .colaborar-sobre {
-  padding: 40px 20px;
-  max-width: 800px;
+  padding: 56px 24px 24px;
+  max-width: 820px;
   margin: 0 auto;
-}
-
-.colaborar-sobre h2 {
-  font-size: 24px;
-  color: #6b3502;
-  margin: 0 0 16px 0;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-.colaborar-sobre p {
-  font-size: 16px;
-  line-height: 1.5;
-  color: #333;
-  margin: 0;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: center;
 }
 
-/* Seção dos cards */
+.colaborar-sobre h2 {
+  font-size: 28px;
+  color: #6b3502;
+  margin: 0 0 18px 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  position: relative;
+  display: inline-block;
+}
+
+/* Sublinhado decorativo no título */
+.colaborar-sobre h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  margin: 12px auto 0;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #f3684f, #d08620);
+}
+
+.colaborar-sobre p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: #5a4632;
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* ==========================================================================
+   Seção dos cards
+   ========================================================================== */
 .colaborar-cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 24px;
-  padding: 20px;
-  max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 28px;
+  padding: 40px 24px;
+  max-width: 1120px;
+  width: 100%;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
 /* Card individual */
 .colaborar-card {
-  background-color: #91ceba;
-  flex: 1 1 260px;
-  max-width: 300px;
-  padding: 24px 20px;
-  border-radius: 12px;
+  background: linear-gradient(135deg, #91ceba 0%, #a8d8c6 100%);
+  padding: 32px 24px;
+  border-radius: 22px;
   text-align: center;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 20px rgba(145, 206, 186, 0.3);
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  align-items: center;
+  gap: 14px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+              box-shadow 0.35s ease;
+}
+
+/* Barra de destaque no topo do card (aparece no hover) */
+.colaborar-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #f3684f, #d08620);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.colaborar-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 16px 32px rgba(145, 206, 186, 0.4);
+}
+
+.colaborar-card:hover::before {
+  opacity: 1;
+}
+
+/* Ícone do card */
+.colaborar-card-icone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: rgba(248, 218, 163, 0.55);
+  font-size: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .colaborar-card h3 {
-  font-size: 18px;
+  font-size: 19px;
   color: #6b3502;
   margin: 0;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
 }
 
 .colaborar-card p {
-  font-size: 14px;
-  line-height: 1.4;
+  font-size: 15px;
+  line-height: 1.6;
   color: #6b3502;
   margin: 0;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: center;
 }
 
-/* Seção de contato */
+/* ==========================================================================
+   Seção de contato
+   ========================================================================== */
 .colaborar-contato {
-  background-color: #f3b85e;
-  width: 100%;
-  padding: 40px 20px;
+  width: calc(100% - 48px);
+  max-width: 900px;
+  margin: 24px auto 0;
+  background: linear-gradient(135deg, #f3b85e 0%, #d08620 100%);
+  padding: 48px 32px;
+  border-radius: 28px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 16px;
+  box-sizing: border-box;
+  box-shadow: 0 10px 26px rgba(208, 134, 32, 0.28);
+  text-align: center;
 }
 
 .colaborar-contato h2 {
-  font-size: 24px;
+  font-size: 26px;
   color: #6b3502;
   margin: 0;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
 }
 
 .colaborar-contato p {
   font-size: 16px;
+  line-height: 1.6;
   color: #6b3502;
   margin: 0;
+  max-width: 560px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .colaborar-email {
+  display: inline-block;
+  background-color: #6b3502;
+  color: #f8daa3 !important;
   font-weight: bold;
+  padding: 12px 24px;
+  border-radius: 50px;
+  margin-top: 8px !important;
+  box-shadow: 0 6px 16px rgba(107, 53, 2, 0.3);
 }
 
 /* ==========================================================================
@@ -159,103 +359,124 @@
 /* Ajustes para telas médias (Tablets) */
 @media (max-width: 1024px) {
   .colaborar-hero {
-    padding: 36px 28px;
+    padding: 52px 36px 64px;
+    gap: 36px;
   }
 
   .colaborar-hero h1 {
-    font-size: 24px;
+    font-size: 30px;
   }
 
-  .colaborar-card {
-    flex: 1 1 220px;
-    max-width: 260px;
+  .colaborar-hero-imagem {
+    flex-basis: 300px;
   }
 }
 
 /* Ajustes para telas menores (Tablets em pé / Celulares grandes) */
 @media (max-width: 768px) {
   .colaborar-hero {
-    padding: 28px 20px;
-    min-height: auto;
+    flex-direction: column;           /* Imagem em cima, texto embaixo */
+    text-align: center;
+    padding: 40px 24px 56px;
+    gap: 28px;
+  }
+
+  .colaborar-hero-texto {
+    align-items: center;
+  }
+
+  .colaborar-hero p {
+    text-align: center;
   }
 
   .colaborar-hero h1 {
-    font-size: 22px;
+    font-size: 26px;
+  }
+
+  .colaborar-hero-imagem img {
+    max-width: 240px;
   }
 
   .colaborar-sobre {
-    padding: 30px 16px;
+    padding: 40px 20px 16px;
   }
 
   .colaborar-sobre h2 {
-    font-size: 20px;
+    font-size: 24px;
   }
 
   .colaborar-cards {
-    gap: 16px;
-  }
-
-  .colaborar-card {
-    flex: 1 1 100%;
-    max-width: 100%;
+    gap: 20px;
+    padding: 32px 20px;
   }
 }
 
 /* Ajustes para celulares médios */
 @media (max-width: 480px) {
   .colaborar-hero {
-    padding: 20px 16px;
+    padding: 32px 18px 48px;
+    border-bottom-left-radius: 32px;
+    border-bottom-right-radius: 32px;
   }
 
   .colaborar-hero h1 {
-    font-size: 20px;
+    font-size: 23px;
   }
 
   .colaborar-hero p {
-    font-size: 14px;
+    font-size: 15px;
   }
 
   .colaborar-button {
-    font-size: 14px;
-    padding: 10px 20px;
+    font-size: 15px;
+    padding: 12px 24px;
   }
 
   .colaborar-sobre h2 {
-    font-size: 18px;
+    font-size: 22px;
   }
 
   .colaborar-sobre p {
-    font-size: 14px;
+    font-size: 15px;
   }
 
   .colaborar-card h3 {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .colaborar-card p {
-    font-size: 13px;
+    font-size: 14px;
+  }
+
+  .colaborar-contato {
+    padding: 36px 22px;
   }
 
   .colaborar-contato h2 {
-    font-size: 20px;
+    font-size: 22px;
   }
 
   .colaborar-contato p {
-    font-size: 14px;
+    font-size: 15px;
   }
 }
 
 /* Ajustes para celulares muito pequenos/estreitos */
 @media (max-width: 360px) {
   .colaborar-hero {
-    padding: 16px 12px;
+    padding: 28px 14px 40px;
   }
 
   .colaborar-sobre {
-    padding: 20px 12px;
+    padding: 32px 14px 12px;
+  }
+
+  .colaborar-cards {
+    padding: 24px 14px;
   }
 
   .colaborar-contato {
-    padding: 30px 12px;
+    width: calc(100% - 28px);
+    padding: 30px 18px;
   }
 }

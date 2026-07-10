@@ -2,6 +2,41 @@
    CSS da Página de Animais - Design Moderno
    ========================================================================== */
 
+/* Botão de voltar (canto superior esquerdo do cabeçalho/nav) */
+.voltar-nav-button {
+  position: absolute;        /* Ancora no cabeçalho (position: fixed) */
+  top: 50%;                 /* Centraliza verticalmente */
+  left: 20px;              /* Canto esquerdo */
+  transform: translateY(-50%);
+  z-index: 2;               /* Acima de outros elementos do header */
+  background-color: transparent;
+  border: 2px solid #f2ac1b;
+  color: #f2ac1b;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 22px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.voltar-nav-button:hover {
+  background-color: #f2ac1b;
+  color: #228a81;
+}
+
+@media (max-width: 600px) {
+  .voltar-nav-button {
+    left: auto;             /* Evita sobrepor a logo (que vai para a esquerda) */
+    right: 16px;
+  }
+}
+
 /* Container principal da página */
 .animais-main {
   width: 100%;
@@ -55,6 +90,13 @@
   background: rgba(248, 218, 163, 0.3);
   border-radius: 50%;
   z-index: 0;
+  animation: flutuarBolha 4s ease-in-out infinite;
+}
+
+/* Animação de flutuação suave da bolha decorativa */
+@keyframes flutuarBolha {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
 }
 
 /* Grid de cards */

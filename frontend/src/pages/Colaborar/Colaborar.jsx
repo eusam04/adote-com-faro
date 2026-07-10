@@ -1,12 +1,40 @@
 import SiteLayout from '../../components/SiteLayout';
+import { useNavigate } from 'react-router-dom';
 
+import faroColaborar from '../../assets/faro-page-colaborar.png';
 import './Colaborar.css';
 
 function Colaborar() {
 
+  const navigate = useNavigate();
+
   return (
 
-    <SiteLayout>
+    <SiteLayout
+      headerActions={
+        <button
+          type="button"
+          className="voltar-nav-button"
+          onClick={() => navigate(-1)}
+          aria-label="Voltar para a página anterior"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M19 12H5" />
+            <path d="M12 19l-7-7 7-7" />
+          </svg>
+        </button>
+      }
+    >
 
       <main
         className="colaborar-page site-main"
@@ -17,19 +45,32 @@ function Colaborar() {
         {/* Hero */}
         <section className="colaborar-hero">
 
-          <h1>Faça parte dessa missão 🐶❤️</h1>
+          <div className="colaborar-hero-imagem">
+            <img
+              src={faroColaborar}
+              alt="Mascote Faro convidando você a colaborar"
+            />
+          </div>
 
-          <p>
-            Existem muitas formas de ajudar animais em situação de vulnerabilidade.
-            Toda contribuição faz diferença.
-          </p>
+          <div className="colaborar-hero-texto">
 
-          <a
-            href="#contato"
-            className="colaborar-button"
-          >
-            Entrar em contato
-          </a>
+            <span className="colaborar-hero-tag">Adote com Faro</span>
+
+            <h1>Faça parte dessa missão 🐶❤️</h1>
+
+            <p>
+              Existem muitas formas de ajudar animais em situação de vulnerabilidade.
+              Toda contribuição faz diferença.
+            </p>
+
+            <a
+              href="#contato"
+              className="colaborar-button"
+            >
+              Entrar em contato
+            </a>
+
+          </div>
 
         </section>
 
@@ -51,7 +92,9 @@ function Colaborar() {
 
           <article className="colaborar-card">
 
-            <h3>💰 Doações</h3>
+            <span className="colaborar-card-icone" aria-hidden="true">💰</span>
+
+            <h3>Doações</h3>
 
             <p>
               Contribua financeiramente para ajudar ONGs e protetores com
@@ -62,7 +105,9 @@ function Colaborar() {
 
           <article className="colaborar-card">
 
-            <h3>🍖 Doação de ração</h3>
+            <span className="colaborar-card-icone" aria-hidden="true">🍖</span>
+
+            <h3>Doação de ração</h3>
 
             <p>
               Doe ração, brinquedos, cobertores, caminhas e outros itens que
@@ -73,7 +118,9 @@ function Colaborar() {
 
           <article className="colaborar-card">
 
-            <h3>🙋 Seja voluntário</h3>
+            <span className="colaborar-card-icone" aria-hidden="true">🙋</span>
+
+            <h3>Seja voluntário</h3>
 
             <p>
               Ofereça seu tempo para auxiliar em eventos de adoção, campanhas
@@ -84,7 +131,9 @@ function Colaborar() {
 
           <article className="colaborar-card">
 
-            <h3>📢 Compartilhe</h3>
+            <span className="colaborar-card-icone" aria-hidden="true">📢</span>
+
+            <h3>Compartilhe</h3>
 
             <p>
               Divulgue animais disponíveis para adoção e ajude-os a encontrar

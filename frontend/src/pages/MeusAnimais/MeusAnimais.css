@@ -116,6 +116,13 @@
   background: rgba(248, 218, 163, 0.3);
   border-radius: 50%;
   z-index: 0;
+  animation: flutuarBolha 4s ease-in-out infinite;
+}
+
+/* Animação de flutuação suave da bolha decorativa */
+@keyframes flutuarBolha {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
 }
 
 .meus-animais-header p {

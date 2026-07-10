@@ -40,6 +40,7 @@
   background: rgba(248, 218, 163, 0.25);  /* Bege translúcido da marca */
   border-radius: 50%;
   z-index: 0;
+  animation: homeFloat 4s ease-in-out infinite; /* Flutuação suave da bolha */
 }
 
 .main-card::after {
@@ -52,6 +53,8 @@
   background: rgba(248, 218, 163, 0.25);  /* Mesma cor bege da primeira bolha */
   border-radius: 50%;
   z-index: 0;
+  animation: homeFloat 5s ease-in-out infinite; /* Ritmo diferente para movimento natural */
+  animation-delay: 0.5s;
 }
 
 /* Configuração do link que envolve a imagem do mascote */
@@ -73,6 +76,12 @@
   display: block;
   object-fit: contain;        /* Evita que a imagem distorça ou seja cortada */
   border-radius: 10px;        /* Bordas levemente arredondadas */
+}
+
+/* Animação de flutuação suave das bolhas decorativas */
+@keyframes homeFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
 }
 
 /* Bloco que contém os textos explicativos */
