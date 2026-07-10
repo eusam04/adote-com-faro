@@ -5,6 +5,7 @@ import api from '../../services/api';
 import './MeusAnimais.css';
 import SiteLayout from '../../components/SiteLayout';
 import faroEmoticon2 from '../../assets/faro-emoticon2.png';
+import { getPainelRoute } from '../../utils/getPainelRoute';
 
 function MeusAnimais() {
   const navigate = useNavigate();
@@ -87,7 +88,7 @@ function MeusAnimais() {
         <button
           type="button"
           className="voltar-nav-button"
-          onClick={() => navigate(-1)}
+          onClick={() => navigate(getPainelRoute())}
           aria-label="Voltar para a página anterior"
         >
           <svg

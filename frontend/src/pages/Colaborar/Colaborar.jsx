@@ -15,7 +15,7 @@ function Colaborar() {
         <button
           type="button"
           className="voltar-nav-button"
-          onClick={() => navigate(-1)}
+          onClick={() => navigate('/')}
           aria-label="Voltar para a página anterior"
         >
           <svg

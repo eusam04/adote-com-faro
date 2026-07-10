@@ -95,7 +95,7 @@ function EditarAnimal() {
                 <button
                     type="button"
                     className="editar-animal-fechar"
-                    onClick={() => navigate(-1)}
+                    onClick={() => navigate('/meus-animais')}
                     aria-label="Fechar e voltar"
                 >
                     &times;

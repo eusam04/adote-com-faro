@@ -5,6 +5,7 @@ import api from '../../services/api';
 import SiteLayout from '../../components/SiteLayout';
 import './SolicitacoesRecebidas.css';
 import faroEmoticon3 from '../../assets/faro-emoticon3.png';
+import { getPainelRoute } from '../../utils/getPainelRoute';
 
 function SolicitacoesRecebidas() {
   const navigate = useNavigate();
@@ -76,7 +77,7 @@ function SolicitacoesRecebidas() {
         <button
           type="button"
           className="voltar-nav-button"
-          onClick={() => navigate(-1)}
+          onClick={() => navigate(getPainelRoute())}
           aria-label="Voltar para a página anterior"
         >
           <svg

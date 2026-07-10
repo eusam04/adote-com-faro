@@ -65,7 +65,7 @@ function CadastrarAnimal() {
         <button
           type="button"
           className="cadastrar-animal-fechar"
-          onClick={() => navigate(-1)}
+          onClick={() => navigate('/meus-animais')}
           aria-label="Fechar e voltar"
         >
           &times;

@@ -12,6 +12,8 @@ function Animais() {
   const navigate = useNavigate();
 
   const [animais, setAnimais] = useState([]);
+  const [mensagem, setMensagem] = useState('');
+  const [mostrarMensagem, setMostrarMensagem] = useState(false);
 
   useEffect(() => {
 
@@ -41,13 +43,45 @@ function Animais() {
 
   }, []); // Array vazio significa que este efeito roda apenas uma vez, no mount do componente
 
+  function solicitarAdocao(id) {
+
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+
+      setMensagem(
+        'Para solicitar a adoção de um animal, é necessário criar uma conta ou fazer login.'
+      );
+
+      setMostrarMensagem(true);
+
+      setTimeout(() => {
+
+        navigate(
+          '/cadastro',
+          {
+            state: {
+              redirectTo: `/solicitar-adocao/${id}`
+            }
+          }
+        );
+
+      }, 2000);
+
+      return;
+    }
+
+    navigate(`/solicitar-adocao/${id}`);
+
+  }
+
   return (
     <SiteLayout
       headerActions={
         <button
           type="button"
           className="voltar-nav-button"
-          onClick={() => navigate(-1)}
+          onClick={() => navigate('/')}
           aria-label="Voltar para a página anterior"
         >
           <svg
@@ -74,6 +108,11 @@ function Animais() {
       */}
       <main id="conteudo-principal" className="animais-main site-main" tabIndex={-1}>
         <h1 className="animais-titulo">
+          {mostrarMensagem && (
+            <p className="mensagem-feedback">
+              {mensagem}
+            </p>
+          )}
           <img
             className="animais-titulo-emoticon"
             src={faroEmoticon}
@@ -114,12 +153,13 @@ function Animais() {
                   </button>
                 </>
               ) : (
-                <Link
-                  to={`/solicitar-adocao/${animal.id}`}
+                <button
+                  type="button"
                   className="animal-adotar-button"
+                  onClick={() => solicitarAdocao(animal.id)}
                 >
                   Quero Adotar
-                </Link>
+                </button>
               )}
 
             </article>

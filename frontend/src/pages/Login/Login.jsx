@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import SiteLayout from '../../components/SiteLayout';
 
 import api from '../../services/api';
@@ -7,6 +7,8 @@ import './Login.css';
 
 function Login() {
   const navigate = useNavigate();
+  const location = useLocation();
+  console.log(location.state);
 
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
@@ -31,21 +33,28 @@ function Login() {
       setMensagem('Login realizado com sucesso!');
     
       setTimeout(() => {
-    
+
+        const redirectTo = location.state?.redirectTo;
+      
+        if (redirectTo) {
+          navigate(redirectTo);
+          return;
+        }
+      
         const tipoUsuario = response.data.usuario.tipo;
-    
+      
         if (tipoUsuario === 'ong') {
           navigate('/dashboard');
         }
-    
+      
         else if (tipoUsuario === 'cuidador') {
           navigate('/painel-protetor');
         }
-    
+      
         else {
           navigate('/painel-usuario');
         }
-    
+      
       }, 1500);
     
     } catch (error) {

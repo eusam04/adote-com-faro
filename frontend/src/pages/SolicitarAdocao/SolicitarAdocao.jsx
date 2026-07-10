@@ -72,7 +72,7 @@ function SolicitarAdocao() {
         <button
           type="button"
           className="solicitar-adocao-fechar"
-          onClick={() => navigate(-1)}
+          onClick={() => navigate('/animais')}
           aria-label="Fechar e voltar"
         >
           &times;

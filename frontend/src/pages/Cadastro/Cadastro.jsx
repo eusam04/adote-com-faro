@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import SiteLayout from '../../components/SiteLayout';
 
 import api from '../../services/api';
@@ -9,6 +9,8 @@ import './Cadastro.css';
 // Permite que novos usuários se cadastrem no sistema como adotantes, cuidadores ou ONGs
 function Cadastro() {
   const navigate = useNavigate();
+  const location = useLocation();
+  console.log(location.state);
 
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
@@ -37,7 +39,14 @@ function Cadastro() {
       setMensagem('Cadastro realizado com sucesso!');
 
       setTimeout(() => {
-        navigate('/login');
+
+        navigate(
+          '/login',
+          {
+            state: location.state
+          }
+        );
+
       }, 2000);
 
     } catch (error) {
@@ -63,7 +72,7 @@ function Cadastro() {
           Container principal do cadastro
           Divide a página em duas seções: informações sobre o projeto e formulário de cadastro
         */}
-      
+
         <section className="cadastro-container">
 
           {/* Informações sobre o projeto Adote com Faro */}
@@ -136,7 +145,13 @@ function Cadastro() {
 
             {/* Link para página de login para usuários que já têm conta */}
             <p className="cadastro-login">
-              Já tem uma conta? <Link to="/login">Entrar</Link>
+              Já tem uma conta?{' '}
+              <Link
+                to="/login"
+                state={location.state}
+              >
+                Entrar
+              </Link>
             </p>
 
           </form>

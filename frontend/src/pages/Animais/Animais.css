@@ -99,6 +99,50 @@
   50% { transform: translateY(-12px); }
 }
 
+/* ==========================================================================
+   Mensagem de feedback (aviso de login/cadastro para adotar)
+   Exibida como um "toast" fixo no topo, sem afetar o layout do título.
+   ========================================================================== */
+.animais-titulo .mensagem-feedback {
+  position: fixed;
+  top: 92px;                 /* Logo abaixo do header fixo */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  width: max-content;
+  max-width: min(560px, 90vw);
+  background: linear-gradient(135deg, #228a81 0%, #1a7a70 100%);
+  color: #f8daa3;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.5;
+  text-align: center;
+  padding: 16px 24px;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(34, 138, 129, 0.3);
+  animation: feedbackFadeIn 0.4s ease;
+}
+
+/* Animação de entrada suave da mensagem */
+@keyframes feedbackFadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -14px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+}
+
+@media (max-width: 480px) {
+  .animais-titulo .mensagem-feedback {
+    font-size: 14px;
+    padding: 14px 18px;
+  }
+}
+
 /* Grid de cards */
 .animais-lista {
   display: grid;
