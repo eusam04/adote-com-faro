@@ -74,6 +74,35 @@
   z-index: 1;
 }
 
+/* Botão de ação principal do cabeçalho */
+.painel-header-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f3684f 0%, #e2583f 100%);
+  color: #f8daa3;
+  padding: 14px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(243, 104, 79, 0.3);
+  position: relative;
+  z-index: 1;
+}
+
+.painel-header-button:hover {
+  background: linear-gradient(135deg, #e2583f 0%, #d04a30 100%);
+  color: #f8daa3;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(243, 104, 79, 0.4);
+  text-decoration: none;
+}
+
 /* Seção que guarda os cards do painel */
 .painel-cards {
   width: 100%;

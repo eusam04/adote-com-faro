@@ -14,6 +14,10 @@ function PainelProtetor() {
             Acompanhe suas solicitações de adoção e gerencie animais
             cadastrados como cuidador independente.
           </p>
+
+          <Link to="/cadastrar-animal" className="painel-header-button">
+            Cadastrar novo animal
+          </Link>
         </section>
 
         <section className="painel-cards">
@@ -38,11 +42,9 @@ function PainelProtetor() {
           </div>
 
           <div className="painel-card">
-            <h2>Cadastrar animal</h2>
-            <p>Cadastre um animal resgatado para encontrar um novo lar.</p>
-            <Link to="/cadastrar-animal" className="painel-button">
-              Cadastrar
-            </Link>
+            <h2>Campanhas</h2>
+            <p>Organize futuras ações de contribuição, arrecadação e apoio aos animais.</p>
+            <button>Em breve</button>
           </div>
 
         </section>
