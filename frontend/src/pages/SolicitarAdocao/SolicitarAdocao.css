@@ -11,7 +11,7 @@
   margin-top: 80px;           /* Compensa a altura do header fixo */
   min-height: calc(100vh - 160px);
   /* Ocupa o espaço útil entre header (80px) e footer (80px) fixos */
-  padding: 24px 20px 100px;   /* O inferior livra o footer fixo */
+  padding: 24px 20px 88px;    /* O inferior livra o footer fixo */
   box-sizing: border-box;     /* Garante que o padding não aumente o tamanho total */
 }
 
@@ -19,20 +19,46 @@
 .solicitar-adocao-container {
   background-color: #d08620;  /* Cor de fundo laranja/marrom (igual ao home) */
   width: 100%;                /* Ocupa toda a largura disponível */
-  max-width: 900px;           /* Largura máxima */
+  max-width: 640px;           /* Largura máxima reduzida para não dominar a página */
   border-bottom-left-radius: 20px;   /* Arredonda o canto inferior esquerdo (igual ao home) */
   border-bottom-right-radius: 20px;  /* Arredonda o canto inferior direito (igual ao home) */
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave embaixo do card (igual ao home) */
   display: flex;              /* Alinha imagem e textos lado a lado (não usado aqui, mas mantido para consistência) */
   flex-direction: column;     /* Organiza em coluna para o formulário */
   align-items: center;        /* Centraliza horizontalmente */
-  padding: 48px 56px;         /* Espaçamento interno (igual ao home) */
-  gap: 40px;                  /* Distância entre elementos (igual ao home) */
-  min-height: 450px;          /* Altura mínima do bloco (igual ao home) */
+  position: relative;         /* Permite posicionar o botão de fechar no canto */
+  padding: 28px 28px;         /* Espaçamento interno mais compacto */
+  gap: 16px;                  /* Distância entre elementos */
+  min-height: 0;              /* Sem altura mínima para evitar rolagem */
   box-sizing: border-box;     /* Garante que o padding não aumente o tamanho total (igual ao home) */
 }
 
-/* Informações introdutórias - similar ao .text-content */
+/* Botão de fechar (canto superior direito) */
+.solicitar-adocao-fechar {
+  position: absolute;         /* Posiciona no canto do card */
+  top: 12px;                 /* Distância do topo */
+  right: 12px;               /* Distância da direita */
+  width: 36px;               /* Área de toque confortável */
+  height: 36px;
+  display: flex;              /* Centraliza o "x" */
+  align-items: center;
+  justify-content: center;
+  background-color: transparent; /* Sem fundo para não poluir */
+  color: #c0392b;            /* Cor vermelha do "x" por padrão */
+  border: 2px solid #c0392b; /* Borda vermelha para destacar o botão */
+  border-radius: 50%;        /* Formato circular no hover */
+  font-size: 28px;           /* Tamanho do "x" */
+  line-height: 1;            /* Evita deslocamento vertical */
+  cursor: pointer;           /* Indica clicável */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.solicitar-adocao-fechar:hover {
+  background-color: #c0392b; /* Fundo vermelho no hover */
+  color: #f8daa3;           /* Texto claro no hover */
+  border-color: #c0392b;    /* Mantém a borda vermelha */
+}
 .solicitar-adocao-info {
   flex: 1;                    /* Faz o texto ocupar o espaço restante disponível */
   max-width: 520px;           /* Limita a largura máxima do texto para facilitar a leitura (igual ao home) */
@@ -64,10 +90,10 @@
 /* Formulário */
 .solicitar-adocao-form {
   width: 100%;
-  max-width: 500px;
+  max-width: 560px;           /* Aproveita melhor a largura do card reduzido */
   display: flex;
   flex-direction: column;
-  gap: 24px;                  /* Espaçamento entre grupos de formulário */
+  gap: 16px;                  /* Espaçamento entre grupos de formulário */
 }
 
 /* Grupo de campos - similar ao layout do home */
@@ -79,20 +105,21 @@
 
 /* Rótulo - similar aos textos do home */
 .form-group label {
-  font-size: 14px;            /* Tamanho semelhante ao small-card-text do home */
+  font-size: 17px;            /* Tamanho maior para melhor legibilidade */
   color: #6b3502;             /* Cor de texto (igual ao home) */
-  margin-bottom: 4px;         /* Espaçamento menor acima do campo */
+  margin-bottom: 6px;         /* Espaçamento menor acima do campo */
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;          /* Destaca o rótulo sobre o campo */
 }
 
 /* Entrada de texto e área de texto - similar aos inputs do home */
 .form-group input,
 .form-group textarea {
   width: 100%;
-  padding: 10px;              /* Espaçamento interno */
+  padding: 14px;              /* Espaçamento interno mais generoso */
   border: 1px solid #ccc;     /* Borda cinza clara */
   border-radius: 4px;         /* Cantos levemente arredondados */
-  font-size: 16px;            /* Tamanho de fonte legível */
+  font-size: 18px;            /* Tamanho de fonte mais legível */
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   box-sizing: border-box;
   background-color: white;    /* Fundo branco para melhor legibilidade */

@@ -3,6 +3,7 @@ import SiteLayout from '../../components/SiteLayout';
 import { Link } from 'react-router-dom';
 import './Animais.css';
 import api from '../../services/api';
+import faroEmoticon from '../../assets/faro-emoticon1.png';
 
 // Componente da Página de Animais
 // Lista todos os animais disponíveis para adoção
@@ -46,7 +47,14 @@ function Animais() {
         O tabIndex={-1} permite que este bloco receba foco por teclado para facilitar a navegação.
       */}
       <main id="conteudo-principal" className="animais-main site-main" tabIndex={-1}>
-        <h1 className="animais-titulo">Animais Disponíveis 🐶</h1>
+        <h1 className="animais-titulo">
+          <img
+            className="animais-titulo-emoticon"
+            src={faroEmoticon}
+            alt="Mascote Faro"
+          />
+          Animais Disponíveis para Adoção
+        </h1>
         <div className="animais-lista">
           {animais.map((animal) => (
             <article

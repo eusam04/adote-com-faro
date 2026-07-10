@@ -22,11 +22,27 @@
   text-align: center;
   padding: 32px 28px;
   border-radius: 24px;
-  box-shadow: 0 6px 18px rgba(208, 134, 32, 0.25);
+  box-shadow:0 6px 18px rgba(208, 134, 32,0.25);
   margin-bottom: 40px;
   font-weight: bold;
   position: relative;
   overflow: hidden;
+  display: flex;             /* Imagem e texto lado a lado */
+  align-items: center;       /* Alinha verticalmente */
+  justify-content: center;   /* Centraliza o conjunto no card */
+  gap: 16px;                /* Espaço entre imagem e texto */
+}
+
+/* Mascote (Faro) no lado esquerdo do título */
+.animais-titulo-emoticon {
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;           /* Não encolhe */
+  object-fit: contain;
+  border-radius: 50%;
+  background-color: rgba(248, 218, 163, 0.55);
+  padding: 6px;
+  box-shadow:0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
 .animais-titulo::before {
@@ -39,15 +55,6 @@
   background: rgba(248, 218, 163, 0.3);
   border-radius: 50%;
   z-index: 0;
-}
-
-.animais-titulo::after {
-  content: '🐾';
-  font-size: 36px;
-  display: block;
-  margin-bottom: 12px;
-  position: relative;
-  z-index: 1;
 }
 
 /* Grid de cards */
@@ -63,10 +70,32 @@
   border-radius: 24px;
   padding: 32px 24px;
   text-align: center;
-  box-shadow: 0 8px 20px rgba(145, 206, 186, 0.25);
+  box-shadow:0 8px 20px rgba(145, 206, 186, 0.25);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   position: relative;
   overflow: hidden;
+}
+
+/* Mascote (Faro) no lado esquerdo do card */
+.animal-card-emoticon {
+  width: 84px;
+  height: 84px;
+  flex-shrink: 0;            /* Não encolhe junto com o conteúdo */
+  object-fit: contain;
+  align-self: flex-start;
+  border-radius: 50%;
+  background-color: rgba(248, 218, 163, 0.55);
+  padding: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* Conteúdo à direita da imagem (foto, nome, descrição, botão) */
+.animal-card-conteudo {
+  flex: 1;                   /* Ocupa o espaço restante */
+  min-width: 0;              /* Permite encolher sem estourar o card */
+  display: flex;
+  flex-direction: column;
+  align-items: center;        /* Mantém o texto centralizado */
 }
 
 .animal-card:hover {
@@ -245,6 +274,12 @@
   .animais-titulo {
     font-size: 20px;
     padding: 18px 16px;
+    gap: 12px;
+  }
+
+  .animais-titulo-emoticon {
+    width: 56px;
+    height: 56px;
   }
 
   .animal-card {

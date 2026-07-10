@@ -69,6 +69,15 @@ function SolicitarAdocao() {
 
       <section className="solicitar-adocao-container">
 
+        <button
+          type="button"
+          className="solicitar-adocao-fechar"
+          onClick={() => navigate(-1)}
+          aria-label="Fechar e voltar"
+        >
+          &times;
+        </button>
+
         <div className="solicitar-adocao-info">
           <h1>Solicitação de Adoção</h1>
 
