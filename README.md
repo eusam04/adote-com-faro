@@ -3,8 +3,8 @@
 ![Vite](https://img.shields.io/badge/Vite-7-646CFF?logo=vite)
 ![Node.js](https://img.shields.io/badge/Node.js-22-339933?logo=node.js)
 ![Express](https://img.shields.io/badge/Express-000000?logo=express)
-![MongoDB](https://img.shields.io/badge/MongoDB-6-47A248?logo=mongodb)
-![License](https://img.shields.io/badge/License-MIT-blue)
+![MySQL](https://img.shields.io/badge/MySQL-8-4479A1?logo=mysql&logoColor=white)
+
 
 > Plataforma web desenvolvida para conectar animais resgatados a novos lares, facilitando o processo de adoção responsável.
 
