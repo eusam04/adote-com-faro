@@ -1,10 +1,14 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import api from '../../services/api';
 import SiteLayout from '../../components/SiteLayout';
 import './SolicitacoesRecebidas.css';
+import faroEmoticon3 from '../../assets/faro-emoticon3.png';
 
 function SolicitacoesRecebidas() {
+  const navigate = useNavigate();
+
   const [solicitacoes, setSolicitacoes] = useState([]);
   const [mensagem, setMensagem] = useState('');
 
@@ -67,8 +71,31 @@ function SolicitacoesRecebidas() {
   }
 
   return (
-    <SiteLayout>
-
+    <SiteLayout
+      headerActions={
+        <button
+          type="button"
+          className="voltar-nav-button"
+          onClick={() => navigate(-1)}
+          aria-label="Voltar para a página anterior"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M19 12H5" />
+            <path d="M12 19l-7-7 7-7" />
+          </svg>
+        </button>
+      }
+    >
       <main className="solicitacoes-page" id="conteudo-principal">
 
       {
@@ -80,12 +107,19 @@ function SolicitacoesRecebidas() {
       }
 
       <section className="solicitacoes-header">
-        <h1>Solicitações Recebidas</h1>
-
-        <p>
-          Veja os pedidos de adoção enviados para os animais que você cadastrou.
-        </p>
+        <h1>
+          <img
+            className="solicitacoes-header-emoticon"
+            src={faroEmoticon3}
+            alt="Mascote Faro"
+          />
+          Solicitações Recebidas
+        </h1>
       </section>
+
+      <p className="solicitacoes-descricao">
+        Veja os pedidos de adoção enviados para os animais que você cadastrou.
+      </p>
 
       <section className="solicitacoes-lista">
 

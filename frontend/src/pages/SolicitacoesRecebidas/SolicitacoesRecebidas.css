@@ -26,13 +26,14 @@
   text-align: center;
   padding: 32px 28px;
   border-radius: 24px;
-  box-shadow: 0 6px 18px rgba(208, 134, 32, 0.25);
+  box-shadow:0 6px 18px rgba(208, 134, 32, 0.25);
   margin-bottom: 40px;
   font-weight: bold;
   position: relative;
   overflow: hidden;
 }
 
+/* Bolha decorativa no canto do card maior (igual às outras páginas) */
 .solicitacoes-header::before {
   content: '';
   position: absolute;
@@ -45,22 +46,69 @@
   z-index: 0;
 }
 
-.solicitacoes-header::after {
-  content: '📋';
-  font-size: 36px;
-  display: block;
-  margin-bottom: 12px;
-  position: relative;
-  z-index: 1;
+/* Título em linha com a imagem, alinhado verticalmente */
+.solicitacoes-header h1 {
+  display: flex;             /* Imagem e texto lado a lado */
+  align-items: center;       /* Alinha verticalmente com a imagem */
+  justify-content: center;   /* Centraliza o conjunto no card */
+  gap: 16px;                /* Espaço entre imagem e texto */
 }
 
-/* Parágrafo de descrição */
-.solicitacoes-header p {
+/* Mascote (Faro) no lado esquerdo do título */
+.solicitacoes-header-emoticon {
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;           /* Não encolhe */
+  object-fit: contain;
+  border-radius: 50%;
+  background-color: rgba(248, 218, 163, 0.55);
+  padding: 6px;
+  box-shadow:0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* Botão de voltar (canto superior esquerdo do cabeçalho/nav) */
+.voltar-nav-button {
+  position: absolute;        /* Ancora no cabeçalho (position: fixed) */
+  top: 50%;                 /* Centraliza verticalmente */
+  left: 20px;              /* Canto esquerdo */
+  transform: translateY(-50%);
+  z-index: 2;               /* Acima de outros elementos do header */
+  background-color: transparent;
+  border: 2px solid #f2ac1b;
+  color: #f2ac1b;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 22px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.voltar-nav-button:hover {
+  background-color: #f2ac1b;
+  color: #228a81;
+}
+
+@media (max-width: 600px) {
+  .voltar-nav-button {
+    left: auto;             /* Evita sobrepor a logo (que vai para a esquerda) */
+    right: 16px;
+  }
+}
+
+/* Parágrafo de descrição (fora do card) */
+.solicitacoes-descricao {
   font-size: 16px;
   color: #6b3502;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: center;
   margin-top: 16px;
+  margin-bottom: 32px;
   line-height: 1.5;
 }
 
@@ -223,10 +271,6 @@
     margin-bottom: 36px;
   }
   
-  .solicitacoes-header::after {
-    font-size: 32px;
-  }
-  
   .solicitacoes-lista {
     gap: 24px;
   }
@@ -258,10 +302,6 @@
     font-size: 24px;
     padding: 24px 20px;
     margin-bottom: 32px;
-  }
-  
-  .solicitacoes-header::after {
-    font-size: 28px;
   }
   
   .solicitacoes-lista {
@@ -302,10 +342,6 @@
     margin-bottom: 28px;
   }
   
-  .solicitacoes-header::after {
-    font-size: 24px;
-  }
-  
   .solicitacao-card {
     padding: 20px 16px;
   }
@@ -334,10 +370,6 @@
     font-size: 20px;
     padding: 18px 16px;
     margin-bottom: 24px;
-  }
-  
-  .solicitacoes-header::after {
-    font-size: 20px;
   }
   
   .solicitacao-card {
