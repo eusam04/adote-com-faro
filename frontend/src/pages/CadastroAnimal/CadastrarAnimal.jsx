@@ -62,6 +62,15 @@ function CadastrarAnimal() {
 
       <section className="cadastrar-animal-container">
 
+        <button
+          type="button"
+          className="cadastrar-animal-fechar"
+          onClick={() => navigate(-1)}
+          aria-label="Fechar e voltar"
+        >
+          &times;
+        </button>
+
         <div className="cadastrar-animal-info">
           <h1>Cadastrar animal</h1>
 
