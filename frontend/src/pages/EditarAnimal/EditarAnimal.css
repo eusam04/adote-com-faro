@@ -14,24 +14,25 @@
 .editar-animal-container {
   display: flex;
   width: 100%;
-  max-width: 950px;
+  max-width: 1100px;
   background: linear-gradient(135deg, #d08620 0%, #f3b85e 100%);
   border-radius: 24px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  box-shadow:0 8px 24px rgba(0, 0, 0, 0.18);
   overflow: hidden;
   box-sizing: border-box;
+  position: relative;         /* Permite posicionar o botão de fechar no canto */
 }
 
 .editar-animal-info {
-  flex: 1;
+  flex:1;
   background-color: #d08620;
   color: #6b3502;
-  padding: 56px 48px;
+  padding: 28px 28px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: 20px;
+  gap:12px;
 }
 
 .editar-animal-info h1 {
@@ -53,19 +54,24 @@
 }
 
 .editar-animal-form {
-  flex: 1;
+  flex:1;
   background: linear-gradient(135deg, #91ceba 0%, #a8d8c6 100%);
-  padding: 56px 48px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 22px;
+  padding: 28px 28px;
+  display: grid;             /* Campos em 2 colunas para reduzir a altura */
+  grid-template-columns: 1fr 1fr;
+  align-content: center;
+  gap: 12px;
+}
+
+/* Descrição ocupa a largura toda */
+.editar-animal-form .form-group:nth-of-type(4) {
+  grid-column: 1 / -1;
 }
 
 .editar-animal-form .form-group {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap:6px;
 }
 
 .editar-animal-form .form-group label {
@@ -81,7 +87,7 @@
 .editar-animal-form .form-group textarea {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 15px;
-  padding: 14px 18px;
+  padding: 10px 14px;
   border: 2px solid #f3b85e;
   border-radius: 12px;
   background-color: #ffffff;
@@ -100,7 +106,7 @@
 }
 
 .editar-animal-form .form-group textarea {
-  min-height: 120px;
+  min-height: 80px;
   resize: vertical;
 }
 
@@ -108,9 +114,11 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  grid-column: 1 / -1;     /* Botão ocupa a largura toda */
+  justify-self: center;        /* Centraliza o botão */
   background: linear-gradient(135deg, #f3684f 0%, #e2583f 100%);
   color: #f8daa3;
-  padding: 15px 32px;
+  padding: 12px 26px;
   border: none;
   border-radius: 50px;
   font-weight: bold;
@@ -163,6 +171,33 @@
   }
 }
 
+/* Botão de fechar (canto superior direito) - nível superior, vale em qualquer tela */
+.editar-animal-fechar {
+  position: absolute;         /* Posiciona no canto do card */
+  top: 12px;                 /* Distância do topo */
+  right: 12px;               /* Distância da direita */
+  width: 36px;               /* Área de toque confortável */
+  height: 36px;
+  display: flex;              /* Centraliza o "x" */
+  align-items: center;
+  justify-content: center;
+  background-color: transparent; /* Sem fundo para não poluir */
+  color: #c0392b;            /* Cor vermelha do "x" por padrão */
+  border: 2px solid #c0392b; /* Borda vermelha para destacar o botão */
+  border-radius: 50%;        /* Formato circular no hover */
+  font-size: 28px;           /* Tamanho do "x" */
+  line-height: 1;            /* Evita deslocamento vertical */
+  cursor: pointer;           /* Indica clicável */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.editar-animal-fechar:hover {
+  background-color: #c0392b; /* Fundo vermelho no hover */
+  color: #f8daa3;           /* Texto claro no hover */
+  border-color: #c0392b;    /* Mantém a borda vermelha */
+}
+
 @media (max-width: 1024px) {
   .editar-animal-container {
     max-width: 100%;
@@ -170,7 +205,7 @@
 
   .editar-animal-info,
   .editar-animal-form {
-    padding: 42px 32px;
+    padding: 32px 28px;
   }
 
   .editar-animal-info h1 {
@@ -197,6 +232,7 @@
 
   .editar-animal-form {
     padding: 36px 24px;
+    grid-template-columns: 1fr;  /* Volta a 1 coluna no mobile */
   }
 
   .editar-animal-info h1 {

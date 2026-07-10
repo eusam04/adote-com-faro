@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import api from '../../services/api';
 import './MeusAnimais.css';
 import SiteLayout from '../../components/SiteLayout';
+import faroEmoticon2 from '../../assets/faro-emoticon2.png';
 
 function MeusAnimais() {
   const navigate = useNavigate();
@@ -81,11 +82,42 @@ function MeusAnimais() {
   }, []);
 
   return (
-    <SiteLayout>
+    <SiteLayout
+      headerActions={
+        <button
+          type="button"
+          className="voltar-nav-button"
+          onClick={() => navigate(-1)}
+          aria-label="Voltar para a página anterior"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M19 12H5" />
+            <path d="M12 19l-7-7 7-7" />
+          </svg>
+        </button>
+      }
+    >
       <main className="meus-animais-page site-main" id="conteudo-principal" tabIndex={-1}>
 
         <section className="meus-animais-header">
-          <h1>Meus Animais</h1>
+          <h1>
+            <img
+              className="meus-animais-titulo-emoticon"
+              src={faroEmoticon2}
+              alt="Mascote Faro"
+            />
+            Meus Animais
+          </h1>
 
           <p>
             Veja os animais cadastrados por você e acompanhe o status de cada um.

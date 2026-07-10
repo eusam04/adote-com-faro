@@ -92,6 +92,15 @@ function EditarAnimal() {
 
             <section className="editar-animal-container">
 
+                <button
+                    type="button"
+                    className="editar-animal-fechar"
+                    onClick={() => navigate(-1)}
+                    aria-label="Fechar e voltar"
+                >
+                    &times;
+                </button>
+
                 <div className="editar-animal-info">
                     <h1>Editar Animal</h1>
 
