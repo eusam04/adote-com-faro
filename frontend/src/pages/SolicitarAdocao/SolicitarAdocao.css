@@ -40,7 +40,7 @@
   right: 12px;               /* Distância da direita */
   width: 36px;               /* Área de toque confortável */
   height: 36px;
-  display: flex;              /* Centraliza o "x" */
+  display: flex;             /* Centraliza o "x" */
   align-items: center;
   justify-content: center;
   background-color: transparent; /* Sem fundo para não poluir */
@@ -52,6 +52,12 @@
   cursor: pointer;           /* Indica clicável */
   transition: background-color 0.3s ease, color 0.3s ease;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.solicitar-adocao-fechar:hover {
+  background-color: #c0392b; /* Fundo vermelho no hover */
+  color: #f8daa3;            /* Texto claro no hover */
+  border-color: #c0392b;     /* Mantém a borda vermelha */
 }
 
 .solicitar-adocao-fechar:hover {

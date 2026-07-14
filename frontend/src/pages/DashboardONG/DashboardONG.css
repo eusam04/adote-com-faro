@@ -1,5 +1,7 @@
 /* ==========================================================================
-   CSS do Painel da ONG (DashboardONG)
+   CSS do Painel da ONG (DashboardONG) — Visual de Dashboard
+   Paleta mantida: laranja (#d08620/#f3684f), verde-água (#91ceba),
+   bege (#f8daa3), marrom (#6b3502) e teal (#228a81).
    ========================================================================== */
 
 /* Estilo para a área principal da página */
@@ -16,17 +18,29 @@
 .dashboard-header {
   background: linear-gradient(135deg, #d08620 0%, #f3b85e 100%);
   width: 100%;
-  padding: 40px 48px 64px;
+  padding: 40px 48px 48px;
   border-bottom-left-radius: 40px;
   border-bottom-right-radius: 40px;
   box-shadow: 0px 12px 24px rgba(208, 134, 32, 0.25);
   display: flex;
-  flex-direction: column;
+  flex-direction: row;        /* Título à esquerda, botão à direita */
   align-items: center;
-  gap: 32px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
+}
+
+/* Bloco de texto (título + descrição) do cabeçalho */
+.dashboard-header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+  position: relative;
+  z-index: 1;
 }
 
 .dashboard-header::before {
@@ -62,14 +76,6 @@
   50% { transform: translateY(-12px); }
 }
 
-/* Container do avatar + texto */
-.profile-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
-
 /* Título do painel */
 .dashboard-header h1 {
   font-size: 36px;            /* Tamanho maior para destaque */
@@ -87,7 +93,7 @@
   font-size: 18px;            /* Tamanho confortável */
   line-height: 1.4;           /* Altura da linha para legibilidade */
   color: #6b3502;             /* Cor clara com contraste */
-  max-width: 600px;
+  max-width: 540px;
   margin: 0;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   position: relative;
@@ -96,12 +102,12 @@
 
 /* Botão de ação principal do cabeçalho */
 .dashboard-button {
-  display: inline-flex;      /* Flexbox para alinhar conteúdo */
+  display: inline-flex;       /* Flexbox para alinhar conteúdo */
   align-items: center;
-  justify-content: center;
+  gap: 6px;
   background-color: #f3684f;  /* Laranja vibrante como cor principal */
-  color: #f8daa3;             /* Beje claro para contraste */
-  padding: 14px 28px;        /* Espaçamento interno */
+  color: #f8daa3;             /* Bege claro para contraste */
+  padding: 14px 28px;         /* Espaçamento interno */
   border-radius: 25px;        /* Forma pill/oval */
   text-decoration: none;      /* Remove sublinhado padrão */
   font-weight: bold;          /* Letra em negrito */
@@ -109,7 +115,11 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   border: none;
   cursor: pointer;
-  transition: all 0.3s ease; /* Transição suave */
+  transition: all 0.3s ease;  /* Transição suave */
+  box-shadow: 0 4px 12px rgba(243, 104, 79, 0.35);
+  position: relative;
+  z-index: 1;
+  white-space: nowrap;
 }
 
 .dashboard-button:hover {
@@ -118,44 +128,181 @@
   transform: translateY(-2px); /* Efeito hover elevado */
 }
 
-/* Seção que guarda os cards do painel */
+/* ==========================================================================
+   Faixa de indicadores (KPIs) — dá o aspecto de painel/dashboard
+   ========================================================================== */
+
+.dashboard-stats {
+  width: 100%;
+  max-width: 1100px;
+  margin: -28px auto 0;       /* Sobrepõe levemente o cabeçalho para conectar os blocos */
+  padding: 0 48px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  position: relative;
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+/* Card de indicador (KPI) */
+.dashboard-stat {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(6px);
+  border-radius: 20px;
+  padding: 22px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-align: left;
+  box-shadow: 0 8px 20px rgba(34, 138, 129, 0.18);
+  border: 2px solid rgba(145, 206, 186, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dashboard-stat:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 26px rgba(34, 138, 129, 0.28);
+}
+
+/* Ícone do indicador */
+.dashboard-stat-icon {
+  font-size: 30px;
+  line-height: 1;
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #91ceba 0%, #a8d8c6 100%);
+}
+
+.dashboard-stat-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Valor numérico do indicador */
+.dashboard-stat-value {
+  font-size: 26px;
+  font-weight: bold;
+  color: #6b3502;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  line-height: 1.1;
+}
+
+/* Rótulo do indicador */
+.dashboard-stat-label {
+  font-size: 13px;
+  line-height: 1.3;
+  color: #228a81;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+}
+
+/* ==========================================================================
+   Seção de acesso rápido
+   ========================================================================== */
+
+.dashboard-section {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px 48px 20px;
+  box-sizing: border-box;
+}
+
+/* Título da seção */
+.dashboard-section-title {
+  font-size: 22px;
+  color: #6b3502;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  margin: 0 0 24px;
+  text-align: left;
+  position: relative;
+  padding-left: 16px;
+}
+
+.dashboard-section-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 2px;
+  bottom: 2px;
+  width: 6px;
+  border-radius: 6px;
+  background: linear-gradient(180deg, #f3684f 0%, #d08620 100%);
+}
+
+/* Grid que guarda os cards de funcionalidade */
 .dashboard-cards {
   width: 100%;
-  max-width: 1000px;
-  padding: 40px 48px 20px;
-  margin: 0 auto;             /* Centraliza a seção inteira */
-  display: grid;              /* Grid layout ao invés de flexbox */
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsivo */
-  gap: 24px;                  /* Espaço entre os cards */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
 }
 
 /* Card de funcionalidade do painel */
 .dashboard-card {
-  background-color: #91ceba;  /* Verde-água da paleta */
-  border-radius: 20px;        /* Cantos mais arredondados */
-  padding: 32px 24px;         /* Espaçamento interno */
-  text-align: center;         /* Alinha os textos no centro */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12); /* Sombra mais pronunciada */
-  transition: all 0.3s ease; /* Transição suave */
+  background: linear-gradient(135deg, #91ceba 0%, #a8d8c6 100%);
+  border-radius: 20px;
+  padding: 32px 24px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(145, 206, 186, 0.25);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .dashboard-card:hover {
-  transform: translateY(-5px); /* Eleva o card no hover */
+  transform: translateY(-5px);
+  box-shadow: 0 14px 28px rgba(145, 206, 186, 0.35);
 }
 
-/* Ícone decorativo no card */
-.dashboard-card::after {
-  content: '🐾';
-  font-size: 32px;
-  display: block;
-  margin-bottom: 16px;
+/* Faixa colorida no topo do card ao passar o mouse */
+.dashboard-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #f3684f, #d08620);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.dashboard-card:hover::before {
+  opacity: 1;
+}
+
+/* Ícone do card */
+.dashboard-card-icon {
+  font-size: 38px;
+  line-height: 1;
+  margin-bottom: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: rgba(248, 218, 163, 0.6);
+  box-shadow: 0 4px 10px rgba(107, 53, 2, 0.15);
 }
 
 /* Título de cada funcionalidade */
 .dashboard-card h2 {
   font-size: 22px;
-  color: #6b3502;             /* Marrom escuro para contraste com fundo laranja */
-  margin-bottom: 12px;
+  color: #6b3502;             /* Marrom escuro para contraste com fundo verde-água */
+  margin: 0 0 12px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: bold;
 }
@@ -164,9 +311,10 @@
 .dashboard-card p {
   font-size: 15px;
   line-height: 1.5;
-  color: #6b3502;             /* Marrom escuro para contraste com fundo laranja */
-  margin-bottom: 20px;
+  color: #6b3502;
+  margin: 0 0 22px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  flex: 1;                    /* Empurra o botão para baixo, alinhando os cards */
 }
 
 /* Botão de ação dentro dos cards */
@@ -176,7 +324,7 @@
   align-items: center;
   justify-content: center;
   background-color: #f3684f;  /* Laranja vibrante da paleta como cor principal */
-  color: #f8daa3;             /* Beje claro para contraste */
+  color: #f8daa3;             /* Bege claro para contraste */
   padding: 10px 22px;
   border-radius: 12px;
   text-decoration: none;
@@ -185,47 +333,14 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   border: none;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .dashboard-card button:hover,
 .dashboard-card-button:hover {
   background-color: #d08620;  /* Laranja/marrom no hover */
   color: #f8daa3;
-}
-
-.dashboard-card-primary button,
-.dashboard-card-primary .dashboard-card-button {
-  background-color: #f3684f;  /* Laranja vibrante como cor principal */
-  color: #f8daa3;            /* Beje claro para contraste */
-  border: none;
-}
-
-.dashboard-card-primary button:hover,
-.dashboard-card-primary .dashboard-card-button:hover {
-  background-color: #d08620;
-  color: #f8daa3;
-}
-
-/* Card destacado para "Cadastrar novo animal" - cor sólida da paleta */
-.dashboard-card-primary {
-  background-color: #91ceba; /* Verde-água sólido da paleta */
-}
-
-.dashboard-card-primary h2,
-.dashboard-card-primary p {
-  color: #f8daa3;            /* Beje claro para contraste com verde-água */
-}
-
-.dashboard-card-primary button {
-  background-color: #f3684f;  /* Laranja vibrante como cor principal */
-  color: #f8daa3;            /* Beje claro para contraste */
-  border: none;
-}
-
-.dashboard-card-primary button:hover {
-  background-color: #d08620;
-  color: #f8daa3;
+  transform: translateY(-2px);
 }
 
 
@@ -233,43 +348,34 @@
    Responsividade: Ajustes para tablets e celulares
    ========================================================================== */
 
-/* Ajustes para telas médias (Tablets) */
+/* Tablets */
 @media (max-width: 1024px) {
   .dashboard-header {
-    padding: 36px 32px 56px;
-    gap: 28px;
+    padding: 36px 32px 44px;
   }
 
-  .dashboard-logo {
-    height: 40px;
+  .dashboard-stats {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 32px;
+    gap: 16px;
   }
 
-  .dashboard-logo-link {
-    top: 20px;
-    left: 24px;
-  }
-
-  .profile-avatar {
-    width: 100px;
-    height: 100px;
-  }
-
-  .dashboard-cards {
-    padding: 32px 32px 20px;
-    grid-template-columns: repeat(2, 1fr); /* 2 colunas no tablet */
+  .dashboard-section {
+    padding: 40px 32px 20px;
   }
 }
 
-/* Ajustes para telas menores (Tablets em pé / Celulares grandes) */
+/* Tablets em pé / celulares grandes */
 @media (max-width: 768px) {
   .dashboard-header {
-    padding: 36px 24px;
-    gap: 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 36px 24px 44px;
+    gap: 20px;
   }
 
-  .profile-avatar {
-    width: 96px;
-    height: 96px;
+  .dashboard-header-text {
+    text-align: left;
   }
 
   .dashboard-header h1 {
@@ -280,9 +386,14 @@
     font-size: 16px;
   }
 
-  .dashboard-cards {
-    padding: 24px 20px 20px;
-    grid-template-columns: 1fr; /* 1 coluna no mobile */
+  .dashboard-stats {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 20px;
+    margin-top: -24px;
+  }
+
+  .dashboard-section {
+    padding: 36px 20px 20px;
   }
 
   .dashboard-button {
@@ -291,37 +402,47 @@
   }
 }
 
-/* Ajustes para celulares médios */
+/* Celulares médios */
 @media (max-width: 480px) {
   .dashboard-header {
-    padding: 28px 16px;
+    padding: 28px 16px 40px;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
-  }
-
-  .profile-avatar {
-    width: 72px;
-    height: 72px;
-    border-width: 3px;
   }
 
   .dashboard-header h1 {
     font-size: 24px;
   }
 
-  .dashboard-button {
-    padding: 12px 20px;
-    font-size: 14px;
+  .dashboard-stats {
+    grid-template-columns: 1fr;
+    padding: 0 16px;
+    margin-top: -20px;
+  }
+
+  .dashboard-stat {
+    padding: 18px 16px;
+  }
+
+  .dashboard-stat-icon {
+    width: 46px;
+    height: 46px;
+    font-size: 26px;
+  }
+
+  .dashboard-stat-value {
+    font-size: 22px;
+  }
+
+  .dashboard-section {
+    padding: 28px 16px 16px;
   }
 
   .dashboard-card {
     padding: 24px 18px;
   }
 
-  /* 
-    Questão de Acessibilidade Móvel:
-    Garante que os botões tenham no mínimo 44px de altura e largura útil.
-  */
+  /* Acessibilidade móvel: botões com no mínimo 44px de altura/largua */
   .dashboard-button,
   .dashboard-card button {
     min-height: 44px;
@@ -330,14 +451,18 @@
   }
 }
 
-/* Ajustes para celulares muito pequenos/estreitos */
+/* Celulares muito pequenos/estreitos */
 @media (max-width: 360px) {
   .dashboard-header {
-    padding: 24px 12px;
+    padding: 24px 12px 36px;
   }
 
-  .dashboard-cards {
-    padding: 20px 12px 16px;
+  .dashboard-stats {
+    padding: 0 12px;
+  }
+
+  .dashboard-section {
+    padding: 24px 12px 16px;
   }
 
   .dashboard-card {

@@ -84,7 +84,7 @@ function Home() {
               <p className="small-card-text">
                 Conheça animais que estão em busca de um novo lar cheio de amor, cuidado e carinho. Encontre seu novo melhor amigo e transforme uma vida através da adoção.
               </p>
-              <Link to="/animais" className="btn-small-card">
+              <Link to="/animais" state={{ from: '/' }} className="btn-small-card">
                 Animais para adoção
               </Link>
             </div>

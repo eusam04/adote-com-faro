@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import SiteLayout from '../../components/SiteLayout';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Animais.css';
 import api from '../../services/api';
 import faroEmoticon from '../../assets/faro-emoticon1.png';
@@ -10,6 +10,7 @@ import faroEmoticon from '../../assets/faro-emoticon1.png';
 function Animais() {
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   const [animais, setAnimais] = useState([]);
   const [mensagem, setMensagem] = useState('');
@@ -42,6 +43,11 @@ function Animais() {
     carregarAnimais();
 
   }, []); // Array vazio significa que este efeito roda apenas uma vez, no mount do componente
+
+  function voltar() {
+    const from = location.state?.from;
+    navigate(from || '/');
+  }
 
   function solicitarAdocao(id) {
 
@@ -81,7 +87,7 @@ function Animais() {
         <button
           type="button"
           className="voltar-nav-button"
-          onClick={() => navigate('/')}
+          onClick={voltar}
           aria-label="Voltar para a página anterior"
         >
           <svg
