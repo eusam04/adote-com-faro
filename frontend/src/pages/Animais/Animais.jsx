@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import SiteLayout from '../../components/SiteLayout';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './Animais.css';
 import api from '../../services/api';
 import faroEmoticon from '../../assets/faro-emoticon1.png';

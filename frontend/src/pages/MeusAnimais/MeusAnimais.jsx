@@ -12,6 +12,7 @@ function MeusAnimais() {
 
   const [animais, setAnimais] = useState([]);
   const [mensagem, setMensagem] = useState('');
+  const [animalConfirmacao, setAnimalConfirmacao] = useState(null);
 
 
   async function removerAnimal(id) {

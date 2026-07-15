@@ -13,24 +13,23 @@ function SolicitacoesRecebidas() {
   const [solicitacoes, setSolicitacoes] = useState([]);
   const [mensagem, setMensagem] = useState('');
 
-  async function carregarSolicitacoes() {
-    const token = localStorage.getItem('token');
-
-    try {
-      const response = await api.get('/minhas-solicitacoes', {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      });
-
-      setSolicitacoes(response.data);
-
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
   useEffect(() => {
+    async function carregarSolicitacoes() {
+      const token = localStorage.getItem('token');
+
+      try {
+        const response = await api.get('/minhas-solicitacoes', {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+
+        setSolicitacoes(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
     carregarSolicitacoes();
   }, []);
 
@@ -54,23 +53,25 @@ function SolicitacoesRecebidas() {
           : 'Solicitação recusada com sucesso!'
       );
 
-      carregarSolicitacoes();
+      const response = await api.get('/minhas-solicitacoes', {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+
+      setSolicitacoes(response.data);
 
       setTimeout(() => {
         setMensagem('');
       }, 3000);
-
     } catch (error) {
       console.log(error);
-
       setMensagem('Erro ao atualizar solicitação.');
-
       setTimeout(() => {
         setMensagem('');
       }, 3000);
     }
   }
-
   return (
     <SiteLayout
       headerActions={
