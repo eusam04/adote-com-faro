@@ -75,8 +75,8 @@ Seu design foi inspirado no **Scooby-Doo**, uma referência a um dos cães mais 
 
 ### Banco de Dados
 
-- MongoDB
-- Mongoose
+- MySQL
+- mysql2
 
 ### Outras tecnologias
 
