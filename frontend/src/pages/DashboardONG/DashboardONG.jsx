@@ -1,10 +1,51 @@
+import { useEffect, useState } from 'react';
 import './DashboardONG.css';
 import SiteLayout from '../../components/SiteLayout';
 import { Link } from 'react-router-dom';
+import api from '../../services/api';
 
 // Componente do Dashboard da ONG
 // Interface para ONGs gerenciarem seus animais cadastrados e solicitações de adoção
 function DashboardONG() {
+  const [totais, setTotais] = useState({
+    animais: 0,
+    pendentes: 0,
+    aprovados: 0
+  });
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+
+    async function carregarTotais() {
+      try {
+        const [meusAnimais, solicitacoes] = await Promise.all([
+          api.get('/meus-animais', {
+            headers: { Authorization: `Bearer ${token}` }
+          }),
+          api.get('/minhas-solicitacoes', {
+            headers: { Authorization: `Bearer ${token}` }
+          })
+        ]);
+
+        const recebidas = solicitacoes.data;
+
+        setTotais({
+          animais: meusAnimais.data.length,
+          pendentes: recebidas.filter(s => s.status === 'pendente').length,
+          aprovados: recebidas.filter(s => s.status === 'aprovado').length
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    carregarTotais();
+  }, []);
+
+  const taxa = totais.animais
+    ? Math.round((totais.aprovados / totais.animais) * 100)
+    : 0;
+
   return (
     <SiteLayout>
       {/* 
@@ -31,7 +72,7 @@ function DashboardONG() {
           <div className="dashboard-stat">
             <span className="dashboard-stat-icon" aria-hidden="true">🐾</span>
             <div className="dashboard-stat-info">
-              <span className="dashboard-stat-value">12</span>
+              <span className="dashboard-stat-value">{totais.animais}</span>
               <span className="dashboard-stat-label">Animais cadastrados</span>
             </div>
           </div>
@@ -39,7 +80,7 @@ function DashboardONG() {
           <div className="dashboard-stat">
             <span className="dashboard-stat-icon" aria-hidden="true">📩</span>
             <div className="dashboard-stat-info">
-              <span className="dashboard-stat-value">5</span>
+              <span className="dashboard-stat-value">{totais.pendentes}</span>
               <span className="dashboard-stat-label">Solicitações pendentes</span>
             </div>
           </div>
@@ -47,7 +88,7 @@ function DashboardONG() {
           <div className="dashboard-stat">
             <span className="dashboard-stat-icon" aria-hidden="true">❤️</span>
             <div className="dashboard-stat-info">
-              <span className="dashboard-stat-value">8</span>
+              <span className="dashboard-stat-value">{totais.aprovados}</span>
               <span className="dashboard-stat-label">Adotados com sucesso</span>
             </div>
           </div>
@@ -55,7 +96,7 @@ function DashboardONG() {
           <div className="dashboard-stat">
             <span className="dashboard-stat-icon" aria-hidden="true">🎯</span>
             <div className="dashboard-stat-info">
-              <span className="dashboard-stat-value">73%</span>
+              <span className="dashboard-stat-value">{taxa}%</span>
               <span className="dashboard-stat-label">Taxa de adoção</span>
             </div>
           </div>

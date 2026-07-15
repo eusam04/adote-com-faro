@@ -1,8 +1,49 @@
+import { useEffect, useState } from 'react';
 import './PainelProtetor.css';
 import SiteLayout from '../../components/SiteLayout';
 import { Link } from 'react-router-dom';
+import api from '../../services/api';
 
 function PainelProtetor() {
+  const [totais, setTotais] = useState({
+    animais: 0,
+    recebidas: 0,
+    aprovados: 0
+  });
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+
+    async function carregarTotais() {
+      try {
+        const [meusAnimais, solicitacoes] = await Promise.all([
+          api.get('/meus-animais', {
+            headers: { Authorization: `Bearer ${token}` }
+          }),
+          api.get('/minhas-solicitacoes', {
+            headers: { Authorization: `Bearer ${token}` }
+          })
+        ]);
+
+        const recebidas = solicitacoes.data;
+
+        setTotais({
+          animais: meusAnimais.data.length,
+          recebidas: recebidas.length,
+          aprovados: recebidas.filter(s => s.status === 'aprovado').length
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    carregarTotais();
+  }, []);
+
+  const taxa = totais.animais
+    ? Math.round((totais.aprovados / totais.animais) * 100)
+    : 0;
+
   return (
     <SiteLayout>
       <main className="painel-page" id="conteudo-principal">
@@ -26,7 +67,7 @@ function PainelProtetor() {
           <div className="painel-stat">
             <span className="painel-stat-icon" aria-hidden="true">🐾</span>
             <div className="painel-stat-info">
-              <span className="painel-stat-value">9</span>
+              <span className="painel-stat-value">{totais.animais}</span>
               <span className="painel-stat-label">Animais cadastrados</span>
             </div>
           </div>
@@ -34,7 +75,7 @@ function PainelProtetor() {
           <div className="painel-stat">
             <span className="painel-stat-icon" aria-hidden="true">📨</span>
             <div className="painel-stat-info">
-              <span className="painel-stat-value">3</span>
+              <span className="painel-stat-value">{totais.recebidas}</span>
               <span className="painel-stat-label">Minhas solicitações</span>
             </div>
           </div>
@@ -42,7 +83,7 @@ function PainelProtetor() {
           <div className="painel-stat">
             <span className="painel-stat-icon" aria-hidden="true">❤️</span>
             <div className="painel-stat-info">
-              <span className="painel-stat-value">6</span>
+              <span className="painel-stat-value">{totais.aprovados}</span>
               <span className="painel-stat-label">Adotados com sucesso</span>
             </div>
           </div>
@@ -50,7 +91,7 @@ function PainelProtetor() {
           <div className="painel-stat">
             <span className="painel-stat-icon" aria-hidden="true">🤝</span>
             <div className="painel-stat-info">
-              <span className="painel-stat-value">67%</span>
+              <span className="painel-stat-value">{taxa}%</span>
               <span className="painel-stat-label">Taxa de adoção</span>
             </div>
           </div>
