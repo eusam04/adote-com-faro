@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import SiteLayout from '../../components/SiteLayout';
 import api from '../../services/api';
 import './MinhasSolicitacoes.css';
+import faroEmoticon4 from '../../assets/faro-emoticon4.png';
 
 function MinhasSolicitacoes() {
   const navigate = useNavigate();
@@ -72,7 +73,14 @@ function MinhasSolicitacoes() {
       >
 
       <section className="minhas-solicitacoes-header">
-        <h1>Minhas Solicitações</h1>
+        <h1>
+          <img
+            className="minhas-solicitacoes-titulo-emoticon"
+            src={faroEmoticon4}
+            alt="Mascote Faro"
+          />
+          Minhas Solicitações
+        </h1>
 
         <p>
           Acompanhe o andamento das suas solicitações de adoção.

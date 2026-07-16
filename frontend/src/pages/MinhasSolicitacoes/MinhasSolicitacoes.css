@@ -61,6 +61,22 @@
   font-weight: bold;
   position: relative;
   overflow: hidden;
+  display: flex;             /* Imagem e texto lado a lado */
+  align-items: center;       /* Alinha verticalmente */
+  justify-content: center;   /* Centraliza o conjunto no card */
+  gap: 16px;                /* Espaço entre imagem e texto */
+}
+
+/* Mascote (Faro) no lado esquerdo do título */
+.minhas-solicitacoes-titulo-emoticon {
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;           /* Não encolhe */
+  object-fit: contain;
+  border-radius: 50%;
+  background-color: rgba(248, 218, 163, 0.55);
+  padding: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
 .minhas-solicitacoes-header h1::before {
@@ -73,15 +89,13 @@
   background: rgba(248, 218, 163, 0.3);
   border-radius: 50%;
   z-index: 0;
+  animation: flutuarBolha 4s ease-in-out infinite;
 }
 
-.minhas-solicitacoes-header h1::after {
-  content: '📋';
-  font-size: 36px;
-  display: block;
-  margin-bottom: 12px;
-  position: relative;
-  z-index: 1;
+/* Animação de flutuação suave da bolha decorativa */
+@keyframes flutuarBolha {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
 }
 
 .minhas-solicitacoes-header p {
@@ -234,6 +248,12 @@
   .minhas-solicitacoes-header h1 {
     font-size: 20px;
     padding: 18px 16px;
+    gap: 12px;
+  }
+
+  .minhas-solicitacoes-titulo-emoticon {
+    width: 44px;
+    height: 44px;
   }
 
   .minha-solicitacao-card {
