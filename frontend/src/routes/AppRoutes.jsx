@@ -14,6 +14,7 @@ import MeusAnimais from '../pages/MeusAnimais/MeusAnimais';
 import MinhasSolicitacoes from '../pages/MinhasSolicitacoes/MinhasSolicitacoes';
 import EditarAnimal from '../pages/EditarAnimal/EditarAnimal';
 import Colaborar from '../pages/Colaborar/Colaborar';
+import RotaProtegida from '../components/RotaProtegida';
 
 
 
@@ -35,47 +36,66 @@ function AppRoutes() {
 
         <Route
           path="/dashboard"
-          element={<DashboardONG />}
+          element={
+            <RotaProtegida element={<DashboardONG />} />
+          }
         />
 
         <Route
           path="/painel-protetor"
-          element={<PainelProtetor />}
+          element={
+            <RotaProtegida element={<PainelProtetor />} />
+          }
         />
 
-        <Route path="/painel-usuario"
-          element={<PainelUsuario />}
+        <Route
+          path="/painel-usuario"
+          element={
+            <RotaProtegida element={<PainelUsuario />} />
+          }
         />
 
         <Route
           path='/cadastrar-animal'
-          element={<CadastrarAnimal />}
+          element={
+            <RotaProtegida element={<CadastrarAnimal />} />
+          }
         />
 
         <Route
           path="/solicitar-adocao/:id"
-          element={<SolicitarAdocao />}
+          element={
+            <RotaProtegida element={<SolicitarAdocao />} />
+          }
         />
 
         <Route
           path="/solicitacoes-recebidas"
-          element={<SolicitacoesRecebidas />}
+          element={
+            <RotaProtegida element={<SolicitacoesRecebidas />} />
+          }
         />
 
 
         <Route
           path="/meus-animais"
-          element={<MeusAnimais />}
+          element={
+            <RotaProtegida element={<MeusAnimais />} />
+          }
         />
 
         <Route
           path="/minhas-solicitacoes"
-          element={<MinhasSolicitacoes />}
+          element={
+            <RotaProtegida element={<MinhasSolicitacoes />} />
+          }
         />
 
         <Route
           path="/editar-animal/:id"
-          element={<EditarAnimal />}
+          element={
+            <RotaProtegida element={<EditarAnimal />} />
+          }
         />
 
         <Route

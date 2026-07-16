@@ -3,6 +3,7 @@ import './DashboardONG.css';
 import SiteLayout from '../../components/SiteLayout';
 import { Link } from 'react-router-dom';
 import api from '../../services/api';
+import BotaoSair from '../../components/BotaoSair';
 
 // Componente do Dashboard da ONG
 // Interface para ONGs gerenciarem seus animais cadastrados e solicitações de adoção
@@ -47,7 +48,7 @@ function DashboardONG() {
     : 0;
 
   return (
-    <SiteLayout>
+    <SiteLayout headerActions={<BotaoSair />}>
       {/* 
         Tag main indicando o conteúdo principal da página.
         O id "conteudo-principal" permite que o link de acessibilidade (skip link) pule direto para cá.

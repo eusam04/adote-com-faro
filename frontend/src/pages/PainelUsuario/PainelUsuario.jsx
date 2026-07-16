@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import SiteLayout from '../../components/SiteLayout';
+import BotaoSair from '../../components/BotaoSair';
 import api from '../../services/api';
 import './PainelUsuario.css';
 
@@ -36,7 +37,7 @@ function PainelUsuario() {
   }, []);
 
   return (
-    <SiteLayout>
+    <SiteLayout headerActions={<BotaoSair />}>
       <main className="painel-usuario-page site-main" id="conteudo-principal" tabIndex={-1}>
 
         <section className="painel-usuario-header">

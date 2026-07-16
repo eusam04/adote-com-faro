@@ -3,6 +3,7 @@ import './PainelProtetor.css';
 import SiteLayout from '../../components/SiteLayout';
 import { Link } from 'react-router-dom';
 import api from '../../services/api';
+import BotaoSair from '../../components/BotaoSair';
 
 function PainelProtetor() {
   const [totais, setTotais] = useState({
@@ -45,7 +46,7 @@ function PainelProtetor() {
     : 0;
 
   return (
-    <SiteLayout>
+    <SiteLayout headerActions={<BotaoSair />}>
       <main className="painel-page" id="conteudo-principal">
 
         <section className="painel-header">

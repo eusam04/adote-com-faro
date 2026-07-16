@@ -231,6 +231,31 @@ button:focus-visible {
   }
 }
 
+/* Botão de sair exibido no cabeçalho dos painéis (padrão amarelo dos demais botões) */
+.botao-sair {
+  grid-column: 3;
+  justify-self: end;
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  color: #f8daa4;
+  background-color: #ce841f;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.botao-sair:hover {
+  border-color: #f2ac1b;
+}
+
+.botao-sair:focus-visible {
+  outline: 2px solid #f2ac1b;
+  outline-offset: 2px;
+}
+
 /* Menos animação para quem prefere */
 @media (prefers-reduced-motion: reduce) {
   .site-logo {
