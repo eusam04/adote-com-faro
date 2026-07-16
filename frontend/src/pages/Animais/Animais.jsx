@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import SiteLayout from '../../components/SiteLayout';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { getPainelRoute } from '../../utils/getPainelRoute';
 import './Animais.css';
 import api from '../../services/api';
 import faroEmoticon from '../../assets/faro-emoticon1.png';
@@ -46,7 +47,18 @@ function Animais() {
 
   function voltar() {
     const from = location.state?.from;
-    navigate(from || '/');
+
+    if (from) {
+      navigate(from);
+      return;
+    }
+
+    if (localStorage.getItem('token')) {
+      navigate(getPainelRoute());
+      return;
+    }
+
+    navigate('/');
   }
 
   function solicitarAdocao(id) {
