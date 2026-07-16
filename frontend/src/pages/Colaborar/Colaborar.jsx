@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import SiteLayout from '../../components/SiteLayout';
 import { useNavigate } from 'react-router-dom';
 
@@ -7,6 +8,10 @@ import './Colaborar.css';
 function Colaborar() {
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
 
