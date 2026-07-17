@@ -43,7 +43,11 @@ function SolicitarAdocao() {
     } catch (error) {
       console.log(error);
 
-      setAviso('Erro ao enviar solicitação.');
+      const mensagemErro =
+        error.response?.data ||
+        'Erro ao enviar solicitação.';
+
+      setAviso(mensagemErro);
 
       setTimeout(() => {
         setAviso('');

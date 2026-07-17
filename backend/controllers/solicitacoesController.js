@@ -229,6 +229,40 @@ const listarSolicitacoesUsuario = (req, res) => {
 
 };
 
+const listarIdsAnimaisSolicitados = (req, res) => {
+
+    const id_usuario = req.usuario.id;
+
+    const sql = `
+        SELECT solicitacoes.id_animal
+        FROM solicitacoes
+        WHERE solicitacoes.id_usuario = ?
+    `;
+
+    connection.query(
+        sql,
+        [id_usuario],
+        (err, results) => {
+
+            if (err) {
+                console.log(err);
+
+                return res.status(500).send(
+                    'Erro ao buscar animais solicitados'
+                );
+            }
+
+            const ids = results.map(
+                (registro) => registro.id_animal
+            );
+
+            res.json(ids);
+
+        }
+    );
+
+};
+
 const atualizarStatusSolicitacao = (req, res) => {
 
     const { id } = req.params;
@@ -325,5 +359,6 @@ module.exports = {
     listarSolicitacoes,
     listarMinhasSolicitacoes,
     listarSolicitacoesUsuario,
+    listarIdsAnimaisSolicitados,
     atualizarStatusSolicitacao
 };

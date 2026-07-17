@@ -14,6 +14,7 @@ function Animais() {
   const location = useLocation();
 
   const [animais, setAnimais] = useState([]);
+  const [animaisSolicitados, setAnimaisSolicitados] = useState([]);
   const [mensagem, setMensagem] = useState('');
   const [mostrarMensagem, setMostrarMensagem] = useState(false);
 
@@ -41,7 +42,41 @@ function Animais() {
 
     }
 
+    /**
+     * Busca os IDs dos animais que o usuário já solicitou
+     * para desabilitar o botão "Quero Adotar" nesses casos
+     */
+    async function carregarAnimaisSolicitados() {
+
+      const token = localStorage.getItem('token');
+
+      if (!token) {
+        return;
+      }
+
+      try {
+
+        const response = await api.get(
+          '/meus-animais-solicitados',
+          {
+            headers: {
+              Authorization: `Bearer ${token}`
+            }
+          }
+        );
+
+        setAnimaisSolicitados(response.data);
+
+      } catch (error) {
+
+        console.log(error);
+
+      }
+
+    }
+
     carregarAnimais();
+    carregarAnimaisSolicitados();
 
   }, []); // Array vazio significa que este efeito roda apenas uma vez, no mount do componente
 
@@ -162,14 +197,19 @@ function Animais() {
               </p>
 
               {animal.status === 'adotado' ? (
-                <>
-                  <button
-                    className="animal-adotar-button"
-                    disabled
-                  >
-                    Já adotado
-                  </button>
-                </>
+                <button
+                  className="animal-adotar-button"
+                  disabled
+                >
+                  Já adotado
+                </button>
+              ) : animaisSolicitados.includes(animal.id) ? (
+                <button
+                  className="animal-adotar-button"
+                  disabled
+                >
+                  Solicitação enviada
+                </button>
               ) : (
                 <button
                   type="button"
