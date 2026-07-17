@@ -2,33 +2,6 @@
    CSS da Página de Meus Animais - Design Moderno
    ========================================================================== */
 
-/* Mensagem de feedback */
-.mensagem-feedback {
-  display: inline-block;
-  padding: 10px 20px;
-  background: linear-gradient(135deg, #f3b85e 0%, #d08620 100%);
-  color: #6b3502;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 15px;
-  font-weight: bold;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(208, 134, 32, 0.25);
-  text-align: center;
-  margin: 0 auto;
-  animation: fadeSlideIn 0.4s ease;
-}
-
-@keyframes fadeSlideIn {
-  from {
-    opacity: 0;
-    transform: translateY(-8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 /* Container principal da página */
 .meus-animais-page {
   width: 100%;

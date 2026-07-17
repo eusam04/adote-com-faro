@@ -65,7 +65,7 @@ function SolicitarAdocao() {
 
       {
         aviso && (
-          <p className="mensagem-solicitacao">
+          <p className="mensagem-banner">
             {aviso}
           </p>
         )

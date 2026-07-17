@@ -162,7 +162,7 @@ function Animais() {
       <main id="conteudo-principal" className="animais-main site-main" tabIndex={-1}>
         <h1 className="animais-titulo">
           {mostrarMensagem && (
-            <p className="mensagem-feedback">
+            <p className="mensagem-banner">
               {mensagem}
             </p>
           )}

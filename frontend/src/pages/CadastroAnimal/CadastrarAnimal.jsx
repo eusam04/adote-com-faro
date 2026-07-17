@@ -54,7 +54,7 @@ function CadastrarAnimal() {
 
       {
         mensagem && (
-          <p className="mensagem-cadastrar-animal">
+          <p className="mensagem-banner">
             {mensagem}
           </p>
         )

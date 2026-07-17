@@ -102,7 +102,7 @@ function SolicitacoesRecebidas() {
 
       {
         mensagem && (
-          <p className="mensagem-solicitacoes">
+          <p className="mensagem-banner">
             {mensagem}
           </p>
         )

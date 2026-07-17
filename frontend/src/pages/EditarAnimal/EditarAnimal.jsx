@@ -85,7 +85,7 @@ function EditarAnimal() {
             <main className="editar-animal-page" id="conteudo-principal">
 
             {mensagem && (
-                <p className="mensagem-editar-animal">
+                <p className="mensagem-banner">
                     {mensagem}
                 </p>
             )}

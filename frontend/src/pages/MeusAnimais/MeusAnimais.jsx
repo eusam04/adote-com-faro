@@ -126,7 +126,7 @@ function MeusAnimais() {
           </p>
 
           {mensagem && (
-            <p className="mensagem-feedback">
+            <p className="mensagem-banner">
               {mensagem}
             </p>
           )}
